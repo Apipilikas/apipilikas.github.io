@@ -1,3 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Commissioner:wght@100;200;300;400;500;600;700;800&family=Jura:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --main-color: #deeeef;
+    --header-color: #bcdbdf;
+    --blue-color: #235784;
+    --green-blue-color: #99c8ce;
+}
+
 body {
-    background-color: #bfdde0;
+    background-color: var(--main-color);
+    font-family: 'Jura', sans-serif;
+    margin: 0em;
+}
+
+/* header */
+header {
+    background-color: var(--header-color);
+    /* padding: 0em 1em 0em 1em; */
+}
+
+header img {
+    width: 70px;
+    height: 70px;
+    border-radius: 6px;
+    border: 2px solid black;
+}
+
+header > #header-container {
+    margin: 0em 10% 0em 10%;
+    display: flex;
+    align-items: center;
+}
+
+header #main-logo {
+    flex-basis: 30%;
+}
+
+#main-logo {
+    display: flex;
+}
+
+#main-logo-desc {
+    margin-left: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+#main-logo-desc > span:first-child {
+    font-size: 2em;
+    font-weight: 600;
+}
+
+header nav {
+    width: 100%;
+    flex-basis: 70%;
+}
+
+header nav > ul {
+    padding: 0em;
+    margin: 0em;
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+header li {
+    flex-basis: 20%;
+}
+
+header li > a:visited {
+    color: black;
+}
+
+header li > a {
+    display: block;
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: 700;
+    padding: 2em;
+    transition: 0.25s;
+}
+
+header li > a:hover {
+    background-color: var(--blue-color);
+    color: white;
+}
+
+header li > a:active {
+    background-color: var(--green-blue-color);
+    color: var(--blue-color);
 }
