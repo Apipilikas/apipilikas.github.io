@@ -79,7 +79,7 @@ header li > a {
     text-decoration: none;
     font-size: 1.1em;
     font-weight: 700;
-    padding: 2em;
+    padding: 2em 0em 2em 0em;
     transition: 0.25s;
 }
 
@@ -91,4 +91,72 @@ header li > a:hover {
 header li > a:active {
     background-color: var(--green-blue-color);
     color: var(--blue-color);
+}
+
+#window {
+    margin: 5em 1em 0em 1em;
+    background-color: #1e1e1e;
+}
+
+#window-line {
+    background-color: #333533;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#window-line > img {
+    margin: 0.3em;
+}
+
+#window-minimize-button {
+    background-color: #fca311;
+    padding: 0.3em;
+}
+
+#window-full-screen-button {
+    background-color: #2dc653;
+    padding: 0.3em;
+}
+
+#window-close-button {
+    background-color: #e01e37;
+    padding: 0.3em;
+}
+
+#code-section {
+    font-size: 3em;
+    margin-left: 1em;
+}
+
+.code-line {
+    display: block;
+    color: #d4d4d4;
+}
+
+.code-line .code-number {
+    color: #7e7975;
+}
+
+.code-line .comment {
+    color: #669461;
+}
+
+.code-line .class-name {
+    color: #4ec9b0;
+}
+
+.code-line .variable-name {
+    color: #96d8fc;
+}
+
+.code-line .reserved-name {
+    color: #c586bf;
+}
+
+.code-line .function-name {
+    color: #dbd9a6;
+}
+
+.code-line .plain-text {
+    color: #d38469;
 }
