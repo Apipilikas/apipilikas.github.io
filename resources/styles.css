@@ -96,16 +96,45 @@ header li > a:active {
 #window {
     margin: 5em 1em 0em 1em;
     background-color: #1e1e1e;
+    border-radius: 10px;
 }
 
 #window-line {
     background-color: #333533;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+#window-line-left-side {
+    grid-column: 1/2;
+    display: flex;
+}
+
+#window-line-left-side > span {
+    color: white;
+    font-weight: 700;
+    margin: auto 0em auto 1em;
+}
+
+#window-line-left-side > #cmd-icon {
+    font-weight: 700;
+    color: black;
+    padding: 0.2em;
+    background-color: #4ec9b0;
+    border-radius: 5px;
+}
+
+#window-line-right-side {
+    grid-column: 2/3;
     display: flex;
     justify-content: flex-end;
 }
 
-#window-line > img {
+#window-line img {
     margin: 0.3em;
+    border-radius: 30px;
 }
 
 #window-minimize-button {
