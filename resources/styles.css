@@ -93,7 +93,14 @@ header li > a:active {
     color: var(--blue-color);
 }
 
+#welcome-introduction {
+    display: flex;
+    /* background: linear-gradient(to right, var(--main-color), var(--blue-color)); */
+}
+
 #window {
+    flex-basis: 80%;
+    width: 100%;
     margin: 5em 1em 0em 1em;
     background-color: #1e1e1e;
     border-radius: 10px;
@@ -153,7 +160,7 @@ header li > a:active {
 }
 
 #code-section {
-    font-size: 3em;
+    font-size: 2.8em;
     margin-left: 1em;
 }
 
@@ -188,4 +195,29 @@ header li > a:active {
 
 .code-line .plain-text {
     color: #d38469;
+}
+
+button {
+    font-family: 'Jura', sans-serif;
+    font-size: 1em;
+    font-weight: 700;
+    padding: 1em;
+    background-color: transparent;
+    border: 3px black solid;
+}
+
+.button {
+    text-decoration: none;
+    font-size: 1em;
+    font-weight: 700;
+    padding: 1em;
+    border: 3px black solid;
+}
+
+#welcome-introduction > .button-area {
+    flex-basis: 20%;
+    margin: 1em auto 1em auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
