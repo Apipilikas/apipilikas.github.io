@@ -3,12 +3,14 @@
 <html lang="en">
     <head>
         <title>Aggelos Pipilikas | Under Construction</title>
-        <link rel="icon" href="resources/cross.png">
+        <link rel="icon" href="resources/images/cross.png">
         <meta name="description" content="Aggelos Pipilikas' personal site">
         <meta name="keywords" content="Aggelos Pipilikas, Evaggelos Pipilikas, personal site">
         <meta name="author" content="Aggelos Pipilikas">
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="resources/styles.css">
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/handlebars@4.7.7/dist/handlebars.js"></script>
+        <script type="text/javascript" src="resources/scripts/mainScript.js"></script>
+        <link rel="stylesheet" href="resources/styles/styles.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
 
@@ -16,7 +18,7 @@
         <header>
             <div id="header-container">
                 <div id="main-logo">
-                    <img src="resources/ap_logo_2.png" alt="AP Logo">
+                    <img src="resources/images/ap_logo_2.png" alt="AP Logo">
                     <div id="main-logo-desc">
                         <span>Aggelos Pipilikas</span>
                         <span>Personal Website</span>
@@ -35,7 +37,7 @@
         </header>
 
         <main>
-            <section id="welcome-introduction">
+            <section id="welcome-introduction-section">
                 <div id="window">
                     <div id="window-line">
                         <div id="window-line-left-side">
@@ -43,9 +45,9 @@
                             <span>Hello</span>
                         </div>
                         <div id="window-line-right-side">
-                            <img id="window-minimize-button" src="resources/minimize-sign.png" width="15px" height="15px" alt="Minimize button">
-                            <img id="window-full-screen-button" src="resources/full-screen.png" width="15px" height="15px" alt="Full screen button">
-                            <img id="window-close-button" src="resources/close.png" width="15px" height="15px" alt="Close button">
+                            <img id="window-minimize-button" src="resources/images/minimize-sign.png" width="15px" height="15px" alt="Minimize button">
+                            <img id="window-full-screen-button" src="resources/images/full-screen.png" width="15px" height="15px" alt="Full screen button">
+                            <img id="window-close-button" src="resources/images/close.png" width="15px" height="15px" alt="Close button">
                         </div>
                     </div>
                     <div id="code-section">
@@ -78,11 +80,10 @@
                 
             </section>
             <section id="about-me-main-section">
-                <div class="image">
-
-                </div>
-                <div class="text">
-                    <h3>Hello there!</h3>
+                <h2>Hello there!</h2> 
+                <img src="resources/images/me.png" alt="me" width="200px" height="200px"/>
+            
+                <div class="about-me-main-section-content">
                     <p>
                         I'm Aggelos Pipilikas or ... Evaggelos Pipilikas 
                         (let's leave that story for another time). I'm 21 years old
@@ -90,14 +91,18 @@
                         my passion is coding. I'm sure you would like to learn more about me.
                         So, don't be shy!
                     </p>
-                </div>
-                <div class="button-area">
-                    <a class="button">MORE ABOUT ME</a>
-                </div>
+                    
+                    <a class="button-link">MORE ABOUT ME</a>
+                </div>            
             </section>
             <section id="latest-projects-section">
                 <h2>My latest projects</h2>
-                <div id="latest-projects"></div>
+                <div id="latest-projects-slideshow">
+                    <button class="latest-projects-slideshow-button slideshow-display-button-right"><</button>
+                    <div id="latest-projects"></div>
+                    <button class="latest-projects-slideshow-button slideshow-display-button-left">></button>
+                </div>
+                
                 <!-- auto-generated -->
             </section>
             <section id="news-section">

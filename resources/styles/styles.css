@@ -93,7 +93,7 @@ header li > a:active {
     color: var(--blue-color);
 }
 
-#welcome-introduction {
+#welcome-introduction-section {
     display: flex;
     /* background: linear-gradient(to right, var(--main-color), var(--blue-color)); */
 }
@@ -197,27 +197,110 @@ header li > a:active {
     color: #d38469;
 }
 
-button {
+.button-link, button {
     font-family: 'Jura', sans-serif;
     font-size: 1em;
     font-weight: 700;
     padding: 1em;
     background-color: transparent;
     border: 3px black solid;
-}
-
-.button {
+    border-radius: 5px;
     text-decoration: none;
-    font-size: 1em;
-    font-weight: 700;
-    padding: 1em;
-    border: 3px black solid;
 }
 
-#welcome-introduction > .button-area {
+.button-link:hover, button:hover {
+    background-color: var(--header-color);
+    transition: 0.25s;
+}
+
+#welcome-introduction-section > .button-area {
     flex-basis: 20%;
     margin: 1em auto 1em auto;
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
+/* START-OF: index.html > main > about-me-main-section */
+#about-me-main-section {
+    background-color: var(--green-blue-color);
+    padding: 2em;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 0.5fr 1.5fr;
+}
+
+#about-me-main-section > h2 {
+    font-size: 2em;
+    grid-column: 1/2;
+    grid-row: 1/2;
+}
+
+#about-me-main-section > img {
+    grid-column: 1/2;
+    grid-row: 2/3;
+}
+
+#about-me-main-section > .about-me-main-section-content {
+    grid-column: 2/4;
+    grid-row: 2/3;
+}
+
+.about-me-main-section-content {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.about-me-main-section-content > a {
+    margin: auto;
+}
+
+/* END-OF: index.html > main > about-me-main-section */
+
+/* START-OF: index.html > main > latest-projects-section */
+#latest-projects-slideshow {
+    position: relative;
+}
+
+#latest-projects-slideshow > button {
+    position: absolute;
+    top: 50%;
+}
+
+.slideshow-display-button-right {
+    left: 0%;
+}
+
+.slideshow-display-button-left {
+    right: 0%;
+}
+
+#latest-projects {
+    margin: 4em;
+    display: flex;
+    justify-content: space-between;
+}
+
+#latest-projects > article {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 20%;
+    background-color: var(--header-color);
+    border-radius: 10px;
+}
+
+#latest-projects > article > div {
+    text-align: center;
+}
+
+#latest-projects > article > .git-link {
+    display: inline-flex;
+}
+
+#latest-projects > article > .git-link > a {
+    margin: 1em auto 1em auto;
+}
+
+/* END-OF: index.html > main > latest-projects-section */
