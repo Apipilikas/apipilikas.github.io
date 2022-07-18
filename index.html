@@ -38,44 +38,48 @@
 
         <main>
             <section id="welcome-introduction-section">
-                <div id="window">
-                    <div id="window-line">
-                        <div id="window-line-left-side">
-                            <span id="cmd-icon">>_</span>
-                            <span>Hello</span>
+
+                <video src="resources/images/video.mp4" muted loop autoplay></video>
+                <div class="content">
+                    <div id="window">
+                        <div id="window-line">
+                            <div id="window-line-left-side">
+                                <span id="cmd-icon">>_</span>
+                                <span>Hello</span>
+                            </div>
+                            <div id="window-line-right-side">
+                                <img id="window-minimize-button" src="resources/images/minimize-sign.png" width="15px" height="15px" alt="Minimize button">
+                                <img id="window-full-screen-button" src="resources/images/full-screen.png" width="15px" height="15px" alt="Full screen button">
+                                <img id="window-close-button" src="resources/images/close.png" width="15px" height="15px" alt="Close button">
+                            </div>
                         </div>
-                        <div id="window-line-right-side">
-                            <img id="window-minimize-button" src="resources/images/minimize-sign.png" width="15px" height="15px" alt="Minimize button">
-                            <img id="window-full-screen-button" src="resources/images/full-screen.png" width="15px" height="15px" alt="Full screen button">
-                            <img id="window-close-button" src="resources/images/close.png" width="15px" height="15px" alt="Close button">
+                        <div id="code-section">
+                            <code class="code-line">
+                                <span class="code-number">1 </span><span class="class-name">WebSite</span> <span class="variable-name">web</span> = <span class="reserved-name">new</span> <span class="function-name">WebSite</span>(<span class="plain-text">"Aggelos Pipilikas"</span>);
+                            </code>
+                            <code class="code-line">
+                                <span class="code-number">2 </span><span class="variable-name">System</span>.<span class="variable-name">out</span>.<span class="function-name">println</span>(<span class="variable-name">web</span>.<span class="function-name">getWelcomeSpeech</span>());
+                            </code>
+                            <code class="code-line">
+                                <span class="code-number">3 </span><span class="variable-name">System</span>.<span class="variable-name">out</span>.<span class="function-name">println</span>(<span class="variable-name">web</span>.<span class="function-name">getStatusOf</span>(<span class="plain-text">"Aggelos Pipilikas"</span>));
+                            </code>
+                            <code class="code-line">
+                                <span class="code-number">4 </span><span class="variable-name">System</span>.<span class="variable-name">out</span>.<span class="function-name">println</span>(<span class="plain-text">"What's your name?"</span>);
+                            </code>
+                            <code class="code-line">
+                                <span class="code-number">5 </span><span class="class-name">String</span> <span class="variable-name">name</span> = <span class="variable-name">String</span>.<span class="function-name">input</span>();
+                            </code>
+                            <code class="code-line">
+                                <span class="code-number">6 </span><span class="variable-name">System</span>.<span class="variable-name">out</span>.<span class="function-name">println</span>(<span class="variable-name">web</span>.<span class="function-name">greetingsTo</span>(<span class="variable-name">name</span>));
+                            </code>
+                            <code class="code-line">
+                                <span class="code-number">7 </span><span class="comment">// Tap the button "Run" to run the code ;P</span>
+                            </code>
                         </div>
                     </div>
-                    <div id="code-section">
-                        <code class="code-line">
-                            <span class="code-number">1 </span><span class="class-name">WebSite</span> <span class="variable-name">web</span> = <span class="reserved-name">new</span> <span class="function-name">WebSite</span>(<span class="plain-text">"Aggelos Pipilikas"</span>);
-                        </code>
-                        <code class="code-line">
-                            <span class="code-number">2 </span><span class="variable-name">System</span>.<span class="variable-name">out</span>.<span class="function-name">println</span>(<span class="variable-name">web</span>.<span class="function-name">getWelcomeSpeech</span>());
-                        </code>
-                        <code class="code-line">
-                            <span class="code-number">3 </span><span class="variable-name">System</span>.<span class="variable-name">out</span>.<span class="function-name">println</span>(<span class="variable-name">web</span>.<span class="function-name">getStatusOf</span>(<span class="plain-text">"Aggelos Pipilikas"</span>));
-                        </code>
-                        <code class="code-line">
-                            <span class="code-number">4 </span><span class="variable-name">System</span>.<span class="variable-name">out</span>.<span class="function-name">println</span>(<span class="plain-text">"What's your name?"</span>);
-                        </code>
-                        <code class="code-line">
-                            <span class="code-number">5 </span><span class="class-name">String</span> <span class="variable-name">name</span> = <span class="variable-name">String</span>.<span class="function-name">input</span>();
-                        </code>
-                        <code class="code-line">
-                            <span class="code-number">6 </span><span class="variable-name">System</span>.<span class="variable-name">out</span>.<span class="function-name">println</span>(<span class="variable-name">web</span>.<span class="function-name">greetingsTo</span>(<span class="variable-name">name</span>));
-                        </code>
-                        <code class="code-line">
-                            <span class="code-number">7 </span><span class="comment">// Tap the button "Run" to run the code ;P</span>
-                        </code>
+                    <div class="button-area">
+                        <button type="button">Run code</button>
                     </div>
-                </div>
-                <div class="button-area">
-                    <button type="button">Run code</button>
                 </div>
                 
             </section>
@@ -83,7 +87,7 @@
                 <h2>Hello there!</h2> 
                 <img src="resources/images/me.png" alt="me" width="200px" height="200px"/>
             
-                <div class="about-me-main-section-content">
+                <div id="about-me-main-section-content">
                     <p>
                         I'm Aggelos Pipilikas or ... Evaggelos Pipilikas 
                         (let's leave that story for another time). I'm 21 years old
@@ -92,18 +96,41 @@
                         So, don't be shy!
                     </p>
                     
-                    <a class="button-link">MORE ABOUT ME</a>
+                    <a class="button-link"><span></span>MORE ABOUT ME</a>
                 </div>            
+            </section>
+            <section id="education-section">
+                <h2>Education</h2>
+                <div class="content">
+                    <div class="education">
+                        <h3>Athens University of Economics and Business</h3>
+                        <h4>Department of Informatics | Computer Science</h4>
+                        <div class="timeline">
+                            <p>TO <span>PRESENT</span></p>
+                            <p>FROM <span>2018</span></p>
+                        </div>
+                    </div>
+                    <div class="education">
+                        <h3>High school</h3>
+                        <h4>Grade: 18.6</h4>
+                        <div class="timeline">
+                            <p>TO <span>2018</span></p>
+                            <p>FROM <span>2015</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="skills-section">
+
             </section>
             <section id="latest-projects-section">
                 <h2>My latest projects</h2>
                 <div id="latest-projects-slideshow">
-                    <button class="latest-projects-slideshow-button slideshow-display-button-right"><</button>
+                    <button class="latest-projects-slideshow-button slideshow-display-button-left"><span></span><</button>
+                    <!-- auto-generated -->
                     <div id="latest-projects"></div>
-                    <button class="latest-projects-slideshow-button slideshow-display-button-left">></button>
+                    <button class="latest-projects-slideshow-button slideshow-display-button-right"><span></span>></button>
                 </div>
-                
-                <!-- auto-generated -->
             </section>
             <section id="news-section">
                 <h2>News</h2>

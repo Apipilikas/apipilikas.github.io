@@ -13,6 +13,14 @@ body {
     margin: 0em;
 }
 
+h2, h3 {
+    margin-left: 1em;
+}
+
+h2 {
+    font-size: 1.5em;
+}
+
 /* header */
 header {
     background-color: var(--header-color);
@@ -93,9 +101,55 @@ header li > a:active {
     color: var(--blue-color);
 }
 
-#welcome-introduction-section {
+.button-link, button {
+    font-family: 'Jura', sans-serif;
+    font-size: 1em;
+    font-weight: 700;
+    padding: 1em;
+    background-color: transparent;
+    border: 3px black solid;
+    border-radius: 5px;
+    box-shadow: 0px 10px 20px 0px #89a6c0;
+    text-decoration: none;
+    position: relative;
+    z-index: 1;
+}
+
+/* .button-link:hover, button:hover {
+    background-color: var(--header-color);
+    transition: 0.25s;
+} */
+
+.button-link span {
+    width: 100%;
+    height: 0%;
+    position: absolute;
+    bottom: 0%;
+    left: 0%;
+    background: #fff;
+    z-index: -1;
+    transition: 0.25s;
+}
+
+.button-link:hover span {
+    height: 100%;
+}
+
+/* START-OF: index.html > main > welcome-introduction-section */
+
+#welcome-introduction-section > .content {
+    margin: auto;
+    width: 100%;
+    position: absolute;
+    top: 10%;
     display: flex;
     /* background: linear-gradient(to right, var(--main-color), var(--blue-color)); */
+}
+
+#welcome-introduction-section > video {
+    z-index: 0;
+    width: 100%;
+    height: 100%;
 }
 
 #window {
@@ -160,7 +214,7 @@ header li > a:active {
 }
 
 #code-section {
-    font-size: 2.8em;
+    font-size: 2em;
     margin-left: 1em;
 }
 
@@ -197,23 +251,7 @@ header li > a:active {
     color: #d38469;
 }
 
-.button-link, button {
-    font-family: 'Jura', sans-serif;
-    font-size: 1em;
-    font-weight: 700;
-    padding: 1em;
-    background-color: transparent;
-    border: 3px black solid;
-    border-radius: 5px;
-    text-decoration: none;
-}
-
-.button-link:hover, button:hover {
-    background-color: var(--header-color);
-    transition: 0.25s;
-}
-
-#welcome-introduction-section > .button-area {
+#welcome-introduction-section > .content > .button-area {
     flex-basis: 20%;
     margin: 1em auto 1em auto;
     display: flex;
@@ -221,7 +259,10 @@ header li > a:active {
     align-items: center;
 }
 
+/* END-OF: index.html > main > welcome-introduction-section */
+
 /* START-OF: index.html > main > about-me-main-section */
+
 #about-me-main-section {
     background-color: var(--green-blue-color);
     padding: 2em;
@@ -231,6 +272,7 @@ header li > a:active {
 }
 
 #about-me-main-section > h2 {
+    margin: 0em;
     font-size: 2em;
     grid-column: 1/2;
     grid-row: 1/2;
@@ -239,26 +281,160 @@ header li > a:active {
 #about-me-main-section > img {
     grid-column: 1/2;
     grid-row: 2/3;
+    border-radius: 10px;
+    box-shadow: 0px 10px 20px 0px #89a6c0;
 }
 
-#about-me-main-section > .about-me-main-section-content {
+#about-me-main-section-content {
     grid-column: 2/4;
     grid-row: 2/3;
-}
-
-.about-me-main-section-content {
     margin: auto;
     display: flex;
     flex-direction: column;
 }
 
-.about-me-main-section-content > a {
+#about-me-main-section-content > a {
     margin: auto;
 }
 
 /* END-OF: index.html > main > about-me-main-section */
 
+/* START-OF: index.html > main > education-section */
+
+.education {
+    display: grid;
+    margin: 3em;
+    width: 50%;
+    position: relative;
+    background-color: var(--header-color);
+    border-radius: 10px;
+    box-shadow: 0px 10px 20px 0px #89a6c0;
+    grid-template-rows: 1fr 1fr;
+}
+
+/* TO and FROM dots */
+.education:nth-child(odd) .timeline > p::before {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: white;
+    border-radius: 5px;
+    left: -2.3em;
+    border: 3px solid var(--green-blue-color);
+}
+
+.education:nth-child(even) .timeline > p::after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: white;
+    border-radius: 5px;
+    right: -2.4em;
+    border: 3px solid var(--green-blue-color);
+}
+
+/* container gravity and grid layout */
+.education:nth-child(odd) {
+    grid-template-columns: 1fr 4fr;
+}
+
+.education:nth-child(even) {
+    margin-left: auto;
+    margin-right: 3em;
+    grid-template-columns: 4fr 1fr;
+}
+
+/* Timeline */
+.education::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    border: solid #333;
+}
+  
+  /* Setting the border of top, bottom, left */
+  .education:nth-child(odd)::before {
+    left: -2em;
+    top: -1.3em;
+    bottom: -2em;
+    border-width: 5px 0 5px 5px;
+    border-radius: 50px 0 0 50px;
+  }
+  
+/* Setting the border of top, bottom, right */
+.education:nth-child(even)::before {
+    right: -2em;
+    top: -1.3em;
+    bottom: -2em;
+    border-width: 5px 5px 5px 0;
+    border-radius: 0 50px 50px 0;
+}
+  
+/* Removing the border if it is the first education */
+.education:first-child::before {
+    border-top: 0;
+    border-top-left-radius: 5px;
+}
+  
+  /* Removing the border if it is the last education  and it's odd */
+.education:last-child:nth-child(odd)::before {
+    border-bottom: 0;
+    border-bottom-left-radius: 0;
+}
+  
+/* Removing the border if it is the last education  and it's even */
+.education:last-child:nth-child(even)::before {
+    border-bottom: 0;
+    border-bottom-right-radius: 0;
+}
+
+/* Setting objects placement in grid */
+.education > h3 {
+    margin: auto;
+    grid-row: 1/2;
+    grid-column: 2/3;
+}
+
+.education > h4 {
+    margin: auto;
+    grid-row: 2/3;
+    grid-column: 2/3;
+}
+
+.education:nth-child(even) > h3 {
+    grid-column: 1/2;
+}
+
+.education:nth-child(even) > h4 {
+    grid-column: 1/2;
+}
+
+.timeline {
+    grid-column: 1/2;
+    grid-row: 1/3;
+    margin: 1em;
+    padding: 1em 0em 1em 1em;
+}
+
+.education:nth-child(even) .timeline {
+    grid-column: 2/3;
+}
+
+.timeline > p > span {
+    color: var(--blue-color);
+    font-weight: 700;
+}
+
+.timeline p:nth-child(2) {
+    margin-top: 4em;
+}
+
+/* END-OF: index.html > main > education-section */
+
 /* START-OF: index.html > main > latest-projects-section */
+
 #latest-projects-slideshow {
     position: relative;
 }
@@ -268,12 +444,34 @@ header li > a:active {
     top: 50%;
 }
 
-.slideshow-display-button-right {
+#latest-projects-slideshow > button > span {
+    width: 0%;
+    height: 100%;
+    position: absolute;
+    bottom: 0%;
+    background: var(--blue-color);
+    z-index: -1;
+    transition: 0.25s;
+}
+
+#latest-projects-slideshow > .slideshow-display-button-right > span {
     left: 0%;
 }
 
-.slideshow-display-button-left {
+#latest-projects-slideshow > .slideshow-display-button-left > span {
     right: 0%;
+}
+
+#latest-projects-slideshow > button:hover > span {
+    width: 100%;
+}
+
+.slideshow-display-button-right {
+    right: 0%;
+}
+
+.slideshow-display-button-left {
+    left: 0%;
 }
 
 #latest-projects {
@@ -289,10 +487,34 @@ header li > a:active {
     width: 20%;
     background-color: var(--header-color);
     border-radius: 10px;
+    box-shadow: 0px 10px 20px 0px #89a6c0;
+    border-left: 10px solid #89a6c0;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    animation: project-animation 2s;
+}
+
+@keyframes project-animation {
+    0% {
+        width: 0%;
+    }
+    20% {
+        width: 20%;
+    }
 }
 
 #latest-projects > article > div {
     text-align: center;
+}
+
+#latest-projects > article > div > h4 {
+    padding: 0em;
+    margin: 0em;
+}
+
+#latest-projects > article > p {
+    padding: 1em;
+    margin: 0em;
 }
 
 #latest-projects > article > .git-link {
@@ -304,3 +526,9 @@ header li > a:active {
 }
 
 /* END-OF: index.html > main > latest-projects-section */
+
+/* START-OF: index.html > main > news-section */
+
+
+
+/* END-OF: index.html > main > news-section */

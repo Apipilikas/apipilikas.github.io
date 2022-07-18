@@ -3,6 +3,9 @@ const url = "https://api.github.com/users/Apipilikas/repos?sort=pushed_at";
 window.onload = init;
 
 var templates = {};
+var currentSlidePage = 0;
+var slidePagesNumber = 0;
+var latestProjectsData = [];
 
 templates.latest_projects = Handlebars.compile(`
 {{#each this}}
@@ -13,7 +16,7 @@ templates.latest_projects = Handlebars.compile(`
     </div>
     <p>{{description}}</p>
     <div class="git-link">
-        <a class="button-link subject-link-more" href="{{link}}">MORE</a>
+        <a class="button-link subject-link-more" href="{{link}}"><span></span>MORE</a>
     </div>
     </article>
 {{/each}}
@@ -43,14 +46,11 @@ function makeLatestProjectsRequest() {
     })
     .then(data => {
 
-        let latestProjectsData = [];
-
-        for (i=0; i < 4; i++) {
-            let item = data[i];
+        for (item of data) {
 
             let project = {
                 "title": item.name,
-                "update_date": item.pushed_at,
+                "update_date": item.pushed_at.split("T")[0],
                 "description": item.description,
                 "link": item.html_url
             };
@@ -58,13 +58,79 @@ function makeLatestProjectsRequest() {
             latestProjectsData.push(project);
         };
 
-        let latestProjectsContent = templates.latest_projects(latestProjectsData);
+        slidePagesNumber = Math.floor(latestProjectsData.length / 4);
 
-        const div = document.getElementById('latest-projects');
-        console.log(latestProjectsContent);
-        div.innerHTML += latestProjectsContent;
+        initializeButtons();
     })
     .catch(error => {
         console.log("error");
     });
+}
+
+function initializeButtons() {
+    const latestProjectsLeftBtn = document.getElementsByClassName("latest-projects-slideshow-button slideshow-display-button-left")[0];
+    const latestProjectsRightBtn = document.getElementsByClassName("latest-projects-slideshow-button slideshow-display-button-right")[0];
+    disableSlideButton(latestProjectsLeftBtn);
+
+    latestProjectsLeftBtn.onclick = function() {
+        changeSlidePage(-1, latestProjectsLeftBtn, latestProjectsRightBtn);
+    };
+
+    latestProjectsRightBtn.onclick = function() {
+        changeSlidePage(1, latestProjectsLeftBtn, latestProjectsRightBtn);
+    };
+
+    showLatestProjectsSlideShow();
+}
+
+function changeSlidePage(n, leftBtn, rightBtn) {
+    console.log("clicked");
+    currentSlidePage += n;
+    if (currentSlidePage == 0) {
+        //disable left button
+        disableSlideButton(leftBtn);
+    }
+    else if (currentSlidePage == slidePagesNumber) {
+        //disable right button
+        disableSlideButton(rightBtn);
+    }
+    else {
+        //enable both buttons
+        enableSlideButton(leftBtn);
+        enableSlideButton(rightBtn);
+    }
+    
+    showLatestProjectsSlideShow();
+}
+
+function showLatestProjectsSlideShow() {
+    let latestProjectsContent = templates.latest_projects(getLatestProjects);
+
+    const div = document.getElementById('latest-projects');
+    div.innerHTML = latestProjectsContent;
+}
+
+function enableSlideButton(button) {
+    button.disabled = false;
+    button.children[0].style.display = "inline";
+}
+
+function disableSlideButton(button) {
+    button.disabled = true;
+    button.children[0].style.display = "none";
+}
+
+function getLatestProjects() {
+    let latestProjectsSubData = [];
+    let lastIndex = currentSlidePage*4 + 4;
+    
+    if (lastIndex > latestProjectsData.length) {
+        lastIndex = latestProjectsData.length;
+    }
+    
+    for (var i = currentSlidePage * 4; i < lastIndex; i++) {
+        latestProjectsSubData.push(latestProjectsData[i]);
+    }
+    
+    return latestProjectsSubData;
 }
