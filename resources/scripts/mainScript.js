@@ -26,8 +26,13 @@ templates.latest_projects = Handlebars.compile(`
 function init() {
     div = document.getElementById('latest-projects-content');
     makeLatestProjectsRequest();
+
+    initializeMenuButton();
 }
 
+/* This function makes a GET request to the GitHub API. We want to fetch
+   all the public repositories for me, displaying only the main information,
+   such as name, last modification date, description and link to the github repo. */
 function makeLatestProjectsRequest() {
     let myHeaders = new Headers();
     myHeaders.append("Accept", "application/json");
@@ -92,18 +97,17 @@ function initializeButtons() {
 }
 
 function changeSlidePage(n, leftBtn, rightBtn) {
-    console.log("clicked");
     currentSlidePage += n;
     if (currentSlidePage == 0) {
-        //disable left button
+        // Disable left button
         disableSlideButton(leftBtn);
     }
     else if (currentSlidePage == slidePagesNumber) {
-        //disable right button
+        // Disable right button
         disableSlideButton(rightBtn);
     }
     else {
-        //enable both buttons
+        // Enable both buttons
         enableSlideButton(leftBtn);
         enableSlideButton(rightBtn);
     }
@@ -111,8 +115,9 @@ function changeSlidePage(n, leftBtn, rightBtn) {
     showLatestProjectsSlideShow();
 }
 
+// This function renders the projects data into a HTML code
 function showLatestProjectsSlideShow() {
-    let latestProjectsContent = templates.latest_projects(getLatestProjects);
+    let latestProjectsContent = templates.latest_projects(getLatestProjects());
 
     div.innerHTML = latestProjectsContent;
 }
@@ -144,4 +149,27 @@ function getLatestProjects() {
     }
     
     return latestProjectsSubData;
+}
+
+// Initialized the button for the menu in mobile-based layout
+function initializeMenuButton() {
+    const mainLogo = document.getElementById("menu-container");
+    const menuBtn = document.getElementById("menu-button");
+    const menuNavigationBar = document.getElementById("header-navigation-bar");
+
+    console.log(menuNavigationBar);
+    menuBtn.onclick = function() {
+        if (menuNavigationBar.style.display == "none") {
+            menuNavigationBar.style.display = "";
+            menuNavigationBar.style.position = "";
+            mainLogo.style.position = "fixed";
+            window.scrollTo(0,0);
+            
+        }
+        else {
+            menuNavigationBar.style.position = "none";
+            menuNavigationBar.style.display = "none";
+            mainLogo.style.position = "";
+        }
+    }
 }
