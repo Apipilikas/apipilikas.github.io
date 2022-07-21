@@ -137,7 +137,7 @@ header li > a:active {
 
 /* START-OF: index.html > main > welcome-introduction-section */
 
-#welcome-introduction-section > .content {
+#welcome-introduction-content {
     margin: auto;
     width: 100%;
     position: absolute;
@@ -251,7 +251,7 @@ header li > a:active {
     color: #d38469;
 }
 
-#welcome-introduction-section > .content > .button-area {
+#welcome-introduction-content > .button-area {
     flex-basis: 20%;
     margin: 1em auto 1em auto;
     display: flex;
@@ -440,6 +440,7 @@ header li > a:active {
 }
 
 #latest-projects-slideshow > button {
+    display: none;
     position: absolute;
     top: 50%;
 }
@@ -474,13 +475,13 @@ header li > a:active {
     left: 0%;
 }
 
-#latest-projects {
+#latest-projects-content {
     margin: 4em;
     display: flex;
     justify-content: space-between;
 }
 
-#latest-projects > article {
+.project {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -503,48 +504,87 @@ header li > a:active {
     }
 }
 
-#latest-projects > article > div {
+.project > div {
     text-align: center;
 }
 
-#latest-projects > article > div > h3 {
+.project > div > h3 {
     padding: 1em 0em 1em 0em;
     margin: 0em;
 }
 
-#latest-projects > article > div > h4 {
+.project > div > p {
+    font-weight: bold;
     margin: auto;
 }
 
-#latest-projects > article > p {
+.project > p {
     padding: 1em;
     margin: 0em;
 }
 
-#latest-projects > article > .git-link {
+.project > .git-link {
     display: inline-flex;
 }
 
-#latest-projects > article > .git-link > a {
+.project  > .git-link > a {
+    color: black;
     margin: 1em auto 1em auto;
+}
+
+#latest-projects-content .no-result-found-error {
+    font-size: 1.2em;
+    background-color: var(--header-color);
+    border-radius: 10px;
+    box-shadow: 0px 10px 20px 0px #89a6c0;
+    padding: 1em;
+    margin: auto;
 }
 
 /* END-OF: index.html > main > latest-projects-section */
 
 /* START-OF: index.html > main > news-section */
 
+#news-content {
+    margin: 4em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
 
+.news {
+    margin: 2em;
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--green-blue-color);
+    border-radius: 10px;
+    box-shadow: 0px 10px 20px 0px #89a6c0;
+}
+
+.news > .date {
+    margin: 0em;
+    padding-left: 1em;
+    border-left: 10px solid #89a6c0;
+}
+
+.news > .description {
+    padding: 1em;
+}
 
 /* END-OF: index.html > main > news-section */
 
 /* START-OF: *.html > footer */
 
 footer {
-    padding: 1em;
+    display: flex;
+    flex-direction: column;
     background-color: var(--blue-color);
+    padding-bottom: 1em;
 }
 
 #social-networks-footer {
+    padding: 1em;
     display: flex;
     justify-content: space-around;
 }
@@ -593,6 +633,12 @@ footer {
 
 .social-network:hover .social-network-link {
     width:200px;
+}
+
+footer > p {
+    font-weight: bold;
+    margin: 0em;
+    text-align: center;
 }
 
 /* END-OF: *.html > footer */

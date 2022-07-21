@@ -6,13 +6,14 @@ var templates = {};
 var currentSlidePage = 0;
 var slidePagesNumber = 0;
 var latestProjectsData = [];
+var div;
 
 templates.latest_projects = Handlebars.compile(`
 {{#each this}}
-<article class="latest-project">
+<article class="project">
     <div class="git-repo-date-info">
         <h3>{{title}}</h3>
-        <h4>{{update_date}}</h4>
+        <p>{{update_date}}</p>
     </div>
     <p>{{description}}</p>
     <div class="git-link">
@@ -23,6 +24,7 @@ templates.latest_projects = Handlebars.compile(`
 `);
 
 function init() {
+    div = document.getElementById('latest-projects-content');
     makeLatestProjectsRequest();
 }
 
@@ -59,10 +61,12 @@ function makeLatestProjectsRequest() {
         };
 
         slidePagesNumber = Math.floor(latestProjectsData.length / 4);
-
+    
         initializeButtons();
+        
     })
     .catch(error => {
+        showNoResultFoundContent();
         console.log("error");
     });
 }
@@ -70,6 +74,10 @@ function makeLatestProjectsRequest() {
 function initializeButtons() {
     const latestProjectsLeftBtn = document.getElementsByClassName("latest-projects-slideshow-button slideshow-display-button-left")[0];
     const latestProjectsRightBtn = document.getElementsByClassName("latest-projects-slideshow-button slideshow-display-button-right")[0];
+    
+    latestProjectsLeftBtn.style.display = "initial";
+    latestProjectsRightBtn.style.display = "initial";
+    
     disableSlideButton(latestProjectsLeftBtn);
 
     latestProjectsLeftBtn.onclick = function() {
@@ -106,8 +114,11 @@ function changeSlidePage(n, leftBtn, rightBtn) {
 function showLatestProjectsSlideShow() {
     let latestProjectsContent = templates.latest_projects(getLatestProjects);
 
-    const div = document.getElementById('latest-projects');
     div.innerHTML = latestProjectsContent;
+}
+
+function showNoResultFoundContent() {
+    div.innerHTML = "<span class=\"no-result-found-error\">No results found</span>";
 }
 
 function enableSlideButton(button) {
