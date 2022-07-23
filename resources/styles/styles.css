@@ -56,7 +56,8 @@ h2 {
     height: 100%;
 }
 
-/* header */
+/* START-OF: header */
+
 header {
     background-color: var(--header-color);
     /* padding: 0em 1em 0em 1em; */
@@ -64,26 +65,30 @@ header {
 
 header > #header-container {
     /* margin: 0em 1em 0em 1em; */
+    min-height: 90px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
 #menu-container {
     width: 100%;
     display: flex;
     justify-content: space-between;
+    background-color: var(--header-color);
     z-index: 6;
 }
 
 #main-logo {
+    white-space: nowrap;
     margin: 0.5em auto 0.5em auto;
     display: flex;
 }
 
 #main-logo > img {
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
     border-radius: 6px;
     border: 2px solid black;
 }
@@ -96,8 +101,12 @@ header > #header-container {
 }
 
 #main-logo-desc > span:first-child {
-    font-size: 1.5em;
+    font-size: 1.2em;
     font-weight: 600;
+}
+
+#main-logo-desc > span:last-child {
+    font-size: 0.8em;
 }
 
 header nav {
@@ -105,6 +114,7 @@ header nav {
 }
 
 header nav > ul {
+    white-space: nowrap;
     position: fixed;
     width: 100%;
     height: 100%;
@@ -118,10 +128,10 @@ header nav > ul {
     text-align: center;
     justify-content: center;
     z-index: 5;
-    animation: an 1s;
+    animation: menu-animation 1s;
 }
 
-@keyframes an {
+@keyframes menu-animation {
     0% {
         height: 0%;
     }
@@ -159,31 +169,51 @@ header li > a:active {
 }
 
 #menu-button > img {
-    width: 30px;
-    height: 30px;
+    width: 5vw;
+    height: 5vw;
 }
+
+/* END-OF: header */
 
 /* START-OF: index.html > main > welcome-introduction-section */
 
 #welcome-introduction-section > .content {
-    margin: auto;
+    margin: 5vw auto;
     width: 100%;
     position: absolute;
-    top: 10%;
-    display: none; 
+    top: 90px;
+    display: flex;
     /* flex */
     /* background: linear-gradient(to right, var(--main-color), var(--blue-color)); */
 }
 
-#welcome-introduction-section > video {
+#welcome-introduction-section video {
     width: 100%;
     height: 100%;
 }
 
+/* Since mobile browsers seem not to support video responsiveness via
+   the element source, this is a quite easy way-trick to make videos change. */
+#mobile-video {
+    display: block;
+}
+
+#tablet-desktop-video {
+    display: none;
+}
+
+#welcome-introduction-section > .content > .text-area {
+    display: none;
+    flex-basis: 20%;
+    margin: auto;
+    text-align: center;
+}
+
+
 #window {
     flex-basis: 80%;
     width: 100%;
-    margin: 5em 1em 0em 1em;
+    margin: 1em auto;
     background-color: rgba(30, 30, 30, 0.801);
     border-radius: 10px;
 }
@@ -202,12 +232,14 @@ header li > a:active {
 }
 
 #window-line-left-side > span {
+    font-size: min(3vw, 1.2em);
     color: white;
     font-weight: 700;
     margin: auto 0em auto 1em;
 }
 
 #window-line-left-side > #cmd-icon {
+    font-size: min(3vw, 1em);
     font-weight: 700;
     color: black;
     padding: 0.2em;
@@ -222,6 +254,8 @@ header li > a:active {
 }
 
 #window-line img {
+    width: min(2vw, 15px);
+    height: min(2vw, 15px);
     margin: 0.3em;
     border-radius: 30px;
 }
@@ -242,11 +276,12 @@ header li > a:active {
 }
 
 #code-section {
-    font-size: 2em;
+    font-size: min(2.8vw, 1em);
     margin-left: 1em;
 }
 
 .code-line {
+    white-space: nowrap;
     display: block;
     color: #d4d4d4;
 }
@@ -282,7 +317,7 @@ header li > a:active {
 #welcome-introduction-section > .content > .button-area {
     flex-basis: 20%;
     margin: 1em auto 1em auto;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
 }
@@ -293,29 +328,27 @@ header li > a:active {
 
 #about-me-main-section {
     background-color: var(--green-blue-color);
-    padding: 2em;
-    display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
-    grid-template-rows: 0.5fr 1.5fr;
+    padding-bottom: 1em;
+    display: flex;
+    flex-direction: column;
 }
 
 #about-me-main-section > h2 {
-    margin: 0em;
+    margin: auto;
     font-size: 2em;
-    grid-column: 1/2;
-    grid-row: 1/2;
 }
 
 #about-me-main-section > img {
-    grid-column: 1/2;
-    grid-row: 2/3;
+    width: 50vw;
+    height: 50vw;
+    max-width: 150px;
+    max-height: 150px;
+    margin: auto;
     border-radius: 10px;
     box-shadow: 0px 10px 20px 0px var(--grey-color);
 }
 
 #about-me-main-section > .content {
-    grid-column: 2/4;
-    grid-row: 2/3;
     margin: auto;
     display: flex;
     flex-direction: column;
@@ -406,7 +439,7 @@ header li > a:active {
 .education {
     display: grid;
     margin: 3em;
-    width: 50%;
+    width: 80%;
     position: relative;
     background-color: var(--header-color);
     border-radius: 10px;
@@ -452,7 +485,7 @@ header li > a:active {
 .education::before {
     content: "";
     position: absolute;
-    width: 100%;
+    width: 80%;
     border: solid #333;
 }
   
@@ -751,15 +784,19 @@ footer > p {
 /* END-OF: *.html > footer */
 
 /* TABLET-BASED LAYOUT */
-@media only screen and (min-width: 768px) {
-    
-    /* header */
-    header > #header-container {
-        margin: 0em 10% 0em 10%;
+@media only screen and (min-width: 425px) {
+
+    #mobile-video {
+        display: none;
+    }
+
+    #tablet-desktop-video {
+        display: block;
     }
     
-    header nav {
-        width: 100%;
+    /* START-OF: header */
+    header > #header-container {
+        margin: 0em auto;
     }
     
     header nav > ul {
@@ -770,6 +807,10 @@ footer > p {
         position: initial;
         /* flex-wrap: wrap; */
     }
+
+    #menu-container {
+        position: initial !important;
+    }
     
     header li {
         flex-basis: 50%;
@@ -778,18 +819,66 @@ footer > p {
     #menu-button {
         display: none;
     }
+
+    /* END-OF: header */
+
+    /* START-OF: index.html > main > welcome-introduction-section */
+
+    #welcome-introduction-section > .content {
+        margin: auto;
+        top: 163px;
+        
+        /* flex */
+        /* background: linear-gradient(to right, var(--main-color), var(--blue-color)); */
+    }
+
+    /* END-OF: index.html > main > welcome-introduction-section */
+
+    /* START-OF: index.html > main > about-me-main-section */
+
+    #about-me-main-section {
+        background-color: var(--green-blue-color);
+        padding: 2em;
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr;
+        grid-template-rows: 0.25fr 1fr;
+    }
+
+    #about-me-main-section > h2 {
+        margin: 0em;
+    }
+
+    #about-me-main-section > img {
+        margin: 0em;
+        grid-column: 1/2;
+        grid-row: 2/3;
+    }
+
+    #about-me-main-section > .content {
+        grid-column: 2/4;
+        grid-row: 2/3;
+        margin: auto 2em;
+    }
+
+    /* END-OF: index.html > main > about-me-main-section */
+
+    /* START-OF: index.html > main > education-section */
+
+.education {
+    width: 50%;
+}
+
+/* END-OF: index.html > main > education-section */
+
 }
 
 /* DESKTOP-BASED LAYOUT */
 @media only screen and (min-width: 992px) {
     
-    /* header */
-    header {
-        background-color: var(--header-color);
-        /* padding: 0em 1em 0em 1em; */
-    }
+    /* START-OF: header */
     
     header > #header-container {
+        margin: 0em 10%;
         flex-direction: row;
     }
     
@@ -818,40 +907,8 @@ footer > p {
     #menu-container {
         flex-basis: 30%;
     }
-    
-    .button-link, button {
-        font-family: 'Jura', sans-serif;
-        font-size: 1em;
-        font-weight: 700;
-        padding: 1em;
-        background-color: transparent;
-        border: 3px black solid;
-        border-radius: 5px;
-        box-shadow: 0px 10px 20px 0px var(--grey-color);
-        text-decoration: none;
-        position: relative;
-        z-index: 1;
-    }
-    
-    /* .button-link:hover, button:hover {
-        background-color: var(--header-color);
-        transition: 0.25s;
-    } */
-    
-    .button-link span {
-        width: 100%;
-        height: 0%;
-        position: absolute;
-        bottom: 0%;
-        left: 0%;
-        background: #fff;
-        z-index: -1;
-        transition: 0.25s;
-    }
-    
-    .button-link:hover span {
-        height: 100%;
-    }
+
+    /* END-OF: header */
     
     /* START-OF: index.html > main > welcome-introduction-section */
     
@@ -911,6 +968,8 @@ footer > p {
     }
     
     #window-line img {
+        height: 20px;
+        width: 20px;
         margin: 0.3em;
         border-radius: 30px;
     }

@@ -43,8 +43,8 @@
 
         <main>
             <section id="welcome-introduction-section">
-
-                <video src="resources/images/video.mp4" muted loop autoplay></video>
+                <video id="mobile-video" src="resources/images/video-mobile-trim.mp4" muted loop autoplay></video>
+                <video id="tablet-desktop-video" src="resources/images/video.mp4" muted loop autoplay></video>
                 <div class="content">
                     <div id="window">
                         <div id="window-line">
@@ -63,10 +63,15 @@
                                 <span class="code-number">1 </span><span class="class-name">WebSite</span> <span class="variable-name">web</span> = <span class="reserved-name">new</span> <span class="function-name">WebSite</span>(<span class="plain-text">"Aggelos Pipilikas"</span>);
                             </code>
                             <code class="code-line">
-                                <span class="code-number">2 </span><span class="variable-name">System</span>.<span class="variable-name">out</span>.<span class="function-name">println</span>(<span class="variable-name">web</span>.<span class="function-name">getWelcomeSpeech</span>());
+                                <span class="code-number">2 </span><span class="variable-name">web</span>.<span class="function-name">setDeploymentYear</span>(<span class="plain-text">"2022"</span>);
                             </code>
+                            <!-- This part of the code is scheduled to be working in the future.
+                                 The main idea is to ask user for one's name and then say hello. -->
+                            <!-- <code class="code-line">
+                                <span class="code-number">2 </span><span class="variable-name">System</span>.<span class="variable-name">out</span>.<span class="function-name">println</span>(<span class="variable-name">web</span>.<span class="function-name">getWelcomeSpeech</span>());
+                            </code> -->
                             <code class="code-line">
-                                <span class="code-number">3 </span><span class="variable-name">System</span>.<span class="variable-name">out</span>.<span class="function-name">println</span>(<span class="variable-name">web</span>.<span class="function-name">getStatusOf</span>(<span class="plain-text">"Aggelos Pipilikas"</span>));
+                                <span class="code-number">3 </span><span class="variable-name">System</span>.<span class="variable-name">out</span>.<span class="function-name">println</span>(<span class="variable-name">web</span>.<span class="function-name">getStatusOfUser</span>());
                             </code>
                             <code class="code-line">
                                 <span class="code-number">4 </span><span class="variable-name">System</span>.<span class="variable-name">out</span>.<span class="function-name">println</span>(<span class="plain-text">"What's your name?"</span>);
@@ -77,10 +82,13 @@
                             <code class="code-line">
                                 <span class="code-number">6 </span><span class="variable-name">System</span>.<span class="variable-name">out</span>.<span class="function-name">println</span>(<span class="variable-name">web</span>.<span class="function-name">greetingsTo</span>(<span class="variable-name">name</span>));
                             </code>
-                            <code class="code-line">
+                            <!-- <code class="code-line">
                                 <span class="code-number">7 </span><span class="comment">// Tap the button "Run" to run the code ;P</span>
-                            </code>
+                            </code> -->
                         </div>
+                    </div>
+                    <div class="text-area">
+                        <span>Welcome</span>
                     </div>
                     <div class="button-area">
                         <button type="button">Run code</button>
@@ -90,7 +98,7 @@
             </section>
             <section id="about-me-main-section">
                 <h2>Hello there!</h2> 
-                <img src="resources/images/me.png" alt="me" width="200px" height="200px"/>
+                <img src="resources/images/me.png" alt="me"/>
             
                 <div class="content">
                     <p>
