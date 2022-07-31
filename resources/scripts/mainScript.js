@@ -3,8 +3,9 @@ const url = "https://api.github.com/users/Apipilikas/repos?sort=pushed_at";
 window.onload = init;
 
 var templates = {};
-var currentSlidePage = 0;
+var currentSlidePageNumber = 0;
 var slidePagesNumber = 0;
+var slidesPerPage = 0;
 var latestProjectsData = [];
 var div;
 
@@ -65,10 +66,57 @@ function makeLatestProjectsRequest() {
             latestProjectsData.push(project);
         };
 
-        slidePagesNumber = Math.floor(latestProjectsData.length / 4);
-    
-        initializeButtons();
-        
+        slidesPerPage = 4;
+
+        // We use the following to determine how many projects/slides will be displayed in every page.
+        let mediaQueryTablet = window.matchMedia("only screen and (min-width: 425px)");
+        let mediaQueryDesktop = window.matchMedia("only screen and (min-width: 992px)");
+
+        if (mediaQueryDesktop.matches) {
+            // Desktop layout
+            slidesPerPage = 4;
+        }
+        else if (mediaQueryTablet.matches) {
+            // Tablet layout
+            slidesPerPage = 2;
+        }
+        else {
+            // Mobile layout
+            slidesPerPage = 1;
+        }
+
+        initializeSideButtons();
+
+        /* If screen resolution changes, changes will also be occurred in page display.
+           This part of code can be skipped, given that website will be displayed in a fixed screen resolution.
+           Nevertheless, to improve responsiveness, the code will remain as it is. */
+        mediaQueryDesktop.onchange = function(e) {
+            if (e.matches) {
+                // Desktop layout
+                slidesPerPage = 4;
+            }
+            else {
+                // Tablet layout
+                slidesPerPage = 2;
+            }
+            initializeSideButtons();
+        }
+
+        mediaQueryTablet.onchange = function(e) {
+            if (e.matches) {
+                // Tablet layout
+                console.log("Tablet")
+                slidesPerPage = 2;
+
+            }
+            else {
+                // Mobile layout
+                slidesPerPage = 1;
+
+                
+            }
+            initializeSideButtons();
+        }        
     })
     .catch(error => {
         showNoResultFoundContent();
@@ -76,14 +124,19 @@ function makeLatestProjectsRequest() {
     });
 }
 
-function initializeButtons() {
+function initializeSideButtons() {
     const latestProjectsLeftBtn = document.getElementsByClassName("latest-projects-slideshow-button slideshow-display-button-left")[0];
     const latestProjectsRightBtn = document.getElementsByClassName("latest-projects-slideshow-button slideshow-display-button-right")[0];
+
+    currentSlidePageNumber = 0;
+    slidePagesNumber = Math.ceil(latestProjectsData.length / slidesPerPage) - 1;
+    console.log(slidePagesNumber);
     
     latestProjectsLeftBtn.style.display = "initial";
     latestProjectsRightBtn.style.display = "initial";
     
     disableSlideButton(latestProjectsLeftBtn);
+    enableSlideButton(latestProjectsRightBtn);
 
     latestProjectsLeftBtn.onclick = function() {
         changeSlidePage(-1, latestProjectsLeftBtn, latestProjectsRightBtn);
@@ -97,12 +150,13 @@ function initializeButtons() {
 }
 
 function changeSlidePage(n, leftBtn, rightBtn) {
-    currentSlidePage += n;
-    if (currentSlidePage == 0) {
+    currentSlidePageNumber += n;
+    console.log(currentSlidePageNumber);
+    if (currentSlidePageNumber == 0) {
         // Disable left button
         disableSlideButton(leftBtn);
     }
-    else if (currentSlidePage == slidePagesNumber) {
+    else if (currentSlidePageNumber == slidePagesNumber) {
         // Disable right button
         disableSlideButton(rightBtn);
     }
@@ -126,6 +180,12 @@ function showNoResultFoundContent() {
     div.innerHTML = "<span class=\"no-result-found-error\">No results found</span>";
 }
 
+function showMoreLatestProjects() {
+    let latestProjectsContent = templates.latest_projects(getLatestProjects());
+
+    div.innerHTML += latestProjectsContent;
+}
+
 function enableSlideButton(button) {
     button.disabled = false;
     button.children[0].style.display = "inline";
@@ -138,13 +198,13 @@ function disableSlideButton(button) {
 
 function getLatestProjects() {
     let latestProjectsSubData = [];
-    let lastIndex = currentSlidePage*4 + 4;
+    let lastIndex = currentSlidePageNumber*slidesPerPage + slidesPerPage;
     
     if (lastIndex > latestProjectsData.length) {
         lastIndex = latestProjectsData.length;
     }
     
-    for (var i = currentSlidePage * 4; i < lastIndex; i++) {
+    for (var i = currentSlidePageNumber * slidesPerPage; i < lastIndex; i++) {
         latestProjectsSubData.push(latestProjectsData[i]);
     }
     
@@ -157,7 +217,8 @@ function initializeMenuButton() {
     const menuBtn = document.getElementById("menu-button");
     const menuNavigationBar = document.getElementById("header-navigation-bar");
 
-    console.log(menuNavigationBar);
+    menuNavigationBar.style.display = "none";
+    
     menuBtn.onclick = function() {
         if (menuNavigationBar.style.display == "none") {
             menuNavigationBar.style.display = "";
