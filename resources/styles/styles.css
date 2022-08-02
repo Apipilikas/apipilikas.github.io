@@ -23,6 +23,7 @@ h2 {
 }
 
 .button-link, button {
+    color: black;
     font-family: 'Jura', sans-serif;
     font-size: 1em;
     font-weight: 700;
@@ -783,6 +784,79 @@ footer > p {
 
 /* END-OF: *.html > footer */
 
+/* START-OF: contact.html */
+
+.contact-header {
+    text-align: center;
+}
+
+.contact-me-container {
+    padding: 2em;
+    margin: 1em auto;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    box-shadow: 0px 10px 20px 0px var(--grey-color);
+    animation: contact-image-animation 10s ease infinite;
+}
+
+.contact-me-container .content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-me-container .content h2 {
+    margin: 0em;
+}
+
+.contact-me-container .content a {
+    margin: auto;
+}
+
+.contact-me-container img {
+    margin: 1em auto 0em auto;
+    height: 120px;
+    width: 120px;
+    transition: 1s;
+    
+}
+
+.contact-me-container img:hover {
+    transform: rotate(360deg);
+    transition: 1s;
+}
+
+.contact-me-container.messenger {
+    background: linear-gradient(45deg, #3676fc, #b53ae2, #e048a9, #ff6b66 70%);
+    background-size: 200% 200%;
+}
+
+.contact-me-container.linkedin {
+    background: linear-gradient(135deg, #0f4b9b, #2864b4, #417dcd, #d4e0f1);
+    background-size: 200% 200%;
+}
+
+.contact-me-container.gmail {
+    background: linear-gradient(90deg, #0085f7, #00a94b, #ffbc00, #e51c19);
+    background-size: 200% 200%;
+}
+
+@keyframes contact-image-animation {
+    0%{background-position: 0% 50%;}
+    
+    50%{background-position: 100% 100%;}
+    
+    100%{background-position: 0% 50%;}
+}
+
+.contact-me-container .button-link {
+    box-shadow: 0px 5px 20px 0px black;
+}
+
+/* END-OF: contact.html */
+
 /* TABLET-BASED LAYOUT */
 @media only screen and (min-width: 425px) {
 
@@ -922,6 +996,41 @@ footer > p {
     }
 
     /* END-OF: *.html > footer */
+
+    /* START-OF: contact.html */
+
+    .contact-me-container {
+        width: 80%;
+        display: grid;
+        grid-template-columns: 4fr 1fr;
+    }
+
+    .contact-me-container .content {
+        text-align: left;
+        grid-column: 1/2;
+        grid-row: 1/2;
+    }
+
+    .contact-me-container img {
+        margin: auto;
+        grid-column: 2/3;
+        grid-row: 1/2;
+    }
+
+    .contact-me-container:nth-child(even) {
+        grid-template-columns: 1fr 4fr;
+    }
+
+    .contact-me-container:nth-child(even) .content {
+        text-align: right;
+        grid-column: 2/3;
+    }
+
+    .contact-me-container:nth-child(even) img {
+        grid-column: 1/2;    
+    }
+
+    /* END-OF: contact.html */
 
 }
 
