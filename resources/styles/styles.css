@@ -57,7 +57,7 @@ h2 {
     height: 100%;
 }
 
-/* START-OF: header */
+/* START-OF: *.html -> header */
 
 header {
     background-color: var(--header-color);
@@ -174,9 +174,14 @@ header li > a:active {
     height: 5vw;
 }
 
-/* END-OF: header */
+/* END-OF: *.html -> header */
 
-/* START-OF: index.html > main > welcome-introduction-section */
+/*
+                         START-OF
+    /FILE/    /FILE/    index.html    /FILE/    /FILE/
+*/
+
+/* START-OF: index.html -> welcome-introduction-section */
 
 #welcome-introduction-section > .content {
     margin: 5vw auto;
@@ -323,23 +328,23 @@ header li > a:active {
     align-items: center;
 }
 
-/* END-OF: index.html > main > welcome-introduction-section */
+/* END-OF: index.html -> welcome-introduction-section */
 
-/* START-OF: index.html > main > about-me-main-section */
+/* START-OF: index.html -> main-about-me-section */
 
-#about-me-main-section {
+#main-about-me-section {
     background-color: var(--green-blue-color);
     padding-bottom: 1em;
     display: flex;
     flex-direction: column;
 }
 
-#about-me-main-section > h2 {
+#main-about-me-section > h2 {
     margin: auto;
     font-size: 2em;
 }
 
-#about-me-main-section > img {
+#main-about-me-section > img {
     width: 50vw;
     height: 50vw;
     max-width: 150px;
@@ -349,20 +354,20 @@ header li > a:active {
     box-shadow: 0px 10px 20px 0px var(--grey-color);
 }
 
-#about-me-main-section > .content {
+#main-about-me-section > .content {
     padding: 1em;
     margin: auto;
     display: flex;
     flex-direction: column;
 }
 
-#about-me-main-section > .content > a {
+#main-about-me-section > .content > a {
     margin: auto;
 }
 
-/* END-OF: index.html > main > about-me-main-section */
+/* END-OF: index.html -> main-about-me-section */
 
-/* START-OF: index.html > main > skills-section */
+/* START-OF: index.html -> skills-section */
 
 #skills-section > .content {
     margin: auto;
@@ -434,9 +439,9 @@ header li > a:active {
     }
 }
 
-/* END-OF: index.html > main > skills-section */
+/* END-OF: index.html -> skills-section */
 
-/* START-OF: index.html > main > education-section */
+/* START-OF: index.html -> education-section */
 
 .education {
     display: grid;
@@ -569,9 +574,9 @@ header li > a:active {
     margin-top: 4em;
 }
 
-/* END-OF: index.html > main > education-section */
+/* END-OF: index.html -> education-section */
 
-/* START-OF: index.html > main > latest-projects-section */
+/* START-OF: index.html -> latest-projects-section */
 
 #latest-projects-slideshow {
     position: relative;
@@ -686,9 +691,9 @@ header li > a:active {
     margin: auto;
 }
 
-/* END-OF: index.html > main > latest-projects-section */
+/* END-OF: index.html -> latest-projects-section */
 
-/* START-OF: index.html > main > news-section */
+/* START-OF: index.html -> news-section */
 
 #news-section > .content {
     display: flex;
@@ -716,9 +721,14 @@ header li > a:active {
     padding: 1em;
 }
 
-/* END-OF: index.html > main > news-section */
+/* END-OF: index.html -> news-section */
 
-/* START-OF: *.html > footer */
+/*
+    /FILE/    /FILE/    index.html    /FILE/    /FILE/
+                          END-OF
+*/
+
+/* START-OF: *.html -> footer */
 
 footer {
     display: flex;
@@ -782,13 +792,264 @@ footer > p {
     text-align: center;
 }
 
-/* END-OF: *.html > footer */
+/* END-OF: *.html -> footer */
 
-/* START-OF: contact.html */
+/*
+                          START-OF
+    /FILE/    /FILE/    aboutme.html    /FILE/    /FILE/
+*/
+
+.about-me-header {
+    text-align: center;
+}
+
+/* START-OF: aboutme.html -> about-me-introduction-section */
+
+#about-me-introduction-section {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(45deg, var(--grey-color), var(--header-color), var(--green-blue-color), var(--blue-color));
+    border-radius: 10px;
+    box-shadow: 0px 10px 20px 0px var(--grey-color);
+    animation: color-animation 10s infinite;
+    background-size: 200% 200%;
+}
+
+#about-me-introduction-section > .content {
+    display: flex;
+    flex-direction: column;
+}
+
+#about-me-introduction-section > .content > p {
+    padding: 1em;
+    margin: auto;
+}
+
+#about-me-introduction-section > .content > img {
+    margin: 1em auto;
+}
+
+#about-me-introduction-section > h2 {
+    margin: auto;
+    padding: 0.5em;
+    white-space: nowrap;
+    
+}
+
+#about-me-introduction-section img {
+    border-radius: 10px;
+    box-shadow: 0px 10px 20px 0px var(--grey-color);
+}
+
+/* END-OF: aboutme.html -> about-me-introduction-section */
+
+/* START-OF: aboutme.html -> about-me-languages-section */
+
+#about-me-languages-section h2 {
+    margin: auto 0em;
+}
+
+#about-me-page .header {
+    position: relative;
+    margin: 1em;
+    display: flex;
+    justify-content: center;
+    height: 80px;
+}
+
+#about-me-page .header > img {
+    position: absolute;
+    right: 52%;
+    width: 80px;
+    opacity: 0.5;
+    animation: header-color-animation 5s ease infinite;
+}
+
+#about-me-languages-section > .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.language {
+    margin: 1em auto;
+    display: grid;
+    grid-template-rows: 0.5fr 0.5fr;
+    grid-template-columns: 3fr 1fr;
+    width: 90%;
+    background-color: var(--header-color);
+    border-radius: 10px;
+    box-shadow: 0px 10px 20px 0px var(--grey-color);
+}
+
+.language h3 {
+    margin: auto;
+    grid-row: 1/2;
+    grid-column: 1/2;
+}
+
+.language p {
+    margin: auto;
+    grid-row: 2/3;
+    grid-column: 1/2;
+}
+
+.language img {
+    margin: auto 1em;
+    height: 80px;
+    grid-row: 1/3;
+    grid-column: 2/3;
+}
+
+@keyframes header-color-animation {
+    0%{
+        filter: invert(26%) sepia(49%) saturate(1478%) hue-rotate(180deg) brightness(86%) contrast(82%);
+    }
+    
+    50%{
+        filter: invert(69%) sepia(7%) saturate(1323%) hue-rotate(167deg) brightness(93%) contrast(88%);
+    }
+    
+    100%{
+        filter: invert(26%) sepia(49%) saturate(1478%) hue-rotate(180deg) brightness(86%) contrast(82%);
+        
+    }
+}
+
+/* END-OF: aboutme.html -> about-me-languages-section */
+
+/* START-OF: aboutme.html -> about-me-scriptings-skills-section */
+
+#about-me-scripting-skills-section > .content {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.scripting-skill {
+    margin: 1em auto;
+    background-color: var(--header-color);
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-left: 10px solid var(--blue-color);
+    border-radius: 10px;
+    box-shadow: 0px 10px 20px 0px var(--grey-color);
+}
+
+.scripting-skill > h3 {
+    margin: auto;
+}
+
+.scripting-skill > img {
+    margin: auto;
+    padding: 1em;
+    width: 80px;
+    height: 80px;
+}
+
+.border-progress-bar {
+    width: 90%;
+    margin: 2em auto;
+    height: 24px;
+    background-color: rgb(229, 229, 229);
+    border-radius: 10px;
+    box-shadow: 0px 10px 20px 0px var(--grey-color);
+}
+
+.progress-bar {
+    text-align: center;
+    height: 24px;
+    background: linear-gradient(45deg, var(--green-blue-color), var(--blue-color) 50%, var(--green-blue-color));
+    border-radius: 10px;
+    animation: color-animation 10s infinite;
+    background-size: 200% 200%;
+}
+
+.progress-bar > p {
+    vertical-align: middle;
+    font-weight: bold;
+    color: white;
+    display: inline;
+}
+
+.progress-bar.html , .progress-bar.css {
+    width: 80%;
+}
+
+.progress-bar.python , .progress-bar.sql {
+    width: 60%;
+}
+
+.progress-bar.c {
+    width: 40%;
+}
+
+/* END-OF: aboutme.html -> about-me-scriptings-skills-section */
+
+/* START-OF: aboutme.html -> about-me-other-experience-section ,
+             aboutme.html -> about-me-soft-skills-section */
+
+#about-me-other-experience-section > .content , #about-me-soft-skills-section > .content {
+    margin: 0em auto;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+#about-me-other-experience-section span , #about-me-soft-skills-section span {
+    font-weight: bold;
+    text-align: center;
+    margin: 1em;
+    padding: 1em;
+    background-color: var(--green-blue-color);
+    border-radius: 10px;
+    box-shadow: 0px 0px 30px 0px white;
+}
+
+#about-me-other-experience-section span:nth-child(n) ,
+#about-me-soft-skills-section span:nth-child(n) {
+    color: #315555;
+    background-color: #aadcda;
+}
+
+#about-me-other-experience-section span:nth-child(2n) {
+    color: #4f577a;
+    background-color: #d4dbf9;
+}
+
+#about-me-other-experience-section span:nth-child(3n) {
+    color: #937729;
+    background-color: #ffeec4;
+}
+
+#about-me-soft-skills-section span:nth-child(2n) {
+    color: #201867;
+    background-color: #b1d1ff;
+}
+
+/* END-OF: aboutme.html -> about-me-other-experience-section ,
+                aboutme.html -> about-me-soft-skills-section */
+
+/*
+    /FILE/    /FILE/    aboutme.html    /FILE/    /FILE/
+                           END-OF
+*/
+
+/*
+                         START-OF
+    /FILE/    /FILE/    contact.html    /FILE/    /FILE/
+*/
 
 .contact-header {
     text-align: center;
 }
+
+/* START-OF: contact.html -> contact-me-container */
 
 .contact-me-container {
     padding: 2em;
@@ -798,7 +1059,7 @@ footer > p {
     flex-direction: column;
     border-radius: 10px;
     box-shadow: 0px 10px 20px 0px var(--grey-color);
-    animation: contact-image-animation 10s ease infinite;
+    animation: color-animation 10s ease infinite;
 }
 
 .contact-me-container .content {
@@ -843,7 +1104,7 @@ footer > p {
     background-size: 200% 200%;
 }
 
-@keyframes contact-image-animation {
+@keyframes color-animation {
     0%{background-position: 0% 50%;}
     
     50%{background-position: 100% 100%;}
@@ -855,7 +1116,12 @@ footer > p {
     box-shadow: 0px 5px 20px 0px black;
 }
 
-/* END-OF: contact.html */
+/* END-OF: contact.html -> contact-me-container */
+
+/*
+    /FILE/    /FILE/    contact.html    /FILE/    /FILE/
+                           END-OF
+*/
 
 /* TABLET-BASED LAYOUT */
 @media only screen and (min-width: 425px) {
@@ -868,7 +1134,7 @@ footer > p {
         display: block;
     }
     
-    /* START-OF: header */
+    /* START-OF: *.html -> header */
 
     header > #header-container {
         margin: 0em auto;
@@ -895,20 +1161,25 @@ footer > p {
         display: none;
     }
 
-    /* END-OF: header */
+    /* END-OF: *.html -> header */
 
-    /* START-OF: index.html > main > welcome-introduction-section */
+    /*
+                             START-OF
+        /FILE/    /FILE/    index.html    /FILE/    /FILE/
+    */
+
+    /* START-OF: index.html -> welcome-introduction-section */
 
     #welcome-introduction-section > .content {
         margin: auto;
         top: 153px;
     }
 
-    /* END-OF: index.html > main > welcome-introduction-section */
+    /* END-OF: index.html -> welcome-introduction-section */
 
-    /* START-OF: index.html > main > about-me-main-section */
+    /* START-OF: index.html -> main-about-me-section */
 
-    #about-me-main-section {
+    #main-about-me-section {
         background-color: var(--green-blue-color);
         padding: 2em;
         display: grid;
@@ -916,25 +1187,25 @@ footer > p {
         grid-template-rows: 0.25fr 1fr;
     }
 
-    #about-me-main-section > h2 {
+    #main-about-me-section > h2 {
         margin: 0em;
     }
 
-    #about-me-main-section > img {
+    #main-about-me-section > img {
         margin: 0em;
         grid-column: 1/2;
         grid-row: 2/3;
     }
 
-    #about-me-main-section > .content {
+    #main-about-me-section > .content {
         grid-column: 2/4;
         grid-row: 2/3;
         margin: auto 2em;
     }
 
-    /* END-OF: index.html > main > about-me-main-section */
+    /* END-OF: index.html -> main-about-me-section */
 
-    /* START-OF: index.html > main > education-section */
+    /* START-OF: index.html -> education-section */
 
     .education {
         width: 50%;
@@ -944,9 +1215,9 @@ footer > p {
         width: 100%;
     }
 
-    /* END-OF: index.html > main > education-section */
+    /* END-OF: index.html -> education-section */
 
-    /* START-OF: index.html > main > latest-projects-section */
+    /* START-OF: index.html -> latest-projects-section */
 
     .project {
         width: 40%;
@@ -962,15 +1233,20 @@ footer > p {
         }
     }
 
-    /* END-OF: index.html > main > latest-projects-section */
+    /* END-OF: index.html -> latest-projects-section */
 
-    /* START-OF: index.html > main > news-section */
+    /* START-OF: index.html -> news-section */
 
     .news {
         width: 45%;
     }
 
-    /* START-OF: index.html > main > news-section */
+    /* START-OF: index.html -> news-section */
+
+    /*
+        /FILE/    /FILE/    index.html    /FILE/    /FILE/
+                              END-OF
+    */
 
     /* START-OF: *.html > footer */
 
@@ -995,9 +1271,12 @@ footer > p {
         text-align: center;
     }
 
-    /* END-OF: *.html > footer */
+    /* END-OF: *.html-> footer */
 
-    /* START-OF: contact.html */
+    /*
+                             START-OF
+        /FILE/    /FILE/    contact.html    /FILE/    /FILE/
+    */
 
     .contact-me-container {
         width: 80%;
@@ -1030,14 +1309,43 @@ footer > p {
         grid-column: 1/2;    
     }
 
-    /* END-OF: contact.html */
+    /*
+        /FILE/    /FILE/    contact.html    /FILE/    /FILE/
+                               END-OF
+    */
 
+        /*
+                          START-OF
+    /FILE/    /FILE/    aboutme.html    /FILE/    /FILE/
+    */
+
+    /* START-OF: aboutme.html -> about-me-languages-section */
+
+    .language {
+        margin: auto 1em;
+        width: 490px;
+    }
+
+    /* END-OF: aboutme.html -> about-me-languages-section */
+
+    /* START-OF: aboutme.html -> about-me-scriptings-skills-section */
+
+    .scripting-skill {
+        width: 40%;
+    }
+
+    /* END-OF: aboutme.html -> about-me-scriptings-skills-section */
+
+    /*
+        /FILE/    /FILE/    aboutme.html    /FILE/    /FILE/
+                            END-OF
+    */
 }
 
 /* DESKTOP-BASED LAYOUT */
 @media only screen and (min-width: 992px) {
     
-    /* START-OF: header */
+    /* START-OF: *.html -> header */
     
     header > #header-container {
         margin: 0em 10%;
@@ -1070,9 +1378,14 @@ footer > p {
         flex-basis: 30%;
     }
 
-    /* END-OF: header */
+    /* END-OF: *.html -> header */
+
+    /*
+                             START-OF
+        /FILE/    /FILE/    index.html    /FILE/    /FILE/
+    */
     
-    /* START-OF: index.html > main > welcome-introduction-section */
+    /* START-OF: index.html -> welcome-introduction-section */
     
     #welcome-introduction-section > .content {
         top: 92px;
@@ -1096,9 +1409,9 @@ footer > p {
         margin-left: 1em;
     }
     
-    /* END-OF: index.html > main > welcome-introduction-section */
+    /* END-OF: index.html -> welcome-introduction-section */
     
-    /* START-OF: index.html > main > latest-projects-section */
+    /* START-OF: index.html -> latest-projects-section */
     
     .project {
         width: 20%;
@@ -1115,5 +1428,74 @@ footer > p {
         }
     }
     
-    /* END-OF: index.html > main > news-section */
+    /* END-OF: index.html -> news-section */
+
+    /*
+        /FILE/    /FILE/    index.html    /FILE/    /FILE/
+                              END-OF
+    */
+
+    /*
+                          START-OF
+    /FILE/    /FILE/    aboutme.html    /FILE/    /FILE/
+    */
+
+    /* START-OF: aboutme.html -> about-me-introduction-section */
+
+    #about-me-introduction-section {
+        flex-direction: row;
+    }
+
+    #about-me-introduction-section > .content {
+        flex-direction: row;
+    }
+
+    #about-me-introduction-section > .content > img {
+        margin: 1em;
+    }
+
+    /* END-OF: aboutme.html -> about-me-introduction-section */
+
+    /* START-OF: aboutme.html -> about-me-languages-section */
+
+    #about-me-languages-section > .content {
+        flex-direction: row;
+    }
+
+    /* END-OF: aboutme.html -> about-me-languages-section */
+
+    /* START-OF: aboutme.html -> about-me-scriptings-skills-section */
+
+    #about-me-scripting-skills-section > .content {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .scripting-skill {
+        margin: 1em auto;
+        width: 534px;
+        flex-direction: row;
+    }
+
+    .border-progress-bar {
+        width: 50%;
+        margin: auto 1em auto 0em;
+    }
+
+    /* END-OF: aboutme.html -> about-me-scriptings-skills-section */
+
+    /* START-OF: aboutme.html -> about-me-other-experience-section ,
+                aboutme.html -> about-me-soft-skills-section */
+
+    #about-me-other-experience-section > .content , #about-me-soft-skills-section > .content {
+        margin: 0em 25%;
+    }
+
+    /* END-OF: aboutme.html -> about-me-other-experience-section ,
+                aboutme.html -> about-me-soft-skills-section */
+
+    /*
+        /FILE/    /FILE/    aboutme.html    /FILE/    /FILE/
+                            END-OF
+    */
 }
