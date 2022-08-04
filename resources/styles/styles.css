@@ -1041,6 +1041,205 @@ footer > p {
 */
 
 /*
+                          START-OF
+    /FILE/    /FILE/    projects.html    /FILE/    /FILE/
+*/
+
+.projects-header {
+    text-align: center;
+}
+
+#github-profile {
+    display: flex;
+    margin: auto;
+    width: 80%;
+    background: linear-gradient(45deg, #a27ff2, #b1c9eb, #52477a);
+    border-radius: 10px;
+    box-shadow: 0px 10px 20px 0px var(--grey-color);
+    animation: color-animation 10s infinite;
+    background-size: 200% 200%;
+}
+
+#github-profile > .username-container {
+    margin: auto;
+    white-space: nowrap;
+    padding: 1em;
+    display: flex;
+}
+
+#github-profile > .username-container img {
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    box-shadow: 0px 10px 20px 0px var(--grey-color);
+}
+
+#github-profile .info-container {
+    padding: 1em;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#github-profile .info {
+    display: flex;
+    margin: 1em auto;
+    text-align: center;
+    padding: 1em;
+    border-radius: 10px;
+    box-shadow: 0px 10px 20px 0px var(--grey-color);
+}
+
+#github-profile .info:nth-child(even) {
+    color: #333155;
+    background-color: #9697ee;
+}
+
+#github-profile .info:nth-child(even) > img {
+    filter: invert(18%) sepia(15%) saturate(1697%) hue-rotate(204deg) brightness(96%) contrast(92%);
+}
+
+#github-profile .info:nth-child(odd) {
+    color: #315555;
+    background-color: #96e3ee;
+}
+
+#github-profile .info:nth-child(odd) > img {
+    filter: invert(29%) sepia(44%) saturate(335%) hue-rotate(131deg) brightness(92%) contrast(94%);
+}
+
+#github-profile .info p {
+    font-weight: bold;
+    margin: auto auto auto 1em;
+}
+
+#github-profile .info span {
+    font-size: 38px;
+}
+
+#github-profile .info > img {
+    width: 40px;
+    height: 40px;
+}
+
+#github-profile .button-area {
+    margin: 1em auto;
+}
+
+#github-profile .button-link {
+    color: #315555;
+    border: 3px #315555 solid;
+}
+
+.button-link:hover {
+    font-weight: bold;
+}
+
+#github-profile .button-link span {
+    background: #9697ee;
+}
+
+#github-repos {
+}
+
+.detailed-project {
+    margin: 4em;
+    width: 50%;
+}
+
+.detailed-project:nth-child(odd) summary {
+    background-color: #9697ee;
+}
+
+.detailed-project:nth-child(even) summary {
+    background-color: #b1c9eb;
+}
+
+.detailed-project:nth-child(even) {
+    margin-left: auto;
+}
+
+/* animation roll down */
+summary {
+    padding: 0.5em;
+    display: block;
+    background: #333;
+    padding-left: 2.2rem;
+    position: relative;
+    cursor: pointer;
+  }
+  
+  summary:before {
+    content: '';
+    border-width: .5rem;
+    border-style: solid;
+    border-color: transparent transparent transparent #fff;
+    position: absolute;
+    top: 1.3rem;
+    left: 1rem;
+    transform: rotate(0);
+    transform-origin: .2rem 50%;
+    transition: .25s transform ease;
+  }
+  
+  /* THE MAGIC 🧙‍♀️ */
+  details[open] > summary:before {
+    transform: rotate(90deg);
+  }
+  
+.detailed-project > summary {
+    display: flex;
+    flex-direction: row;
+    border-radius: 10px;
+    box-shadow: 0px 10px 20px 0px var(--grey-color);
+    margin: 1em;
+}
+
+.detailed-project > summary > span {
+    font-size: 1.4em;
+    font-weight: bold;
+    margin: auto 0em;
+}
+
+.detailed-project > summary > img {
+    width: 50px;
+    height: 50px;
+}
+
+.detailed-project > summary > .stars-container {
+    margin: auto 1em auto auto;
+    display: flex;
+}
+
+.detailed-project > summary > .stars-container > img {
+    width: 30px;
+    height: 30px;
+    
+}
+
+.detailed-project > summary > .stars-container > span {
+    font-size: 1.4em;
+    font-weight: bold;
+    margin: auto 1em;
+}
+
+.detailed-project > .answer {
+    padding: 1em;
+    background-color: #9697ee;
+    margin: 1em;
+    border-radius: 10px;
+    box-shadow: 0px 10px 20px 0px var(--grey-color);
+}
+
+.detailed-project:nth-child(even) > .answer {
+    background-color: #b1c9eb;
+}
+
+/*
+    /FILE/    /FILE/    projects.html    /FILE/    /FILE/
+                           END-OF
+*/
+
+/*
                          START-OF
     /FILE/    /FILE/    contact.html    /FILE/    /FILE/
 */

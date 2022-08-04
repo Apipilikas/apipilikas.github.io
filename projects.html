@@ -9,7 +9,7 @@
         <meta name="author" content="Aggelos Pipilikas">
         <meta charset="UTF-8">
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/handlebars@4.7.7/dist/handlebars.js"></script>
-        <script type="text/javascript" src="resources/scripts/mainScript.js"></script>
+        <script type="text/javascript" src="resources/scripts/projectsScript.js"></script>
         <link rel="stylesheet" href="resources/styles/styles.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
@@ -32,17 +32,26 @@
                 <nav>
                     <ul id="header-navigation-bar">
                         <li><a href="index.html">Home</a></li>
-                        <li><a>About me</a></li>
-                        <li><a>Projects</a></li>
+                        <li><a href="aboutme.html">About me</a></li>
+                        <li><a href="projects.html">Projects</a></li>
                         <li><a>Resume</a></li>
-                        <li><a>Contact</a></li>
+                        <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </nav>
             </div>
         </header>
 
-        <main>
-            
+        <main id="projects-page">
+            <div class="main-header projects-header">
+                <h1>My projects!</h1>
+                <h4>Here are the projects that I have uploaded to my Github! Some of them contains an extra button
+                    "MORE", which redirects to a page with more detailed information for a project.
+                </h4>
+            </div>
+            <div class="main-content projects-content">
+                <div id="github-profile"></div>
+                <div id="github-repos"></div>
+            </div>
         </main>
 
         <footer>
