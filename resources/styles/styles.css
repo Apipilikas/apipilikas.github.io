@@ -1049,14 +1049,21 @@ footer > p {
     text-align: center;
 }
 
+/* START-OF: aboutme.html -> github-profile */
+
 #github-profile {
     display: flex;
+    flex-direction: column;
     margin: auto;
-    width: 80%;
+    width: 90%;
     background: linear-gradient(45deg, #a27ff2, #b1c9eb, #52477a);
     border-radius: 10px;
     box-shadow: 0px 10px 20px 0px var(--grey-color);
     animation: color-animation 10s infinite;
+    -webkit-animation: color-animation 10s infinite;
+    -moz-animation: color-animation 10s infinite;
+    -o-animation: color-animation 10s infinite;
+    -ms-animation: color-animation 10s infinite;
     background-size: 200% 200%;
 }
 
@@ -1135,15 +1142,16 @@ footer > p {
 }
 
 #github-profile .button-link span {
-    background: #9697ee;
+    background-color: #9697ee;
 }
 
-#github-repos {
-}
+/* END-OF: aboutme.html -> github-profile */
+
+/* START-OF: aboutme.html -> github-repos */
 
 .detailed-project {
-    margin: 4em;
-    width: 50%;
+    margin: auto;
+    width: 90%;
 }
 
 .detailed-project:nth-child(odd) summary {
@@ -1154,12 +1162,8 @@ footer > p {
     background-color: #b1c9eb;
 }
 
-.detailed-project:nth-child(even) {
-    margin-left: auto;
-}
-
 /* animation roll down */
-summary {
+/* summary {
     padding: 0.5em;
     display: block;
     background: #333;
@@ -1179,40 +1183,43 @@ summary {
     transform: rotate(0);
     transform-origin: .2rem 50%;
     transition: .25s transform ease;
-  }
+  } */
   
-  /* THE MAGIC 🧙‍♀️ */
-  details[open] > summary:before {
+  /* details[open] > summary:before {
     transform: rotate(90deg);
-  }
+  } */
   
 .detailed-project > summary {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    flex-wrap: wrap;
     border-radius: 10px;
     box-shadow: 0px 10px 20px 0px var(--grey-color);
     margin: 1em;
+    cursor: pointer;
 }
 
 .detailed-project > summary > span {
     font-size: 1.4em;
     font-weight: bold;
-    margin: auto 0em;
+    margin: auto;
 }
 
 .detailed-project > summary > img {
+    margin: 0.5em auto;
     width: 50px;
     height: 50px;
 }
 
 .detailed-project > summary > .stars-container {
-    margin: auto 1em auto auto;
+    margin: 0.5em auto;
     display: flex;
 }
 
 .detailed-project > summary > .stars-container > img {
-    width: 30px;
-    height: 30px;
+    margin: auto;
+    width: 25px;
+    height: 25px;
     
 }
 
@@ -1222,7 +1229,7 @@ summary {
     margin: auto 1em;
 }
 
-.detailed-project > .answer {
+.detailed-project > .content {
     padding: 1em;
     background-color: #9697ee;
     margin: 1em;
@@ -1230,9 +1237,61 @@ summary {
     box-shadow: 0px 10px 20px 0px var(--grey-color);
 }
 
-.detailed-project:nth-child(even) > .answer {
+.detailed-project:nth-child(even) > .content {
     background-color: #b1c9eb;
 }
+
+.detailed-project > .content > .top-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.detailed-project > .content > p {
+    margin: 1em;
+    text-align: center;
+}
+
+.detailed-project > .content > .button-area {
+    display: flex;
+}
+
+.detailed-project > .content > .top-container > p {
+    margin: 0.3em auto;
+    color: #201867;
+    background-color: #b1d1ff;
+    padding: 0.5em;
+    font-size: 1.1em;
+    font-weight: bold;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px 0px var(--grey-color);
+}
+
+.detailed-project:nth-child(even) > .content > .top-container > p {
+    color: #313755;
+    background-color: #a099e9;
+}
+
+.detailed-project  .button-link {
+    color: #313755;
+    border: 3px #313755 solid;
+    margin: auto;
+}
+
+.detailed-project .button-link > span {
+    background-color: #b1d1ff;
+}
+
+.detailed-project:nth-child(even)  .button-link {
+    color: #6964a4;
+    border: 3px #6964a4 solid;
+    margin: auto;
+}
+
+.detailed-project:nth-child(even) .button-link > span {
+    background: #a099e9;
+}
+
+/* END-OF: aboutme.html -> github-repos */
 
 /*
     /FILE/    /FILE/    projects.html    /FILE/    /FILE/
@@ -1304,6 +1363,38 @@ summary {
 }
 
 @keyframes color-animation {
+    0%{background-position: 0% 50%;}
+    
+    50%{background-position: 100% 100%;}
+    
+    100%{background-position: 0% 50%;}
+}
+
+@-webkit-keyframes color-animation {
+    0%{background-position: 0% 50%;}
+    
+    50%{background-position: 100% 100%;}
+    
+    100%{background-position: 0% 50%;}
+}
+
+@-moz-keyframes color-animation {
+    0%{background-position: 0% 50%;}
+    
+    50%{background-position: 100% 100%;}
+    
+    100%{background-position: 0% 50%;}
+}
+
+@-o-keyframes color-animation {
+    0%{background-position: 0% 50%;}
+    
+    50%{background-position: 100% 100%;}
+    
+    100%{background-position: 0% 50%;}
+}
+
+@-ms-keyframes color-animation {
     0%{background-position: 0% 50%;}
     
     50%{background-position: 100% 100%;}
@@ -1513,7 +1604,7 @@ summary {
                                END-OF
     */
 
-        /*
+    /*
                           START-OF
     /FILE/    /FILE/    aboutme.html    /FILE/    /FILE/
     */
@@ -1537,6 +1628,44 @@ summary {
 
     /*
         /FILE/    /FILE/    aboutme.html    /FILE/    /FILE/
+                            END-OF
+    */
+
+    /*
+                          START-OF
+    /FILE/    /FILE/    projects.html    /FILE/    /FILE/
+    */
+
+    /* START-OF: aboutme.html -> github-profile */
+
+    #github-profile {
+        width: 80%;
+    }
+
+    /* END-OF: aboutme.html -> github-profile */
+
+    /* START-OF: aboutme.html -> github-repos */
+
+    .detailed-project {
+        width: 80%;
+    }
+
+    .detailed-project > summary {
+        flex-direction: row;
+    }
+
+    .detailed-project > summary > img {
+        margin: 0.5em;
+    }
+
+    .detailed-project > summary > .stars-container {
+        margin: auto 0.5em;
+    }
+
+    /* END-OF: aboutme.html -> github-repos */
+
+    /*
+        /FILE/    /FILE/    projects.html    /FILE/    /FILE/
                             END-OF
     */
 }
@@ -1695,6 +1824,37 @@ summary {
 
     /*
         /FILE/    /FILE/    aboutme.html    /FILE/    /FILE/
+                            END-OF
+    */
+
+    /*
+                          START-OF
+    /FILE/    /FILE/    projects.html    /FILE/    /FILE/
+    */
+
+    /* START-OF: projects.html -> github-profile */
+
+    #github-profile {
+        flex-direction: row;
+    }
+
+    /* END-OF: projects.html -> github-profile */
+
+    /* START-OF: projects.html -> github-repos */
+
+    .detailed-project {
+        margin: 4em;
+        width: 50%;
+    }
+
+    .detailed-project:nth-child(even) {
+        margin-left: auto;
+    }
+    
+    /* END-OF: projects.html -> github-repos */
+
+    /*
+        /FILE/    /FILE/    projects.html    /FILE/    /FILE/
                             END-OF
     */
 }

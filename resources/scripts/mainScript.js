@@ -234,3 +234,5 @@ function initializeMenuButton() {
         }
     }
 }
+
+export {initializeMenuButton};

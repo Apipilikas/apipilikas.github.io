@@ -1,14 +1,11 @@
 const projects_url = "https://api.github.com/users/Apipilikas/repos?sort=pushed_at";
 const profile_url = "https://api.github.com/users/Apipilikas";
 
+import {initializeMenuButton} from './mainScript.js';
+
 window.onload = init;
 
 var templates = {};
-var currentSlidePageNumber = 0;
-var slidePagesNumber = 0;
-var slidesPerPage = 0;
-var latestProjectsData = [];
-var div;
 
 templates.profile = Handlebars.compile(`
 <div class="username-container">
@@ -55,8 +52,17 @@ templates.projects = Handlebars.compile(`
             <span>{{stars}}</span>
         </div>
     </summary>
-    <div class="answer">
-    hello
+    <div class="content">
+        <div class="top-container">
+            <p>{{last_modified}}</p>        
+            {{#each languages}}
+            <p>{{this}}</p>
+            {{/each}}
+        </div>
+        <p>{{description}}</p>
+        <div class="button-area">
+            <a class="button-link" href={{link}}><span></span>CHECK ON GITHUB</a>
+        </div>
     </div>
 </details>
 {{/each}}
@@ -66,6 +72,8 @@ function init() {
     makeProfileRequest();
 
     makeProjectsRequest();
+
+    initializeMenuButton();
 }
 
 function makeGetRequest(url) {
@@ -92,6 +100,7 @@ function makeProfileRequest() {
     let div = document.getElementById('github-profile');
     makeGetRequest(profile_url)
     .then(data => {
+
         let profile = {
             "username" : data.login,
             "name" : data.name,
@@ -114,85 +123,53 @@ function makeProfileRequest() {
 };
 
 function makeProjectsRequest() {
-    let projects = [];
+
     makeGetRequest(projects_url)
     .then(data => {
-        
-        for (item of data) {
 
-            let project = {
-                "title": item.name,
-                "last_modified": item.pushed_at.split("T")[0],
-                "description": item.description,
-                "link": item.html_url,
-                "topics" : item.topics,
-                "language" : item.language,
-                "stars" : item.stargazers_count
-            };
+        let fetches = [];
 
-            projects.push(project);
+        for (let item of data) {
+            
+            let promise = makeGetRequest(item.languages_url)
+            .then(languageData => {
+
+                let project = {
+                    "title": item.name,
+                    "last_modified": item.pushed_at.split("T")[0],
+                    "description": item.description,
+                    "link": item.html_url,
+                    "topics" : item.topics,
+                    "languages" : Object.keys(languageData),
+                    "stars" : item.stargazers_count
+                };
+
+                return project;
+
+            })
+            .catch(error => {
+                console.log("error");
+            });
+            
+            fetches.push(promise);
+            
         };
 
-        div = document.getElementById('github-repos');
+        return Promise.all(fetches)
+        .then(values => {
+            console.log(values)
+            return values;
+        });
+    })
+    .then(projectsData => {
+        console.log(projectsData);
+        let div = document.getElementById('github-repos');
         
-        let projectsContent = templates.projects(projects);
+        let projectsContent = templates.projects(projectsData);
 
         div.innerHTML = projectsContent;
-
     })
     .catch(error => {
-        console.log("error");
+        console.log(error);
     });
-}
-
-function initializeSideButtons() {
-    const latestProjectsLeftBtn = document.getElementsByClassName("latest-projects-slideshow-button slideshow-display-button-left")[0];
-    const latestProjectsRightBtn = document.getElementsByClassName("latest-projects-slideshow-button slideshow-display-button-right")[0];
-
-    currentSlidePageNumber = 0;
-    slidePagesNumber = Math.ceil(latestProjectsData.length / slidesPerPage) - 1;
-    console.log(slidePagesNumber);
-    
-    latestProjectsLeftBtn.style.display = "initial";
-    latestProjectsRightBtn.style.display = "initial";
-    
-    disableSlideButton(latestProjectsLeftBtn);
-    enableSlideButton(latestProjectsRightBtn);
-
-    latestProjectsLeftBtn.onclick = function() {
-        changeSlidePage(-1, latestProjectsLeftBtn, latestProjectsRightBtn);
-    };
-
-    latestProjectsRightBtn.onclick = function() {
-        changeSlidePage(1, latestProjectsLeftBtn, latestProjectsRightBtn);
-    };
-
-    showLatestProjectsSlideShow();
-}
-
-function changeSlidePage(n, leftBtn, rightBtn) {
-    currentSlidePageNumber += n;
-    console.log(currentSlidePageNumber);
-    if (currentSlidePageNumber == 0) {
-        // Disable left button
-        disableSlideButton(leftBtn);
-    }
-    else if (currentSlidePageNumber == slidePagesNumber) {
-        // Disable right button
-        disableSlideButton(rightBtn);
-    }
-    else {
-        // Enable both buttons
-        enableSlideButton(leftBtn);
-        enableSlideButton(rightBtn);
-    }
-    
-    showLatestProjectsSlideShow();
-}
-
-// This function renders the projects data into a HTML code
-function showLatestProjectsSlideShow() {
-    let latestProjectsContent = templates.latest_projects(getLatestProjects());
-
-    div.innerHTML = latestProjectsContent;
 }
