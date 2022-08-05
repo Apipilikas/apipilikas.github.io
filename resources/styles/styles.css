@@ -123,7 +123,7 @@ header nav > ul {
     margin-top: 0em;
     background-color: var(--header-color);
     list-style-type: none;
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
     text-align: center;
@@ -1060,10 +1060,6 @@ footer > p {
     border-radius: 10px;
     box-shadow: 0px 10px 20px 0px var(--grey-color);
     animation: color-animation 10s infinite;
-    -webkit-animation: color-animation 10s infinite;
-    -moz-animation: color-animation 10s infinite;
-    -o-animation: color-animation 10s infinite;
-    -ms-animation: color-animation 10s infinite;
     background-size: 200% 200%;
 }
 
@@ -1363,38 +1359,6 @@ footer > p {
 }
 
 @keyframes color-animation {
-    0%{background-position: 0% 50%;}
-    
-    50%{background-position: 100% 100%;}
-    
-    100%{background-position: 0% 50%;}
-}
-
-@-webkit-keyframes color-animation {
-    0%{background-position: 0% 50%;}
-    
-    50%{background-position: 100% 100%;}
-    
-    100%{background-position: 0% 50%;}
-}
-
-@-moz-keyframes color-animation {
-    0%{background-position: 0% 50%;}
-    
-    50%{background-position: 100% 100%;}
-    
-    100%{background-position: 0% 50%;}
-}
-
-@-o-keyframes color-animation {
-    0%{background-position: 0% 50%;}
-    
-    50%{background-position: 100% 100%;}
-    
-    100%{background-position: 0% 50%;}
-}
-
-@-ms-keyframes color-animation {
     0%{background-position: 0% 50%;}
     
     50%{background-position: 100% 100%;}

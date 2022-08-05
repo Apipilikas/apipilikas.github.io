@@ -1,8 +1,6 @@
 const projects_url = "https://api.github.com/users/Apipilikas/repos?sort=pushed_at";
 const profile_url = "https://api.github.com/users/Apipilikas";
 
-import {initializeMenuButton} from './mainScript.js';
-
 window.onload = init;
 
 var templates = {};
