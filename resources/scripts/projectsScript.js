@@ -165,7 +165,7 @@ function makeProjectsRequest() {
         
         let projectsContent = templates.projects(projectsData);
 
-        div.innerHTML = projectsContent;
+        div.innerHTML += projectsContent;
     })
     .catch(error => {
         console.log(error);

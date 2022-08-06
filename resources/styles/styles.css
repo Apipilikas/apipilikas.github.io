@@ -1240,9 +1240,44 @@ footer > p {
 
 /* START-OF: aboutme.html -> github-repos */
 
+#github-repos > .hint-container {
+    margin: 3em auto;
+    height: 50px;
+    width: 50%;
+    display: flex;
+    background-color: #9697ee;
+    border-radius: 10px;
+    box-shadow: 0px 10px 20px 0px var(--grey-color);
+    padding: 1em;
+}
+
+#github-repos > .hint-container > p {
+    text-align: center;
+    margin: auto;
+    font-weight: bold;
+    color: #333155;
+    animation: hint-animation 1s infinite;
+}
+
+@keyframes hint-animation {
+    0% {
+        font-size: 1.2em;
+    }
+    50% {
+        font-size: 1.3em;
+    }
+    100% {
+        font-size: 1.2em;
+    }
+}
+
 .detailed-project {
     margin: auto;
     width: 90%;
+}
+
+.detailed-project summary::-webkit-details-marker {
+    display: none;
 }
 
 .detailed-project:nth-child(odd) summary {
