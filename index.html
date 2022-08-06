@@ -2,30 +2,264 @@
 
 <html lang="en">
     <head>
-        <title>Aggelos Pipilikas | Under Construction</title>
-        <link rel="icon" href="resources/cross.png">
+        <title>Aggelos Pipilikas | Home</title>
+        <link rel="icon" href="resources/images/ap_logo_2.png">
         <meta name="description" content="Aggelos Pipilikas' personal site">
         <meta name="keywords" content="Aggelos Pipilikas, Evaggelos Pipilikas, personal site">
         <meta name="author" content="Aggelos Pipilikas">
         <meta charset="UTF-8">
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/handlebars@4.7.7/dist/handlebars.js"></script>
+        <script type="text/javascript" src="resources/scripts/mainScript.js"></script>
+        <script type="text/javascript" src="resources/scripts/menuScript.js"></script>
+        <link rel="stylesheet" href="resources/styles/styles.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
 
     <body>
         <header>
-
+            <div id="header-container">
+                <div id="menu-container">
+                    <div id="main-logo">
+                        <img src="resources/images/ap_logo_2.png" alt="AP Logo">
+                        <div id="main-logo-desc">
+                            <span>Aggelos Pipilikas</span>
+                            <span>Personal Website</span>
+                        </div>
+                    </div>
+                    <div id="menu-button">
+                        <img src="resources/images/menu.png">
+                    </div>
+                </div>
+                <nav>
+                    <ul id="header-navigation-bar">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="aboutme.html">About me</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="resume.html">Resume</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
         </header>
 
-        <main>
-            <h1>Aggelos Pipilikas</h1>
-            <p>This is Aggelos Pipilikas' personal site!</p>
-            <img src="resources/work-in-progress.png" alt="Under construction">
-            <p>The site is currently under construction. For more information about me, check my <a href="https://github.com/Apipilikas">gitHub account</a>
-                or my <a href="https://www.linkedin.com/in/aggelos-pipilikas/">linkedIn account</a>.</p>
+        <main id="home-page">
+            <section id="welcome-introduction-section">
+                <video playsinline id="mobile-video" src="resources/images/video-mobile-trim.mp4" muted loop autoplay></video>
+                <video id="tablet-desktop-video" src="resources/images/video.mp4" muted loop autoplay></video>
+                <div class="content">
+                    <div id="window">
+                        <div id="window-line">
+                            <div id="window-line-left-side">
+                                <span id="cmd-icon">>_</span>
+                                <span>Hello</span>
+                            </div>
+                            <div id="window-line-right-side">
+                                <img id="window-minimize-button" src="resources/images/minimize-sign.png" width="15px" height="15px" alt="Minimize button">
+                                <img id="window-full-screen-button" src="resources/images/full-screen.png" width="15px" height="15px" alt="Full screen button">
+                                <img id="window-close-button" src="resources/images/close.png" width="15px" height="15px" alt="Close button">
+                            </div>
+                        </div>
+                        <div id="code-section">
+                            <code class="code-line">
+                                <span class="code-number">1 </span><span class="class-name">WebSite</span> <span class="variable-name">web</span> = <span class="reserved-name">new</span> <span class="function-name">WebSite</span>(<span class="plain-text">"Aggelos Pipilikas"</span>);
+                            </code>
+                            <code class="code-line">
+                                <span class="code-number">2 </span><span class="variable-name">web</span>.<span class="function-name">setDeploymentYear</span>(<span class="plain-text">"2022"</span>);
+                            </code>
+                            <!-- This part of the code is scheduled to be working in the future.
+                                 The main idea is to ask user for one's name and then say hello. -->
+                            <!-- <code class="code-line">
+                                <span class="code-number">2 </span><span class="variable-name">System</span>.<span class="variable-name">out</span>.<span class="function-name">println</span>(<span class="variable-name">web</span>.<span class="function-name">getWelcomeSpeech</span>());
+                            </code> -->
+                            <code class="code-line">
+                                <span class="code-number">3 </span><span class="variable-name">System</span>.<span class="variable-name">out</span>.<span class="function-name">println</span>(<span class="variable-name">web</span>.<span class="function-name">getStatusOfUser</span>());
+                            </code>
+                            <code class="code-line">
+                                <span class="code-number">4 </span><span class="variable-name">System</span>.<span class="variable-name">out</span>.<span class="function-name">println</span>(<span class="plain-text">"What's your name?"</span>);
+                            </code>
+                            <code class="code-line">
+                                <span class="code-number">5 </span><span class="class-name">String</span> <span class="variable-name">name</span> = <span class="variable-name">String</span>.<span class="function-name">input</span>();
+                            </code>
+                            <code class="code-line">
+                                <span class="code-number">6 </span><span class="variable-name">System</span>.<span class="variable-name">out</span>.<span class="function-name">println</span>(<span class="variable-name">web</span>.<span class="function-name">greetingsTo</span>(<span class="variable-name">name</span>));
+                            </code>
+                            <!-- <code class="code-line">
+                                <span class="code-number">7 </span><span class="comment">// Tap the button "Run" to run the code ;P</span>
+                            </code> -->
+                        </div>
+                    </div>
+                    <div class="text-area">
+                        <span>Welcome</span>
+                    </div>
+                    <div class="button-area">
+                        <button type="button">Run code</button>
+                    </div>
+                </div>
+                
+            </section>
+            <section id="main-about-me-section">
+                <h2>Hello there!</h2> 
+                <img src="resources/images/me.png" alt="me"/>
+            
+                <div class="content">
+                    <p>
+                        I'm Aggelos Pipilikas or ... Evaggelos Pipilikas 
+                        (let's leave that story for another time). I'm 21 years old
+                        and I'm currently studying Computer Science at AUEB. And yes,
+                        my passion is coding. I'm sure you would like to learn more about me.
+                        So, don't be shy!
+                    </p>
+                    
+                    <a class="button-link" href="aboutme.html"><span></span>MORE ABOUT ME</a>
+                </div>            
+            </section>
+            <section id="skills-section">
+                <h2>Skills</h2>
+                <div class="content">
+                    <div id="skills-slideshow">
+                        <figure class="slide">
+                            <img src="resources/images/java.png">
+                            <figcaption>Java</figcaption>
+                        </figure>
+                        <figure class="slide">
+                            <img src="resources/images/js.png">
+                            <figcaption>Javascript</figcaption>
+                        </figure>
+                        <figure class="slide">
+                            <img src="resources/images/html-5.png">
+                            <figcaption>Html-5</figcaption>
+                        </figure>
+                        <figure class="slide">
+                            <img src="resources/images/css-3.png">
+                            <figcaption>CSS-3</figcaption>
+                        </figure>
+                        <figure class="slide">
+                            <img src="resources/images/python.png">
+                            <figcaption>Python</figcaption>
+                        </figure>
+                        <figure class="slide">
+                            <img src="resources/images/c-.png">
+                            <figcaption>C++</figcaption>
+                        </figure>
+                        <figure class="slide">
+                            <img src="resources/images/postgre.png">
+                            <figcaption>Postgress</figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </section>
+            <section id="education-section">
+                <h2>Education</h2>
+                <div class="content">
+                    <div class="education">
+                        <h3>Athens University of Economics and Business</h3>
+                        <h4>Department of Informatics | Computer Science</h4>
+                        <div class="timeline">
+                            <p>TO <span>PRESENT</span></p>
+                            <p>FROM <span>2018</span></p>
+                        </div>
+                    </div>
+                    <div class="education">
+                        <h3>High school</h3>
+                        <h4>Grade: 18.6</h4>
+                        <div class="timeline">
+                            <p>TO <span>2018</span></p>
+                            <p>FROM <span>2015</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="latest-projects-section">
+                <h2>My latest projects</h2>
+                <div id="latest-projects-slideshow">
+                    <button class="latest-projects-slideshow-button slideshow-display-button-left"><span></span><</button>
+                    <!-- auto-generated -->
+                    <div id="latest-projects-content"></div>
+                    <button class="latest-projects-slideshow-button slideshow-display-button-right"><span></span>></button>
+                </div>
+            </section>
+            <section id="news-section">
+                <h2>News</h2>
+                <div class="content">
+                    <article class="news">
+                        <div class="title-container">
+                            <div class="border"></div>
+                            <h3>Pre-released version | Bug-sensitive</h3>
+                        </div>
+                        <div class="date-container">
+                            <div class="border"></div>
+                            <p class="date">6/8/2022</p>
+                        </div>
+                        <div class="description-container">
+                            <div class="border"></div>
+                            <p class="description">
+                                This website has been released as a pre-released version. The latter means that mistakes or 
+                                malfunctions/bugs can be found. If you find any of those, make sure to inform me or post it on
+                                the discussion page of this repository on GitHub. (The repository is called apipilikas.github.io)
+                            </p>
+                        </div>
+                    </article>
+                    <article class="news">
+                        <div class="title-container">
+                            <div class="border"></div>
+                            <h3>Welcome!</h3>
+                        </div>
+                        <div class="date-container">
+                            <div class="border"></div>
+                            <p class="date">6/8/2022</p>
+                        </div>
+                        <div class="description-container">
+                            <div class="border"></div>
+                            <p class="description">
+                                Welcome to my personal website! This website has been created by me from scratch and its purpose 
+                                is mainly informational. Make sure to explore among the pages. I am sure you will find all the 
+                                information you need there. Also, keep an eye here in news section, since I will post everything 
+                                "new" I do, in terms of new projects, update on projects etc.
+                            </p>
+                        </div>
+                    </article>
+                </div>
+            </section>
+            <!-- links,education,skills,about me -> about me page -->
         </main>
 
         <footer>
-            <p>2022 | Created by Aggelos Pipilikas | Last update: 8/4/2022</p>
+            <div id="social-networks-footer">
+                <div class="social-network">
+                    <div class="social-network-image">
+                        <img src="resources/images/facebook.png" width="40px" height="40px">
+                    </div>
+                    <div class="social-network-link">
+                        <a href="https://www.facebook.com/aggelos.pipilikas/">Aggelos Pipilikas</a>
+                    </div>
+                </div>
+                <div class="social-network">
+                    <div class="social-network-image">
+                        <img src="resources/images/github.png" width="40px" height="40px">
+                    </div>
+                    <div class="social-network-link">
+                        <a href="https://github.com/Apipilikas">Apipilikas</a>
+                    </div>
+                </div>
+                <div class="social-network">
+                    <div class="social-network-image">
+                        <img src="resources/images/linkedin.png" width="40px" height="40px">
+                    </div>
+                    <div class="social-network-link">
+                        <a href="https://www.linkedin.com/in/aggelos-pipilikas/">Aggelos Pipilikas</a>
+                    </div>
+                </div>
+                <div class="social-network">
+                    <div class="social-network-image">
+                        <img src="resources/images/email.png" width="40px" height="40px">
+                    </div>
+                    <div class="social-network-link">
+                        <a href="mailto:apipilikas@gmail.com">apipilikas@gmail.com</a>
+                    </div>
+                </div>
+            </div>
+            <p>©Copyright 2022</p>
+            <p>Powered by Aggelos Pipilikas</p>
         </footer>
     </body>
 </html>

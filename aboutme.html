@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>Aggelos Pipilikas | About me</title>
+        <link rel="icon" href="resources/images/ap_logo_2.png">
+        <meta name="description" content="Aggelos Pipilikas' personal site">
+        <meta name="keywords" content="Aggelos Pipilikas, Evaggelos Pipilikas, personal site">
+        <meta name="author" content="Aggelos Pipilikas">
+        <meta charset="UTF-8">
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/handlebars@4.7.7/dist/handlebars.js"></script>
+        <script type="text/javascript" src="resources/scripts/menuScript.js"></script>
+        <link rel="stylesheet" href="resources/styles/styles.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+
+    <body>
+        <header>
+            <div id="header-container">
+                <div id="menu-container">
+                    <div id="main-logo">
+                        <img src="resources/images/ap_logo_2.png" alt="AP Logo">
+                        <div id="main-logo-desc">
+                            <span>Aggelos Pipilikas</span>
+                            <span>Personal Website</span>
+                        </div>
+                    </div>
+                    <div id="menu-button">
+                        <img src="resources/images/menu.png">
+                    </div>
+                </div>
+                <nav>
+                    <ul id="header-navigation-bar">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="aboutme.html">About me</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="resume.html">Resume</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main id="about-me-page">
+            <div class="main-header about-me-header">
+                <h1>About me!</h1>
+                <h4>Here you will learn a few things about me!</h4>
+            </div>
+            <div class="main-content about-me-content">
+                <section id="about-me-introduction-section">
+                    <h2>Who am I?</h2>
+                    <div class="content">
+                        <p>
+                            Hello there! I'm Aggelos (Evaggelos) Pipilikas. I'm 22 years old And
+                            I'm currently studying Computer Science at Athens University of Economics
+                            and Business. I describe myself as a highly determined-perfectionist IT person who you can rely on.
+                            Areas of interest are Software engineering, Machine Learning and Artificial Intelligence.
+                            
+                        </p>
+                        <img src="resources/images/me.png" alt="me" width="200px" height="200px"/>
+                    </div>
+                </section>
+                <section id="about-me-languages-section">
+                    <div class="header">
+                        <img src="resources/images/language.svg">
+                        <h2>Languages</h2>
+                    </div>
+                    <div class="content">
+                        <article class="language">
+                            <h3>Greek</h3>
+                            <p>Native tongue</p>
+                            <img src="resources/images/greece.svg">
+                        </article>
+                        <article class="language">
+                            <h3>English</h3>
+                            <p>Michigan Certificate of English (2021)</p>
+                            <img src="resources/images/uk.svg">
+                        </article>
+                    </div>
+                </section>
+            </div>
+            <section id="about-me-education-section">
+                <div class="header">
+                    <img src="resources/images/education.svg">
+                    <h2>Education</h2>
+                </div>
+                <div class="content">
+                    <article class="education">
+                        <h3>Athens University of Economics and Business</h3>
+                        <h4>Department of Informatics</h4>
+                        <div class="timeline">
+                            <p>TO <span>PRESENT</span></p>
+                            <p>FROM <span>2018</span></p>
+                        </div>
+                    </article>
+                    <article class="education">
+                        <h3>High school</h3>
+                        <h4>Grade: 18.6</h4>
+                        <div class="timeline">
+                            <p>TO <span>2018</span></p>
+                            <p>FROM <span>2015</span></p>
+                        </div>
+                    </article>
+                </div>
+            </section>
+            <section id="about-me-scripting-skills-section">
+                <div class="header">
+                    <img src="resources/images/scripting.svg">
+                    <h2>Scripting skills</h2>
+                </div>
+                <div class="content">
+                    <article class="scripting-skill">
+                        <img src="resources/images/java.png">
+                        <h3>Java</h3>
+                        <div class="border-progress-bar">
+                            <div class="progress-bar java"><p>5/5</p></div>
+                        </div>
+                    </article>
+                    <article class="scripting-skill">
+                        <img src="resources/images/js.png">
+                        <h3>Javascript</h3>
+                        <div class="border-progress-bar">
+                            <div class="progress-bar js"><p>5/5</p></div>
+                        </div>
+                    </article>
+                    <article class="scripting-skill">
+                        <img src="resources/images/html-5.png">
+                        <h3>HTML-5</h3>
+                        <div class="border-progress-bar">
+                            <div class="progress-bar html"><p>4/5</p></div>
+                        </div>
+                    </article>
+                    <article class="scripting-skill">
+                        <img src="resources/images/css-3.png">
+                        <h3>CSS-3</h3>
+                        <div class="border-progress-bar">
+                            <div class="progress-bar css"><p>4/5</p></div>
+                        </div>
+                    </article>
+                    <article class="scripting-skill">
+                        <img src="resources/images/python.png">
+                        <h3>Python</h3>
+                        <div class="border-progress-bar">
+                            <div class="progress-bar python"><p>3/5</p></div>
+                        </div>
+                    </article>
+                    <article class="scripting-skill">
+                        <img src="resources/images/c-.png">
+                        <h3>C++</h3>
+                        <div class="border-progress-bar">
+                            <div class="progress-bar c"><p>2/5</p></div>
+                        </div>
+                    </article>
+                    <article class="scripting-skill">
+                        <img src="resources/images/sql.png">
+                        <h3>SQL</h3>
+                        <div class="border-progress-bar">
+                            <div class="progress-bar sql"><p>3/5</p></div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+            <section id="about-me-other-experience-section">
+                <div class="header">
+                    <img src="resources/images/skills.svg">
+                    <h2>Other experience</h2>
+                </div>
+                <div class="content">
+                    <span>Github</span><span>Kali Linux</span><span>nmap</span><span>Wireshark</span>
+                    <span>nodejs</span><span>npm</span><span>pgAdmin</span><span>database Design</span>
+                    <span>Android Studio</span><span>Network protocols</span>
+                </div>
+            </section>
+            <section id="about-me-soft-skills-section">
+                <div class="header">
+                    <img src="resources/images/soft-skills.svg">
+                    <h2>Soft skills</h2>
+                </div>
+                <div class="content">
+                    <span>Teamwork</span><span>Time Management</span><span>Problem Solving</span>
+                    <span>Highly Organized</span><span>Communicative</span>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div id="social-networks-footer">
+                <div class="social-network">
+                    <div class="social-network-image">
+                        <img src="resources/images/facebook.png" width="40px" height="40px">
+                    </div>
+                    <div class="social-network-link">
+                        <a href="https://www.facebook.com/aggelos.pipilikas/">Aggelos Pipilikas</a>
+                    </div>
+                </div>
+                <div class="social-network">
+                    <div class="social-network-image">
+                        <img src="resources/images/github.png" width="40px" height="40px">
+                    </div>
+                    <div class="social-network-link">
+                        <a href="https://github.com/Apipilikas">Apipilikas</a>
+                    </div>
+                </div>
+                <div class="social-network">
+                    <div class="social-network-image">
+                        <img src="resources/images/linkedin.png" width="40px" height="40px">
+                    </div>
+                    <div class="social-network-link">
+                        <a href="https://www.linkedin.com/in/aggelos-pipilikas/">Aggelos Pipilikas</a>
+                    </div>
+                </div>
+                <div class="social-network">
+                    <div class="social-network-image">
+                        <img src="resources/images/email.png" width="40px" height="40px">
+                    </div>
+                    <div class="social-network-link">
+                        <a href="mailto:apipilikas@gmail.com">apipilikas@gmail.com</a>
+                    </div>
+                </div>
+            </div>
+            <p>©Copyright 2022</p>
+            <p>Powered by Aggelos Pipilikas</p>
+        </footer>
+    </body>
+</html>

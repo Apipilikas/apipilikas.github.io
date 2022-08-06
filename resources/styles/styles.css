@@ -1,0 +1,1987 @@
+@import url('https://fonts.googleapis.com/css2?family=Commissioner:wght@100;200;300;400;500;600;700;800&family=Jura:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --main-color: #deeeef;
+    --header-color: #bcdbdf;
+    --blue-color: #235784;
+    --green-blue-color: #99c8ce;
+    --grey-color: #89a6c0;
+}
+
+body {
+    background-color: var(--main-color);
+    font-family: 'Jura', sans-serif;
+    margin: 0em;
+}
+
+h2, h3 {
+    margin-left: 1em;
+}
+
+h2 {
+    font-size: 1.5em;
+}
+
+.button-link, button {
+    color: black;
+    font-family: 'Jura', sans-serif;
+    font-size: 1em;
+    font-weight: 700;
+    padding: 1em;
+    background-color: transparent;
+    border: 3px black solid;
+    border-radius: 5px;
+    box-shadow: 0px 10px 20px 0px var(--grey-color);
+    text-decoration: none;
+    position: relative;
+    z-index: 1;
+}
+
+/* .button-link:hover, button:hover {
+    background-color: var(--header-color);
+    transition: 0.25s;
+} */
+
+.button-link span {
+    width: 100%;
+    height: 0%;
+    position: absolute;
+    bottom: 0%;
+    left: 0%;
+    background: #fff;
+    z-index: -1;
+    transition: 0.25s;
+}
+
+.button-link:hover span {
+    height: 100%;
+}
+
+/* START-OF: *.html -> header */
+
+header {
+    background-color: var(--header-color);
+    /* padding: 0em 1em 0em 1em; */
+}
+
+header > #header-container {
+    /* margin: 0em 1em 0em 1em; */
+    min-height: 90px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#menu-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--header-color);
+    z-index: 6;
+}
+
+#main-logo {
+    white-space: nowrap;
+    margin: 0.5em auto 0.5em auto;
+    display: flex;
+}
+
+#main-logo > img {
+    width: 60px;
+    height: 60px;
+    border-radius: 6px;
+    border: 2px solid black;
+}
+
+#main-logo-desc {
+    margin-left: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+#main-logo-desc > span:first-child {
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+#main-logo-desc > span:last-child {
+    font-size: 0.8em;
+}
+
+header nav {
+    width: 100%;
+}
+
+header nav > ul {
+    white-space: nowrap;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    padding: 0em;
+    margin-top: 0em;
+    background-color: var(--header-color);
+    list-style-type: none;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    z-index: 5;
+    animation: menu-animation 1s;
+}
+
+@keyframes menu-animation {
+    0% {
+        height: 0%;
+    }
+    100% {
+        height: 100%;
+    }
+}
+
+header nav li {
+    width: 50%;
+}
+
+header nav li > a {
+    color: black;
+    display: block;
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: 700;
+    padding: 1em 0em 1em 0em;
+    transition: 0.25s;
+}
+
+header li > a:hover {
+    background-color: var(--blue-color);
+    color: white;
+}
+
+header li > a:active {
+    background-color: var(--green-blue-color);
+    color: var(--blue-color);
+}
+
+#menu-button {
+    margin: auto 1em;
+}
+
+#menu-button > img {
+    width: 5vw;
+    height: 5vw;
+}
+
+/* END-OF: *.html -> header */
+
+/*
+                         START-OF
+    /FILE/    /FILE/    index.html    /FILE/    /FILE/
+*/
+
+/* START-OF: index.html -> welcome-introduction-section */
+
+#welcome-introduction-section > .content {
+    margin: 5vw auto;
+    width: 100%;
+    position: absolute;
+    top: 90px;
+    display: flex;
+    /* flex */
+    /* background: linear-gradient(to right, var(--main-color), var(--blue-color)); */
+}
+
+#welcome-introduction-section video {
+    width: 100%;
+    height: 100%;
+}
+
+/* Since mobile browsers seem not to support video responsiveness via
+   the element source, this is a quite easy way-trick to make videos change. */
+#mobile-video {
+    display: block;
+}
+
+#tablet-desktop-video {
+    display: none;
+}
+
+#welcome-introduction-section > .content > .text-area {
+    display: none;
+    flex-basis: 20%;
+    margin: auto;
+    text-align: center;
+}
+
+
+#window {
+    flex-basis: 80%;
+    width: 100%;
+    margin: 1em auto;
+    background-color: rgba(30, 30, 30, 0.801);
+    border-radius: 10px;
+}
+
+#window-line {
+    background-color: #333533;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+#window-line-left-side {
+    grid-column: 1/2;
+    display: flex;
+}
+
+#window-line-left-side > span {
+    font-size: min(3vw, 1.2em);
+    color: white;
+    font-weight: 700;
+    margin: auto 0em auto 1em;
+}
+
+#window-line-left-side > #cmd-icon {
+    font-size: min(3vw, 1em);
+    font-weight: 700;
+    color: black;
+    padding: 0.2em;
+    background-color: #4ec9b0;
+    border-radius: 5px;
+}
+
+#window-line-right-side {
+    grid-column: 2/3;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#window-line img {
+    width: min(2vw, 15px);
+    height: min(2vw, 15px);
+    margin: 0.3em;
+    border-radius: 30px;
+}
+
+#window-minimize-button {
+    background-color: #fca311;
+    padding: 0.3em;
+}
+
+#window-full-screen-button {
+    background-color: #2dc653;
+    padding: 0.3em;
+}
+
+#window-close-button {
+    background-color: #e01e37;
+    padding: 0.3em;
+}
+
+#code-section {
+    font-size: min(2.8vw, 1em);
+    margin-left: 1em;
+}
+
+.code-line {
+    white-space: nowrap;
+    display: block;
+    color: #d4d4d4;
+}
+
+.code-line .code-number {
+    color: #7e7975;
+}
+
+.code-line .comment {
+    color: #669461;
+}
+
+.code-line .class-name {
+    color: #4ec9b0;
+}
+
+.code-line .variable-name {
+    color: #96d8fc;
+}
+
+.code-line .reserved-name {
+    color: #c586bf;
+}
+
+.code-line .function-name {
+    color: #dbd9a6;
+}
+
+.code-line .plain-text {
+    color: #d38469;
+}
+
+#welcome-introduction-section > .content > .button-area {
+    flex-basis: 20%;
+    margin: 1em auto 1em auto;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+/* END-OF: index.html -> welcome-introduction-section */
+
+/* START-OF: index.html -> main-about-me-section */
+
+#main-about-me-section {
+    background-color: var(--green-blue-color);
+    padding-bottom: 1em;
+    display: flex;
+    flex-direction: column;
+}
+
+#main-about-me-section > h2 {
+    margin: auto;
+    font-size: 2em;
+}
+
+#main-about-me-section > img {
+    width: 50vw;
+    height: 50vw;
+    max-width: 150px;
+    max-height: 150px;
+    margin: auto;
+    border-radius: 10px;
+    box-shadow: 0px 10px 20px 0px var(--grey-color);
+}
+
+#main-about-me-section > .content {
+    padding: 1em;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+#main-about-me-section > .content > a {
+    margin: auto;
+}
+
+/* END-OF: index.html -> main-about-me-section */
+
+/* START-OF: index.html -> skills-section */
+
+#skills-section > .content {
+    margin: auto;
+    padding-bottom: 1em;
+    position: relative;
+    width: 80%;
+    overflow: hidden;
+}
+
+#skills-section > .content::before, #skills-section > .content::after {
+    background: linear-gradient(to right, var(--main-color) 0%,
+    rgba(255,255,255,0) 100%);
+    content: "";
+    height: 100%;
+    position: absolute;
+    width: 15%;
+    z-index: 2;
+}
+
+#skills-section > .content::before {
+    left: 0%;
+    top: 0%;
+}
+
+#skills-section > .content::after {
+    right: 0%;
+    top: 0%;
+    transform: rotateZ(180deg);
+}
+
+#skills-slideshow {
+    display: flex;
+    animation: scroll-animation 20s linear infinite;
+}
+
+.slide {
+    display: flex;
+    flex-direction: column;
+    /* background-color: white; */
+    border-radius: 10px;
+    box-shadow: 0px 10px 20px 0px #bfcbd8;
+    align-items: center;
+    padding: 1em;
+    perspective: 100px;
+}
+
+.slide:nth-child(2n) {
+    color: #937729;
+    background-color: #ffeec4;
+}
+
+.slide:nth-child(2n+1) {
+    color: #201867;
+    background-color: #b1d1ff;
+}
+
+.slide:nth-child(3n+1) {
+    color: #315555;
+    background-color: #aadcda;
+}
+
+.slide > img {
+    padding: 1em;
+    flex-shrink: 0;
+    width: 80px;
+    height: 80px;
+    transition: transform 1s;
+}
+
+.slide > img:hover {
+    transform: translateZ(20px);
+}
+
+.slide > figcaption {
+    font-weight: bold;
+}
+
+@keyframes scroll-animation {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-1600px);
+    }
+}
+
+/* END-OF: index.html -> skills-section */
+
+/* START-OF: index.html -> education-section */
+
+.education {
+    display: grid;
+    margin: 3em;
+    width: 80%;
+    position: relative;
+    background-color: var(--header-color);
+    border-radius: 10px;
+    box-shadow: 0px 10px 20px 0px var(--grey-color);
+    grid-template-rows: 1fr 1fr;
+}
+
+/* TO and FROM dots */
+.education:nth-child(odd) .timeline > p::before {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: white;
+    border-radius: 5px;
+    left: -2.3em;
+    border: 3px solid var(--green-blue-color);
+}
+
+.education:nth-child(even) .timeline > p::after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: white;
+    border-radius: 5px;
+    right: -2.3em;
+    border: 3px solid var(--green-blue-color);
+}
+
+/* container gravity and grid layout */
+.education:nth-child(odd) {
+    grid-template-columns: 1fr 4fr;
+}
+
+.education:nth-child(even) {
+    margin-left: auto;
+    margin-right: 3em;
+    grid-template-columns: 4fr 1fr;
+}
+
+/* Timeline */
+.education::before {
+    content: "";
+    position: absolute;
+    width: 80%;
+    border: solid #333;
+}
+  
+  /* Setting the border of top, bottom, left */
+  .education:nth-child(odd)::before {
+    left: -2em;
+    top: -1.3em;
+    bottom: -2em;
+    border-width: 5px 0 5px 5px;
+    border-radius: 50px 0 0 50px;
+  }
+  
+/* Setting the border of top, bottom, right */
+.education:nth-child(even)::before {
+    right: -2em;
+    top: -1.3em;
+    bottom: -2em;
+    border-width: 5px 5px 5px 0;
+    border-radius: 0 50px 50px 0;
+}
+  
+/* Removing the border if it is the first education */
+.education:first-child::before {
+    border-top: 0;
+    border-top-left-radius: 5px;
+}
+  
+  /* Removing the border if it is the last education  and it's odd */
+.education:last-child:nth-child(odd)::before {
+    border-bottom: 0;
+    border-bottom-left-radius: 5px;
+}
+  
+/* Removing the border if it is the last education  and it's even */
+.education:last-child:nth-child(even)::before {
+    border-bottom: 0;
+    border-bottom-right-radius: 5px;
+}
+
+/* Setting objects placement in grid */
+.education > h3 {
+    margin: auto;
+    grid-row: 1/2;
+    grid-column: 2/3;
+}
+
+.education > h4 {
+    margin: auto;
+    grid-row: 2/3;
+    grid-column: 2/3;
+}
+
+.education:nth-child(even) > h3 {
+    grid-column: 1/2;
+}
+
+.education:nth-child(even) > h4 {
+    grid-column: 1/2;
+}
+
+.timeline {
+    grid-column: 1/2;
+    grid-row: 1/3;
+    margin: 1em;
+    padding: 1em 0em 1em 1em;
+}
+
+.education:nth-child(even) .timeline {
+    text-align: right;
+    grid-column: 2/3;
+}
+
+.timeline > p > span {
+    color: var(--blue-color);
+    font-weight: 700;
+}
+
+.timeline p:nth-child(2) {
+    margin-top: 4em;
+}
+
+/* END-OF: index.html -> education-section */
+
+/* START-OF: index.html -> latest-projects-section */
+
+#latest-projects-slideshow {
+    position: relative;
+}
+
+#latest-projects-slideshow > button {
+    display: none;
+    position: absolute;
+    top: 50%;
+}
+
+#latest-projects-slideshow > button > span {
+    width: 0%;
+    height: 100%;
+    position: absolute;
+    bottom: 0%;
+    background: var(--blue-color);
+    z-index: -1;
+    transition: 0.25s;
+}
+
+#latest-projects-slideshow > .slideshow-display-button-right > span {
+    left: 0%;
+}
+
+#latest-projects-slideshow > .slideshow-display-button-left > span {
+    right: 0%;
+}
+
+#latest-projects-slideshow > .slideshow-display-button-bottom > span {
+    right: 0%;
+}
+
+#latest-projects-slideshow > button:hover > span {
+    width: 100%;
+}
+
+.slideshow-display-button-right {
+    margin-right: 0.5em;
+    right: 0%;
+}
+
+.slideshow-display-button-left {
+    margin-left: 0.5em;
+    left: 0%;
+}
+
+#latest-projects-content {
+    margin: 4em;
+    display: flex;
+    justify-content: space-between;
+}
+
+.project {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    background-color: var(--header-color);
+    border-radius: 10px;
+    box-shadow: 0px 10px 20px 0px var(--grey-color);
+    border-left: 10px solid var(--grey-color);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    animation: project-animation 2s;
+}
+
+@keyframes project-animation {
+    0% {
+        width: 0%;
+    }
+    20% {
+        width: 20%;
+    }
+}
+
+.project > div {
+    text-align: center;
+}
+
+.project > div > h3 {
+    padding: 1em 0em 1em 0em;
+    margin: 0em;
+}
+
+.project > div > p {
+    font-weight: bold;
+    margin: auto;
+}
+
+.project > p {
+    padding: 1em;
+    margin: 0em;
+}
+
+.project > .git-link {
+    display: inline-flex;
+}
+
+.project  > .git-link > a {
+    color: black;
+    margin: 1em auto 1em auto;
+}
+
+#latest-projects-content .no-result-found-error {
+    font-size: 1.2em;
+    background-color: var(--header-color);
+    border-radius: 10px;
+    box-shadow: 0px 10px 20px 0px var(--grey-color);
+    padding: 1em;
+    margin: auto;
+}
+
+/* END-OF: index.html -> latest-projects-section */
+
+/* START-OF: index.html -> news-section */
+
+#news-section > .content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.news {
+    margin: 2em;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* background-color: var(--green-blue-color); */
+    border-radius: 10px;
+    box-shadow: 0px 10px 20px 0px var(--grey-color);
+}
+
+.news:nth-child(2n+1) {
+    color: #4f577a;
+    background-color: #d4dbf9;
+}
+
+.news:nth-child(4n+1) {
+    color: #315555;
+    background-color: #aadcda;
+}
+
+.news:nth-child(2n) {
+    color: #937729;
+    background-color: #ffeec4;
+}
+
+.news:nth-child(4n) {
+    color: #201867;
+    background-color: #b1d1ff;
+}
+
+.news > .title-container , .news > .date-container , .news > .description-container {
+    margin-top: 1em;
+    display: flex;
+}
+
+.news > .description-container {
+    margin-bottom: 1em;
+}
+
+.news .border {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    
+}
+
+.news:nth-child(2n+1) .border {
+    border-right: 10px solid #4f577a;
+}
+
+.news:nth-child(4n+1) .border {
+    border-right: 10px solid #315555;
+}
+
+.news:nth-child(2n) .border {
+    border-right: 10px solid #937729;
+}
+
+.news:nth-child(4n) .border {
+    border-right: 10px solid #201867;
+}
+
+.news h3 {
+    border-radius: 10px;
+    padding: 0.5em;
+    margin: 0em 0.5em 0em 0.5em;
+}
+
+.news:nth-child(2n+1)  h3 {
+    color: #d4dbf9;
+    background-color: #4f577a;
+}
+
+.news:nth-child(4n+1)  h3 {
+    color: #aadcda;
+    background-color: #315555;
+}
+
+.news:nth-child(2n) h3 {
+    color: #ffeec4;
+    background-color: #937729;
+}
+
+.news:nth-child(4n) h3 {
+    color: #b1d1ff;
+    background-color: #201867;
+}
+
+.news .date {
+    font-weight: bold;
+    padding: 0.5em;
+    margin: 0em 0em 0em 0.5em;
+    /* padding-left: 1em;
+    border-left: 10px solid var(--grey-color); */
+}
+
+.news .description {
+    padding: 0.5em;
+    margin: 0em 0em 0em 0.5em;
+}
+
+/* END-OF: index.html -> news-section */
+
+/*
+    /FILE/    /FILE/    index.html    /FILE/    /FILE/
+                          END-OF
+*/
+
+/* START-OF: *.html -> footer */
+
+footer {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--green-blue-color);
+    padding-bottom: 1em;
+}
+
+#social-networks-footer {
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.social-network {
+    position: relative;
+    top: 0%;
+    right: 0%;
+    padding: 0.5em;
+    background-color: var(--header-color);
+    border-radius: 10px;
+    box-shadow: 0px 5px 20px 0px #63707a;
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+    margin-bottom: 1em;
+}
+
+.social-network-image {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* padding: 0em 1em 0em 1em; */
+}
+
+.social-network-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    width: 220px;
+}
+
+.social-network-link > a {
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+    transition: 0.25s;
+}
+
+.social-network-link > a:hover {
+    color: var(--blue-color);
+    font-size: 1.2em;
+}
+
+footer > p {
+    font-weight: bold;
+    margin: 0em;
+    text-align: center;
+}
+
+/* END-OF: *.html -> footer */
+
+/*
+                          START-OF
+    /FILE/    /FILE/    aboutme.html    /FILE/    /FILE/
+*/
+
+.about-me-header {
+    text-align: center;
+}
+
+/* START-OF: aboutme.html -> about-me-introduction-section */
+
+#about-me-introduction-section {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(45deg, var(--grey-color), var(--header-color), var(--green-blue-color), var(--blue-color));
+    border-radius: 10px;
+    box-shadow: 0px 10px 20px 0px var(--grey-color);
+    animation: color-animation 10s infinite;
+    background-size: 200% 200%;
+}
+
+#about-me-introduction-section > .content {
+    display: flex;
+    flex-direction: column;
+}
+
+#about-me-introduction-section > .content > p {
+    padding: 1em;
+    margin: auto;
+}
+
+#about-me-introduction-section > .content > img {
+    margin: 1em auto;
+}
+
+#about-me-introduction-section > h2 {
+    margin: auto;
+    padding: 0.5em;
+    white-space: nowrap;
+    
+}
+
+#about-me-introduction-section img {
+    border-radius: 10px;
+    box-shadow: 0px 10px 20px 0px var(--grey-color);
+}
+
+/* END-OF: aboutme.html -> about-me-introduction-section */
+
+/* START-OF: aboutme.html -> about-me-languages-section */
+
+#about-me-languages-section h2 {
+    margin: auto 0em;
+}
+
+#about-me-page .header {
+    position: relative;
+    margin: 1em;
+    display: flex;
+    justify-content: center;
+    height: 80px;
+}
+
+#about-me-page .header > img {
+    position: absolute;
+    right: 52%;
+    width: 80px;
+    opacity: 0.5;
+    animation: header-color-animation 5s ease infinite;
+}
+
+#about-me-languages-section > .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.language {
+    margin: 1em auto;
+    display: grid;
+    grid-template-rows: 0.5fr 0.5fr;
+    grid-template-columns: 3fr 1fr;
+    width: 90%;
+    background-color: var(--header-color);
+    border-radius: 10px;
+    box-shadow: 0px 10px 20px 0px var(--grey-color);
+}
+
+.language h3 {
+    margin: auto;
+    grid-row: 1/2;
+    grid-column: 1/2;
+}
+
+.language p {
+    margin: auto;
+    grid-row: 2/3;
+    grid-column: 1/2;
+}
+
+.language img {
+    margin: auto 1em;
+    height: 80px;
+    grid-row: 1/3;
+    grid-column: 2/3;
+}
+
+@keyframes header-color-animation {
+    0%{
+        filter: invert(26%) sepia(49%) saturate(1478%) hue-rotate(180deg) brightness(86%) contrast(82%);
+    }
+    
+    50%{
+        filter: invert(69%) sepia(7%) saturate(1323%) hue-rotate(167deg) brightness(93%) contrast(88%);
+    }
+    
+    100%{
+        filter: invert(26%) sepia(49%) saturate(1478%) hue-rotate(180deg) brightness(86%) contrast(82%);
+        
+    }
+}
+
+/* END-OF: aboutme.html -> about-me-languages-section */
+
+/* START-OF: aboutme.html -> about-me-scriptings-skills-section */
+
+#about-me-scripting-skills-section > .content {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.scripting-skill {
+    margin: 1em auto;
+    background-color: var(--header-color);
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-left: 10px solid var(--blue-color);
+    border-radius: 10px;
+    box-shadow: 0px 10px 20px 0px var(--grey-color);
+}
+
+.scripting-skill > h3 {
+    margin: auto;
+}
+
+.scripting-skill > img {
+    margin: auto;
+    padding: 1em;
+    width: 80px;
+    height: 80px;
+}
+
+.border-progress-bar {
+    width: 90%;
+    margin: 2em auto;
+    height: 24px;
+    background-color: rgb(229, 229, 229);
+    border-radius: 10px;
+    box-shadow: 0px 10px 20px 0px var(--grey-color);
+}
+
+.progress-bar {
+    text-align: center;
+    height: 24px;
+    background: linear-gradient(45deg, var(--green-blue-color), var(--blue-color) 50%, var(--green-blue-color));
+    border-radius: 10px;
+    animation: color-animation 10s infinite;
+    background-size: 200% 200%;
+}
+
+.progress-bar > p {
+    vertical-align: middle;
+    font-weight: bold;
+    color: white;
+    display: inline;
+}
+
+.progress-bar.html , .progress-bar.css {
+    width: 80%;
+}
+
+.progress-bar.python , .progress-bar.sql {
+    width: 60%;
+}
+
+.progress-bar.c {
+    width: 40%;
+}
+
+/* END-OF: aboutme.html -> about-me-scriptings-skills-section */
+
+/* START-OF: aboutme.html -> about-me-other-experience-section ,
+             aboutme.html -> about-me-soft-skills-section */
+
+#about-me-other-experience-section > .content , #about-me-soft-skills-section > .content {
+    margin: 0em auto;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+#about-me-other-experience-section span , #about-me-soft-skills-section span {
+    font-weight: bold;
+    text-align: center;
+    margin: 1em;
+    padding: 1em;
+    background-color: var(--green-blue-color);
+    border-radius: 10px;
+    box-shadow: 0px 0px 30px 0px white;
+}
+
+#about-me-other-experience-section span:nth-child(n) ,
+#about-me-soft-skills-section span:nth-child(n) {
+    color: #315555;
+    background-color: #aadcda;
+}
+
+#about-me-other-experience-section span:nth-child(2n) {
+    color: #4f577a;
+    background-color: #d4dbf9;
+}
+
+#about-me-other-experience-section span:nth-child(3n) {
+    color: #937729;
+    background-color: #ffeec4;
+}
+
+#about-me-soft-skills-section span:nth-child(2n) {
+    color: #201867;
+    background-color: #b1d1ff;
+}
+
+/* END-OF: aboutme.html -> about-me-other-experience-section ,
+                aboutme.html -> about-me-soft-skills-section */
+
+/*
+    /FILE/    /FILE/    aboutme.html    /FILE/    /FILE/
+                           END-OF
+*/
+
+/*
+                          START-OF
+    /FILE/    /FILE/    projects.html    /FILE/    /FILE/
+*/
+
+.projects-header {
+    text-align: center;
+}
+
+/* START-OF: aboutme.html -> github-profile */
+
+#github-profile {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 90%;
+    background: linear-gradient(45deg, #a27ff2, #b1c9eb, #52477a);
+    border-radius: 10px;
+    box-shadow: 0px 10px 20px 0px var(--grey-color);
+    animation: color-animation 10s infinite;
+    background-size: 200% 200%;
+}
+
+#github-profile > .username-container {
+    margin: auto;
+    white-space: nowrap;
+    padding: 1em;
+    display: flex;
+}
+
+#github-profile > .username-container img {
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    box-shadow: 0px 10px 20px 0px var(--grey-color);
+}
+
+#github-profile .info-container {
+    padding: 1em;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#github-profile .info {
+    display: flex;
+    margin: 1em auto;
+    text-align: center;
+    padding: 1em;
+    border-radius: 10px;
+    box-shadow: 0px 10px 20px 0px var(--grey-color);
+}
+
+#github-profile .info:nth-child(even) {
+    color: #333155;
+    background-color: #9697ee;
+}
+
+#github-profile .info:nth-child(even) > img {
+    filter: invert(18%) sepia(15%) saturate(1697%) hue-rotate(204deg) brightness(96%) contrast(92%);
+}
+
+#github-profile .info:nth-child(odd) {
+    color: #315555;
+    background-color: #96e3ee;
+}
+
+#github-profile .info:nth-child(odd) > img {
+    filter: invert(29%) sepia(44%) saturate(335%) hue-rotate(131deg) brightness(92%) contrast(94%);
+}
+
+#github-profile .info p {
+    font-weight: bold;
+    margin: auto auto auto 1em;
+}
+
+#github-profile .info span {
+    font-size: 38px;
+}
+
+#github-profile .info > img {
+    width: 40px;
+    height: 40px;
+}
+
+#github-profile .button-area {
+    margin: 1em auto;
+}
+
+#github-profile .button-link {
+    color: #315555;
+    border: 3px #315555 solid;
+}
+
+.button-link:hover {
+    font-weight: bold;
+}
+
+#github-profile .button-link span {
+    background-color: #9697ee;
+}
+
+/* END-OF: aboutme.html -> github-profile */
+
+/* START-OF: aboutme.html -> github-repos */
+
+#github-repos > .hint-container {
+    margin: 3em auto;
+    height: 50px;
+    width: 50%;
+    display: flex;
+    background-color: #9697ee;
+    border-radius: 10px;
+    box-shadow: 0px 10px 20px 0px var(--grey-color);
+    padding: 1em;
+}
+
+#github-repos > .hint-container > p {
+    text-align: center;
+    margin: auto;
+    font-weight: bold;
+    color: #333155;
+    animation: hint-animation 1s infinite;
+}
+
+@keyframes hint-animation {
+    0% {
+        font-size: 1.2em;
+    }
+    50% {
+        font-size: 1.3em;
+    }
+    100% {
+        font-size: 1.2em;
+    }
+}
+
+.detailed-project {
+    margin: auto;
+    width: 90%;
+}
+
+.detailed-project summary::-webkit-details-marker {
+    display: none;
+}
+
+.detailed-project:nth-child(odd) summary {
+    background-color: #9697ee;
+}
+
+.detailed-project:nth-child(even) summary {
+    background-color: #b1c9eb;
+}
+
+/* animation roll down */
+/* summary {
+    padding: 0.5em;
+    display: block;
+    background: #333;
+    padding-left: 2.2rem;
+    position: relative;
+    cursor: pointer;
+  }
+  
+  summary:before {
+    content: '';
+    border-width: .5rem;
+    border-style: solid;
+    border-color: transparent transparent transparent #fff;
+    position: absolute;
+    top: 1.3rem;
+    left: 1rem;
+    transform: rotate(0);
+    transform-origin: .2rem 50%;
+    transition: .25s transform ease;
+  } */
+  
+  /* details[open] > summary:before {
+    transform: rotate(90deg);
+  } */
+  
+.detailed-project > summary {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    border-radius: 10px;
+    box-shadow: 0px 10px 20px 0px var(--grey-color);
+    margin: 1em;
+    cursor: pointer;
+}
+
+.detailed-project > summary > span {
+    font-size: 1.4em;
+    font-weight: bold;
+    margin: auto;
+}
+
+.detailed-project > summary > img {
+    margin: 0.5em auto;
+    width: 50px;
+    height: 50px;
+}
+
+.detailed-project > summary > .stars-container {
+    margin: 0.5em auto;
+    display: flex;
+}
+
+.detailed-project > summary > .stars-container > img {
+    margin: auto;
+    width: 25px;
+    height: 25px;
+    
+}
+
+.detailed-project > summary > .stars-container > span {
+    font-size: 1.4em;
+    font-weight: bold;
+    margin: auto 1em;
+}
+
+.detailed-project > .content {
+    padding: 1em;
+    background-color: #9697ee;
+    margin: 1em;
+    border-radius: 10px;
+    box-shadow: 0px 10px 20px 0px var(--grey-color);
+}
+
+.detailed-project:nth-child(even) > .content {
+    background-color: #b1c9eb;
+}
+
+.detailed-project > .content > .top-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.detailed-project > .content > p {
+    margin: 1em;
+    text-align: center;
+}
+
+.detailed-project > .content > .button-area {
+    display: flex;
+}
+
+.detailed-project > .content > .top-container > p {
+    margin: 0.3em auto;
+    color: #201867;
+    background-color: #b1d1ff;
+    padding: 0.5em;
+    font-size: 1.1em;
+    font-weight: bold;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px 0px var(--grey-color);
+}
+
+.detailed-project:nth-child(even) > .content > .top-container > p {
+    color: #313755;
+    background-color: #a099e9;
+}
+
+.detailed-project  .button-link {
+    color: #313755;
+    border: 3px #313755 solid;
+    margin: auto;
+}
+
+.detailed-project .button-link > span {
+    background-color: #b1d1ff;
+}
+
+.detailed-project:nth-child(even)  .button-link {
+    color: #6964a4;
+    border: 3px #6964a4 solid;
+    margin: auto;
+}
+
+.detailed-project:nth-child(even) .button-link > span {
+    background: #a099e9;
+}
+
+/* END-OF: aboutme.html -> github-repos */
+
+/*
+    /FILE/    /FILE/    projects.html    /FILE/    /FILE/
+                           END-OF
+*/
+
+/*
+                         START-OF
+    /FILE/    /FILE/    contact.html    /FILE/    /FILE/
+*/
+
+.contact-header {
+    text-align: center;
+}
+
+/* START-OF: contact.html -> contact-me-container */
+
+.contact-me-container {
+    padding: 2em;
+    margin: 1em auto;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    box-shadow: 0px 10px 20px 0px var(--grey-color);
+    animation: color-animation 10s ease infinite;
+}
+
+.contact-me-container .content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-me-container .content h2 {
+    margin: 0em;
+}
+
+.contact-me-container .content a {
+    margin: auto;
+}
+
+.contact-me-container img {
+    margin: 1em auto 0em auto;
+    height: 120px;
+    width: 120px;
+    transition: 1s;
+    
+}
+
+.contact-me-container img:hover {
+    transform: rotate(360deg);
+    transition: 1s;
+}
+
+.contact-me-container.messenger {
+    background: linear-gradient(45deg, #3676fc, #b53ae2, #e048a9, #ff6b66 70%);
+    background-size: 200% 200%;
+}
+
+.contact-me-container.linkedin {
+    background: linear-gradient(135deg, #0f4b9b, #2864b4, #417dcd, #d4e0f1);
+    background-size: 200% 200%;
+}
+
+.contact-me-container.gmail {
+    background: linear-gradient(90deg, #0085f7, #00a94b, #ffbc00, #e51c19);
+    background-size: 200% 200%;
+}
+
+@keyframes color-animation {
+    0%{background-position: 0% 50%;}
+    
+    50%{background-position: 100% 100%;}
+    
+    100%{background-position: 0% 50%;}
+}
+
+.contact-me-container .button-link {
+    box-shadow: 0px 5px 20px 0px black;
+}
+
+/* END-OF: contact.html -> contact-me-container */
+
+/*
+    /FILE/    /FILE/    contact.html    /FILE/    /FILE/
+                           END-OF
+*/
+
+/*
+                         START-OF
+    /FILE/    /FILE/    resume.html    /FILE/    /FILE/
+*/
+
+/* START-OF: resume.html -> resume-content */
+
+.resume-header {
+    text-align: center;
+}
+
+.resume-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.resume-content > embed {
+    margin: auto;
+    width: 80%;
+    height: 500px;
+}
+
+.resume-content > .button-area {
+    margin: 5em auto;
+}
+
+/* END-OF: resume.html -> resume-content */
+
+/*
+    /FILE/    /FILE/    resume.html    /FILE/    /FILE/
+                           END-OF
+*/
+
+/* TABLET-BASED LAYOUT */
+@media only screen and (min-width: 425px) {
+
+    #mobile-video {
+        display: none;
+    }
+
+    #tablet-desktop-video {
+        display: block;
+    }
+    
+    /* START-OF: *.html -> header */
+
+    header > #header-container {
+        margin: 0em auto;
+    }
+    
+    header nav > ul {
+        display: flex !important;
+        margin-top: 1em;
+        margin-bottom: 0em;
+        flex-direction: row;
+        position: initial;
+        /* flex-wrap: wrap; */
+    }
+
+    #menu-container {
+        position: initial !important;
+    }
+    
+    header li {
+        flex-basis: 50%;
+    }
+
+    #menu-button {
+        display: none;
+    }
+
+    /* END-OF: *.html -> header */
+
+    /*
+                             START-OF
+        /FILE/    /FILE/    index.html    /FILE/    /FILE/
+    */
+
+    /* START-OF: index.html -> welcome-introduction-section */
+
+    #welcome-introduction-section > .content {
+        margin: auto;
+        top: 153px;
+    }
+
+    /* END-OF: index.html -> welcome-introduction-section */
+
+    /* START-OF: index.html -> main-about-me-section */
+
+    #main-about-me-section {
+        background-color: var(--green-blue-color);
+        padding: 2em;
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr;
+        grid-template-rows: 0.25fr 1fr;
+    }
+
+    #main-about-me-section > h2 {
+        margin: 0em;
+    }
+
+    #main-about-me-section > img {
+        margin: 0em;
+        grid-column: 1/2;
+        grid-row: 2/3;
+    }
+
+    #main-about-me-section > .content {
+        grid-column: 2/4;
+        grid-row: 2/3;
+        margin: auto 2em;
+    }
+
+    /* END-OF: index.html -> main-about-me-section */
+
+    /* START-OF: index.html -> education-section */
+
+    .education {
+        width: 50%;
+    }
+
+    .education::before {
+        width: 100%;
+    }
+
+    /* END-OF: index.html -> education-section */
+
+    /* START-OF: index.html -> latest-projects-section */
+
+    .project {
+        width: 40%;
+        animation: project-animation 2s;
+    }
+
+    @keyframes project-animation {
+        0% {
+            width: 0%;
+        }
+        20% {
+            width: 40%;
+        }
+    }
+
+    /* END-OF: index.html -> latest-projects-section */
+
+    /* START-OF: index.html -> news-section */
+
+    .news {
+        width: 45%;
+    }
+
+    /* START-OF: index.html -> news-section */
+
+    /*
+        /FILE/    /FILE/    index.html    /FILE/    /FILE/
+                              END-OF
+    */
+
+    /* START-OF: *.html > footer */
+
+    #social-networks-footer {
+        flex-direction: row;
+
+    }
+    
+    .social-network-link {
+        overflow: hidden;
+        width: 0px;
+        transition: width 1s;
+    }
+    
+    .social-network:hover .social-network-link {
+        width: 220px;
+    }
+    
+    footer > p {
+        font-weight: bold;
+        margin: 0em;
+        text-align: center;
+    }
+
+    /* END-OF: *.html-> footer */
+
+    /*
+                             START-OF
+        /FILE/    /FILE/    contact.html    /FILE/    /FILE/
+    */
+
+    .contact-me-container {
+        width: 80%;
+        display: grid;
+        grid-template-columns: 4fr 1fr;
+    }
+
+    .contact-me-container .content {
+        text-align: left;
+        grid-column: 1/2;
+        grid-row: 1/2;
+    }
+
+    .contact-me-container img {
+        margin: auto;
+        grid-column: 2/3;
+        grid-row: 1/2;
+    }
+
+    .contact-me-container:nth-child(even) {
+        grid-template-columns: 1fr 4fr;
+    }
+
+    .contact-me-container:nth-child(even) .content {
+        text-align: right;
+        grid-column: 2/3;
+    }
+
+    .contact-me-container:nth-child(even) img {
+        grid-column: 1/2;    
+    }
+
+    /*
+        /FILE/    /FILE/    contact.html    /FILE/    /FILE/
+                               END-OF
+    */
+
+    /*
+                          START-OF
+    /FILE/    /FILE/    aboutme.html    /FILE/    /FILE/
+    */
+
+    /* START-OF: aboutme.html -> about-me-languages-section */
+
+    .language {
+        margin: auto 1em;
+        width: 490px;
+    }
+
+    /* END-OF: aboutme.html -> about-me-languages-section */
+
+    /* START-OF: aboutme.html -> about-me-scriptings-skills-section */
+
+    .scripting-skill {
+        width: 40%;
+    }
+
+    /* END-OF: aboutme.html -> about-me-scriptings-skills-section */
+
+    /*
+        /FILE/    /FILE/    aboutme.html    /FILE/    /FILE/
+                            END-OF
+    */
+
+    /*
+                          START-OF
+    /FILE/    /FILE/    projects.html    /FILE/    /FILE/
+    */
+
+    /* START-OF: aboutme.html -> github-profile */
+
+    #github-profile {
+        width: 80%;
+    }
+
+    /* END-OF: aboutme.html -> github-profile */
+
+    /* START-OF: aboutme.html -> github-repos */
+
+    .detailed-project {
+        width: 80%;
+    }
+
+    .detailed-project > summary {
+        flex-direction: row;
+    }
+
+    .detailed-project > summary > img {
+        margin: 0.5em;
+    }
+
+    .detailed-project > summary > .stars-container {
+        margin: auto 0.5em;
+    }
+
+    /* END-OF: aboutme.html -> github-repos */
+
+    /*
+        /FILE/    /FILE/    projects.html    /FILE/    /FILE/
+                            END-OF
+    */
+}
+
+/* DESKTOP-BASED LAYOUT */
+@media only screen and (min-width: 992px) {
+    
+    /* START-OF: *.html -> header */
+    
+    header > #header-container {
+        margin: 0em 10%;
+        flex-direction: row;
+    }
+    
+    #main-logo-desc > span:first-child {
+        white-space: nowrap;
+        font-size: 2em;
+    }
+    
+    header nav {
+        margin: 0em;
+        flex-basis: 70%;
+    }
+    
+    header nav > ul {
+        margin: auto;
+    }
+    
+    header li {
+        flex-basis: 20%;
+    }
+    
+    header nav li > a {
+        padding: 2em 0em 2em 0em;
+    }
+    
+    #menu-container {
+        flex-basis: 30%;
+    }
+
+    /* END-OF: *.html -> header */
+
+    /*
+                             START-OF
+        /FILE/    /FILE/    index.html    /FILE/    /FILE/
+    */
+    
+    /* START-OF: index.html -> welcome-introduction-section */
+    
+    #welcome-introduction-section > .content {
+        top: 92px;
+        /* background: linear-gradient(to right, var(--main-color), var(--blue-color)); */
+    }
+    
+    #window {
+        width: 100%;
+        margin: 5em auto;
+    }
+    
+    #window-line img {
+        height: 20px;
+        width: 20px;
+        margin: 0.3em;
+        border-radius: 30px;
+    }
+    
+    #code-section {
+        font-size: 2em;
+        margin-left: 1em;
+    }
+    
+    /* END-OF: index.html -> welcome-introduction-section */
+    
+    /* START-OF: index.html -> latest-projects-section */
+    
+    .project {
+        width: 20%;
+        animation: project-animation 2s;
+    }
+    
+    @keyframes project-animation {
+        0% {
+            width: 10%;
+        }
+        20% {
+            width: 20%;
+        }
+    }
+    
+    /* END-OF: index.html -> news-section */
+
+    /*
+        /FILE/    /FILE/    index.html    /FILE/    /FILE/
+                              END-OF
+    */
+
+    /*
+                          START-OF
+    /FILE/    /FILE/    aboutme.html    /FILE/    /FILE/
+    */
+
+    /* START-OF: aboutme.html -> about-me-introduction-section */
+
+    #about-me-introduction-section {
+        flex-direction: row;
+    }
+
+    #about-me-introduction-section > .content {
+        flex-direction: row;
+    }
+
+    #about-me-introduction-section > .content > img {
+        margin: 1em;
+    }
+
+    /* END-OF: aboutme.html -> about-me-introduction-section */
+
+    /* START-OF: aboutme.html -> about-me-languages-section */
+
+    #about-me-languages-section > .content {
+        flex-direction: row;
+    }
+
+    /* END-OF: aboutme.html -> about-me-languages-section */
+
+    /* START-OF: aboutme.html -> about-me-scriptings-skills-section */
+
+    #about-me-scripting-skills-section > .content {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .scripting-skill {
+        margin: 1em auto;
+        width: 534px;
+        flex-direction: row;
+    }
+
+    .border-progress-bar {
+        width: 50%;
+        margin: auto 1em auto 0em;
+    }
+
+    /* END-OF: aboutme.html -> about-me-scriptings-skills-section */
+
+    /* START-OF: aboutme.html -> about-me-other-experience-section ,
+                aboutme.html -> about-me-soft-skills-section */
+
+    #about-me-other-experience-section > .content , #about-me-soft-skills-section > .content {
+        margin: 0em 25%;
+    }
+
+    /* END-OF: aboutme.html -> about-me-other-experience-section ,
+                aboutme.html -> about-me-soft-skills-section */
+
+    /*
+        /FILE/    /FILE/    aboutme.html    /FILE/    /FILE/
+                            END-OF
+    */
+
+    /*
+                          START-OF
+    /FILE/    /FILE/    projects.html    /FILE/    /FILE/
+    */
+
+    /* START-OF: projects.html -> github-profile */
+
+    #github-profile {
+        flex-direction: row;
+    }
+
+    /* END-OF: projects.html -> github-profile */
+
+    /* START-OF: projects.html -> github-repos */
+
+    .detailed-project {
+        margin: 4em;
+        width: 50%;
+    }
+
+    .detailed-project:nth-child(even) {
+        margin-left: auto;
+    }
+    
+    /* END-OF: projects.html -> github-repos */
+
+    /*
+        /FILE/    /FILE/    projects.html    /FILE/    /FILE/
+                            END-OF
+    */
+}
