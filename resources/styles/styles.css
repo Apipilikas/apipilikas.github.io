@@ -183,6 +183,25 @@ header li > a:active {
 
 /* START-OF: index.html -> welcome-introduction-section */
 
+#home-page > section > h2 {
+    border-left: 10px solid var(--green-blue-color);
+    border-top-left-radius: 10px;
+    background-color: var(--header-color);
+    padding: 0.5em;
+    text-align: center;
+    animation: 1.5s ease-out 0s 1 slide-in-animation;
+}
+
+@keyframes slide-in-animation {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+    
+}
+
 #welcome-introduction-section > .content {
     margin: 5vw auto;
     width: 100%;
@@ -335,16 +354,28 @@ header li > a:active {
 #main-about-me-section {
     background-color: var(--green-blue-color);
     padding-bottom: 1em;
+}
+
+#main-about-me-section > .content {
     display: flex;
     flex-direction: column;
 }
 
-#main-about-me-section > h2 {
+
+
+#main-about-me-section .main-body {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+#main-about-me-section .main-body h2 {
+    padding: 0.5em;
     margin: auto;
     font-size: 2em;
 }
 
-#main-about-me-section > img {
+#main-about-me-section img {
     width: 50vw;
     height: 50vw;
     max-width: 150px;
@@ -352,16 +383,17 @@ header li > a:active {
     margin: auto;
     border-radius: 10px;
     box-shadow: 0px 10px 20px 0px var(--grey-color);
+    animation: 1s slide-in-animation 0s 1 ;
 }
 
-#main-about-me-section > .content {
+#main-about-me-section .description {
     padding: 1em;
     margin: auto;
     display: flex;
     flex-direction: column;
 }
 
-#main-about-me-section > .content > a {
+#main-about-me-section .description > a {
     margin: auto;
 }
 
@@ -549,6 +581,7 @@ header li > a:active {
 
 /* Setting objects placement in grid */
 .education > h3 {
+    padding: 0.5em;
     margin: auto;
     grid-row: 1/2;
     grid-column: 2/3;
@@ -572,7 +605,8 @@ header li > a:active {
     grid-column: 1/2;
     grid-row: 1/3;
     margin: 1em;
-    padding: 1em 0em 1em 1em;
+    padding: 1em 0em 1em 0em;
+    
 }
 
 .education:nth-child(even) .timeline {
@@ -674,8 +708,11 @@ header li > a:active {
 }
 
 .project > div > h3 {
-    padding: 1em 0em 1em 0em;
-    margin: 0em;
+    background-color: var(--grey-color);
+    color: var(--header-color);
+    border-radius: 10px;
+    padding: 0.5em;
+    margin: 1em 0em;
 }
 
 .project > div > p {
@@ -1597,27 +1634,22 @@ footer > p {
 
     /* START-OF: index.html -> main-about-me-section */
 
-    #main-about-me-section {
-        background-color: var(--green-blue-color);
+    #main-about-me-section > .content {
         padding: 2em;
-        display: grid;
-        grid-template-columns: 1fr 2fr 1fr;
-        grid-template-rows: 0.25fr 1fr;
+        flex-direction: row;
     }
 
     #main-about-me-section > h2 {
         margin: 0em;
     }
 
-    #main-about-me-section > img {
+    #main-about-me-section .main-body {
         margin: 0em;
-        grid-column: 1/2;
-        grid-row: 2/3;
+        flex-basis: 30%;
     }
 
-    #main-about-me-section > .content {
-        grid-column: 2/4;
-        grid-row: 2/3;
+    #main-about-me-section .description {
+        flex-basis: 70%;
         margin: auto 2em;
     }
 
