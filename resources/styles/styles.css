@@ -1023,6 +1023,7 @@ footer > p {
 }
 
 .language p {
+    padding: 0.5em;
     margin: auto;
     grid-row: 2/3;
     grid-column: 1/2;
@@ -1033,6 +1034,7 @@ footer > p {
     height: 80px;
     grid-row: 1/3;
     grid-column: 2/3;
+    
 }
 
 @keyframes header-color-animation {
@@ -1277,23 +1279,46 @@ footer > p {
 
 /* START-OF: aboutme.html -> github-repos */
 
-#github-repos > .hint-container {
+#github-repos > #hint-container {
     margin: 3em auto;
-    height: 50px;
+    /* height: 50px; */
     width: 50%;
     display: flex;
+    flex-direction: column;
     background-color: #9697ee;
     border-radius: 10px;
     box-shadow: 0px 10px 20px 0px var(--grey-color);
     padding: 1em;
 }
 
-#github-repos > .hint-container > p {
+#github-repos > #hint-container > p {
     text-align: center;
     margin: auto;
     font-weight: bold;
     color: #333155;
-    animation: hint-animation 1s infinite;
+    /* animation: hint-animation 1s infinite; */
+}
+
+#github-repos > #hint-container > img {
+    padding: 1em;
+    margin: 1em auto;
+    width: 100px;
+    background-color: #c3c3ee;
+    border-radius: 10px;
+    box-shadow: 0px 10px 20px 0px rgb(117, 117, 117);
+}
+
+#github-repos > #hint-container > p > span {
+    display: block;
+    margin: 1em;
+    font-size: 1.2em;
+    color: white;
+}
+
+#github-repos > #hint-container a {
+    display: block;
+    margin: 1em auto;
+    width: 25%;
 }
 
 @keyframes hint-animation {
@@ -1353,60 +1378,139 @@ footer > p {
   } */
   
 .detailed-project > summary {
+    position: relative;
+    overflow: hidden;
     display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
+    flex-direction: row;
+    flex-wrap: nowrap;
     border-radius: 10px;
     box-shadow: 0px 10px 20px 0px var(--grey-color);
     margin: 1em;
     cursor: pointer;
 }
 
-.detailed-project > summary > span {
-    font-size: 1.4em;
-    font-weight: bold;
+.detailed-project > summary::before {
+    content: "";
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background-size: cover;
+    background-image: url(/resources/images/git.svg);
+    background-repeat: no-repeat;
+    transform: rotate(-60deg)  translateX(32%) translateY(10%);
+    opacity: 0.3;
+}
+
+.detailed-project > summary > h2 {
     margin: auto;
 }
 
 .detailed-project > summary > img {
     margin: 0.5em auto;
-    width: 50px;
+    width: 0px;
     height: 50px;
 }
 
 .detailed-project > summary > .stars-container {
-    margin: 0.5em auto;
+    position: relative;
+    overflow: hidden;
+    
+    padding: 1em;
+    margin: 0em !important;
     display: flex;
 }
 
-.detailed-project > summary > .stars-container > img {
-    margin: auto;
-    width: 25px;
-    height: 25px;
+.detailed-project > summary > .stars-container::before {
+    content: "";
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background-image: url(/resources/images/star.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    transform: rotate(45deg) translateX(-10px) translateY(-10px);
+    opacity: 0.5;
     
 }
 
-.detailed-project > summary > .stars-container > span {
+.detailed-project > summary > .stars-container > .stars {
+    color: white;
     font-size: 1.4em;
     font-weight: bold;
     margin: auto 1em;
+    z-index: 1;
 }
 
 .detailed-project > .content {
-    padding: 1em;
+    padding: 0em 1em;
+    display: flex;
+    flex-direction: column;
     background-color: #9697ee;
     margin: 1em;
     border-radius: 10px;
     box-shadow: 0px 10px 20px 0px var(--grey-color);
 }
 
+.detailed-project > .content .top-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex-wrap: nowrap;
+    max-width: inherit;
+}
+
 .detailed-project:nth-child(even) > .content {
     background-color: #b1c9eb;
 }
 
-.detailed-project > .content > .top-container {
+.detailed-project > .content h3 {
+    white-space: nowrap;
+    text-align: center;
+    margin: 0.5em;
+    padding: 0.5em;
+    background-color: #b1c9eb;
+    border-radius: 10px;
+}
+
+.detailed-project > .content .last-modified-container h3 {
+    margin-top: 0em;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+
+.detailed-project:nth-child(even) > .content h3 {
+    background-color: #9697ee;
+}
+
+.detailed-project > .content .project-container {
+    margin: 0em 1em;
+    display: flex;
+    flex-direction: column;
+}
+
+.detailed-project > .content .project-container > .content {
+    /* border: 3px #9697ee solid; */
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.detailed-project > .content div > span {
+    margin: 0.3em 0.5em;
+    color: #201867;
+    background-color: #a3a5ff;
+    padding: 0.5em;
+    /* font-size: 1.1em; */
+    font-weight: bold;
+    border: 3px #b1d1ff solid;
+    border-radius: 10px;
+    /* box-shadow: 0px 0px 20px 0px var(--grey-color); */
+}
+
+.detailed-project:nth-child(even) > .content div > span {
+    color: #201867;
+    background-color: #b1d1ff;
+    border: 3px #9697ee solid;
 }
 
 .detailed-project > .content > p {
@@ -1415,10 +1519,12 @@ footer > p {
 }
 
 .detailed-project > .content > .button-area {
+    margin: 1em;
     display: flex;
+    flex-wrap: wrap;
 }
 
-.detailed-project > .content > .top-container > p {
+.detailed-project > .content > span {
     margin: 0.3em auto;
     color: #201867;
     background-color: #b1d1ff;
@@ -1429,7 +1535,7 @@ footer > p {
     box-shadow: 0px 0px 20px 0px var(--grey-color);
 }
 
-.detailed-project:nth-child(even) > .content > .top-container > p {
+.detailed-project:nth-child(even) > .content > .top-container > span {
     color: #313755;
     background-color: #a099e9;
 }
@@ -1437,7 +1543,7 @@ footer > p {
 .detailed-project  .button-link {
     color: #313755;
     border: 3px #313755 solid;
-    margin: auto;
+    margin: 1em auto;
 }
 
 .detailed-project .button-link > span {
@@ -1772,7 +1878,6 @@ footer > p {
     /* START-OF: aboutme.html -> about-me-languages-section */
 
     .language {
-        margin: auto 1em;
         width: 490px;
     }
 
@@ -2002,12 +2107,22 @@ footer > p {
     /* START-OF: projects.html -> github-repos */
 
     .detailed-project {
-        margin: 4em;
-        width: 50%;
+        margin: 4em 1em;
+        width: 75%;
+    }
+
+    .detailed-project > .content h3 {
+        margin-top: 0em;
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
     }
 
     .detailed-project:nth-child(even) {
         margin-left: auto;
+    }
+
+    .detailed-project > .content .top-container {
+        flex-direction: row;
     }
     
     /* END-OF: projects.html -> github-repos */
