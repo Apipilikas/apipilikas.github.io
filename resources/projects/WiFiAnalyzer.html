@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>Aggelos Pipilikas | Projects</title>
+        <link rel="icon" href="/resources/images/ap_logo_2.png">
+        <meta name="description" content="Aggelos Pipilikas' personal site">
+        <meta name="keywords" content="Aggelos Pipilikas, Evaggelos Pipilikas, personal site">
+        <meta name="author" content="Aggelos Pipilikas">
+        <meta charset="UTF-8">
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/handlebars@4.7.7/dist/handlebars.js"></script>
+        <script type="text/javascript" src="resources/scripts/projectsScript.js"></script>
+        <script type="text/javascript" src="resources/scripts/menuScript.js"></script>
+        <link rel="stylesheet" href="/resources/styles/styles.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+
+    <body>
+        <header>
+            <div id="header-container">
+                <div id="menu-container">
+                    <div id="main-logo">
+                        <img src="/resources/images/ap_logo_2.png" alt="AP Logo">
+                        <div id="main-logo-desc">
+                            <span>Aggelos Pipilikas</span>
+                            <span>Personal Website</span>
+                        </div>
+                    </div>
+                    <div id="menu-button">
+                        <img src="resources/images/menu.png">
+                    </div>
+                </div>
+                <nav>
+                    <ul id="header-navigation-bar">
+                        <li><a href="/index.html">Home</a></li>
+                        <li><a href="/aboutme.html">About me</a></li>
+                        <li><a href="/projects.html">Projects</a></li>
+                        <li><a href="/resume.html">Resume</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main id="towards-green">
+            <div class="header-container">
+                <div class="header">
+                    <h1>Towards Green</h1>
+                <h4>Better, greener place for all of us!</h4>
+                </div>
+                <img src="/resources/images/projects/TowardsGreen/logo.png">
+            </div>
+            <div class="diagonal-box introductory-box">
+                <section class="introduction-section">
+                    <h2>What is Towards Green?</h2>
+                    <p>Towards Green (TG) is a new app that is intented to help municipalities come closer to the 
+                        citizens and vice versa. Municipalities often delay to do even the simple tasks like cleaning a park. 
+                        Other than that, they seem to struggle to keep track of open issues in the community. Towards Green is 
+                        here to deal with all this problems, having citizen as the main focus. Should one want to use the app, 
+                        one will have to create an Account. After that, one can through a simply and cozy interface share issues 
+                        that have come to one's attention, take part in volunteering events and many more that are described detaily 
+                        at the "Main App features" section.
+                    </p>
+                </section>
+                <section class="introduction-section">
+                    <h2>Main reason of this project</h2>
+                    <p>
+                        As I have already mentioned, this project has been implemented for the course Application Development of Computer 
+                        Systems at AUEB for the year 2021-2022. We were asked to foster a pioneering idea for an upcoming app. In a world 
+                        that constanly changes and demands people's attention more than ever before, there is nothing else but environment 
+                        that could draw our interest.
+                    </p>
+                </section>
+            </div>
+            <section class="image-section">
+                <h2>Is that what you want?</h2>
+                <div class="content">
+                    <p><span class="quote-marker">“</span>Such a sad sight... I wish I could help by treeplanting!<span class="quote-marker">”</span></p>
+                    <img src="/resources/images/projects/TowardsGreen/forest.jpg">
+                    <img src="/resources/images/projects/TowardsGreen/litter.jpg">
+                    <p><span class="quote-marker">“</span>Meh. I feel terrible seeing our park in this situation. How can I find people to help me cleaning the place?<span class="quote-marker">”</span></p>
+                </div>
+                <p>Do you want to help protect the environment but you don't know how?</p>
+                <p>Towards Green is here!</p>
+                <div class="benefits-container">
+                    <div class="hint-container">
+                        <img src="/resources/images/projects/TowardsGreen/volunteer.svg" alt="volunteering work">
+                        <span>Volunteering work</span>
+                    </div>
+                    <div class="hint-container">
+                        <img src="/resources/images/projects/TowardsGreen/world.svg" alt="world">
+                        <span>Better world</span>
+                    </div>
+                    <div class="hint-container">
+                        <img src="/resources/images/projects/TowardsGreen/environment.svg" alt="environment">
+                        <span>Protect environment</span>
+                    </div>
+                </div>
+            </section>
+            <div class="diagonal-box main-app-terms-box">
+                <section class="main-app-terms-section">
+                    <h2>Main App terms</h2>
+                    <div class="content">
+                        <article class="main-app-term">
+                            <h3>User account</h3>
+                            <p>the account for the user tha is needed in order to have access</p>
+                            <img src="/resources/images/projects/TowardsGreen/profile.svg" alt="user account">
+                        </article>
+                        <article class="main-app-term">
+                            <h3>Supervisor</h3>
+                            <p>one of the two roles. This role gives additional access to features like create an event and QR scanning</p>
+                            <img src="/resources/images/projects/TowardsGreen/supervisor.svg" alt="supervisor">
+                        </article>
+                        <article class="main-app-term">
+                            <h3>Profile</h3>
+                            <p>it contains user's information</p>
+                            <img src="/resources/images/projects/TowardsGreen/profile.svg" alt="profile">
+                        </article>
+                        <article class="main-app-term">
+                            <h3>Post</h3>
+                            <p>it is uploaded by users and contains useful infromation for the issue that concerns them</p>
+                            <img src="/resources/images/projects/TowardsGreen/post.svg" alt="posts">
+                        </article>
+                        <article class="main-app-term">
+                            <h3>Event</h3>
+                            <p>it is created only by supervisors and gives the opportunity to users to take part in it. Furthermore, 
+                                it contains useful information for the place and time that is going to take place
+                            </p>
+                            <img src="/resources/images/projects/TowardsGreen/event.svg" alt="events">
+                        </article>
+                        <article class="main-app-term">
+                            <h3>QR scanning</h3>
+                            <p>it is operated only by supervisors and its use is mandatory for the user's confirmation of participation</p>
+                            <img src="/resources/images/projects/TowardsGreen/qr-scanning.svg" alt="qr scanning">
+                        </article>
+                        <article class="main-app-term">
+                            <h3>Leaderboard</h3>
+                            <p>it shows the rank, the username and the points of each user</p>
+                            <img src="/resources/images/projects/TowardsGreen/leaderboard.svg" alt="leaderboard">
+                        </article>
+                    </div>
+                </section>
+            </div>
+            <section>
+                <h2>Main App features</h2>
+                <p>All these features are supported in version <span>Version 1</span></p>
+                <div class="content">
+                    <span>Create a User account and connect to it</span>
+                    <span>Create, Edit and Delete a Post</span>
+                    <span>Create, Edit and Delete an Event</span>
+                    <span>Fully functioning points-allocation system after the event has closed</span>
+                    <span>Fully functioning QR code-scanning system to confirm user's participation</span>
+                    <span>Fully functioning badge-allocation system</span>
+                    <span>Leaderboard page</span>
+                </div>
+            </section>
+            <section>
+                <h2>Progress</h2>
+            </section>
+            <section>
+                <h2>First mock-ups</h2>
+            </section>
+            <section>
+                <h2>Final product</h2>
+            </section>
+            <section>
+                <h2>Demonstration</h2>
+            </section>
+        </main>
+
+        <footer>
+            <div id="social-networks-footer">
+                <div class="social-network">
+                    <div class="social-network-image">
+                        <img src="/resources/images/facebook.png" width="40px" height="40px">
+                    </div>
+                    <div class="social-network-link">
+                        <a href="https://www.facebook.com/aggelos.pipilikas/">Aggelos Pipilikas</a>
+                    </div>
+                </div>
+                <div class="social-network">
+                    <div class="social-network-image">
+                        <img src="/resources/images/github.png" width="40px" height="40px">
+                    </div>
+                    <div class="social-network-link">
+                        <a href="https://github.com/Apipilikas">Apipilikas</a>
+                    </div>
+                </div>
+                <div class="social-network">
+                    <div class="social-network-image">
+                        <img src="/resources/images/linkedin.png" width="40px" height="40px">
+                    </div>
+                    <div class="social-network-link">
+                        <a href="https://www.linkedin.com/in/aggelos-pipilikas/">Aggelos Pipilikas</a>
+                    </div>
+                </div>
+                <div class="social-network">
+                    <div class="social-network-image">
+                        <img src="/resources/images/email.png" width="40px" height="40px">
+                    </div>
+                    <div class="social-network-link">
+                        <a href="mailto:apipilikas@gmail.com">apipilikas@gmail.com</a>
+                    </div>
+                </div>
+            </div>
+            <p>©Copyright 2022</p>
+            <p>Powered by Aggelos Pipilikas</p>
+        </footer>
+    </body>
+</html>
