@@ -1694,43 +1694,54 @@ footer > p {
 }
 
 #towards-green > .header-container {
+    position: relative;
     color: white;
     display: flex;
-}
-
-#towards-green > .header-container > .header > h1 {
-    font-size: 3.5em;
+    flex-direction: column;
 }
 
 #towards-green > .header-container > .header {
+    position: absolute;
+    left: 0;
+    right: 0;
     text-align: center;
     margin: auto;
 }
 
+#towards-green > .header-container > .header > h1 {
+    font-size: 1em;
+}
+
+#towards-green > .header-container > .header > h4 {
+    margin-top: 0em;
+}
+
+#towards-green > .header-container img {
+    width: 100%;
+    height: 100%;
+}
+
+/* START-OF: TowardsGreen.html -> introductory */
+
 #towards-green .introductory-box {
     display: flex;
-    flex-direction: row;
-    padding: 5em;
-    transform: skewY(5deg) translateY(-100px);
+    flex-direction: column;
+    padding: 5em 0em;
+    transform: skewY(5deg) translateY(-20px);
     background-color: #71d6aa;
 }
 
 #towards-green .introduction-section {
-    width: 50%;
     transform: skewY(-5deg);
-    margin: 0em;
+    margin: 1em;
     display: flex;
     flex-direction: column;
-    grid-template-columns: 0.4fr 0.6fr;
-    grid-template-rows: 0.5fr 1fr;
     justify-content: center;    
 }
 
-#towards-green .introduction-section:nth-child(even) {
-    margin-left: auto;  
-}
-
 #towards-green .introduction-section h2 {
+    text-align: center;
+    width: 50%;
     padding: 0.5em;
     border-radius: 10px;
     background-color: #1bba7a;
@@ -1747,19 +1758,26 @@ footer > p {
     padding: 1em;
 }
 
+/* END-OF: TowardsGreen.html -> introductory */
+
+/* START-OF: TowardsGreen.html -> image-section */
+
 #towards-green .image-section {
+    margin: 0em 2em;
     display: flex;
     flex-direction: column;
 }
 
 #towards-green .image-section > h2 {
+    text-align: center;
     margin: 1em auto;
     font-size: 2em;
 }
 
 #towards-green .image-section > .content {
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: column;
+    justify-content: center;
 }
 
 #towards-green .image-section > .content .quote-marker {
@@ -1771,14 +1789,16 @@ footer > p {
 }
 
 #towards-green .image-section > .content > p {
+    text-align: center;
     font-size: 2em;
-    width: 20%;
+    margin: auto;
 }
 
 #towards-green .image-section img {
+    margin: 1em auto;
     border-radius: 10px;
-    width: 400px;
-    height: 250px;
+    width: 70%;
+    height: 50%px;
     
 }
 
@@ -1794,33 +1814,41 @@ footer > p {
 
 #towards-green .image-section .benefits-container {
     display: flex;
+    flex-direction: column;
     justify-content: space-evenly;
 }
 
 #towards-green .image-section .benefits-container > .hint-container {
-    width: 200px;
-    height: 200px;
+    margin: 1em auto;
+    width: 50%;
+    height: 50%;
     padding: 2em;
     background-color: #c3ecdd;
     border-radius: 50%;
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 
 #towards-green .image-section .benefits-container > .hint-container > img {
-    width: 150px;
-    height: 150px;
+    width: 50%;
+    height: 50%;
     margin: 0em auto;
 }
 
 #towards-green .image-section .benefits-container > .hint-container > span {
+    text-align: center;
     margin: 1em auto;
     font-weight: bold;
 }
 
+/* END-OF: TowardsGreen.html -> image-section */
+
+/* START-OF: TowardsGreen.html -> main-app-terms-section */
+
 #towards-green .main-app-terms-box {
     margin: 5em 0em;
-    padding: 5em;
+    padding: 5em 0em;
     transform: skewY(5deg);
     background-color: #71d6aa;
 }
@@ -1829,15 +1857,21 @@ footer > p {
     transform: skewY(-5deg);
 }
 
+#towards-green #main-app-terms-section > h2 {
+    margin: 0em;
+    text-align: center;
+}
+
 #towards-green #main-app-terms-section .content {
     display: flex;
+    flex-direction: column;
 }
 
 #towards-green #main-app-terms-section .main-app-term {
     position: relative;
     overflow: hidden;
-    width: 20%;
-    margin: 1em;
+    width: 50%;
+    margin: 1em auto;
     display: flex;
     flex-direction: column;
     border-radius: 10px;
@@ -1862,13 +1896,64 @@ footer > p {
     opacity: 0.25;
 }
 
+/* END-OF: TowardsGreen.html -> main-app-terms-section */
+
+/* START-OF: TowardsGreen.html -> main-app-features-section */
+
 #towards-green #main-app-features-section h2 {
     text-align: center;
 }
 
+#towards-green #main-app-features-section p {
+    text-align: center;
+}
+
+#towards-green #main-app-features-section p span {
+    font-weight: bold;
+    border-radius: 10px;
+    padding: 0.2em;
+    border: 2px solid #71d6aa;
+}
+
 #towards-green #main-app-features-section .content {
     display: flex;
+    justify-content: center;
+    margin-top: 2em;
+    margin-left: 1.5em;
 }
+
+#towards-green #main-app-features-section .main-app-feature {
+    display: flex;
+    margin: 2em;
+}
+
+#towards-green #main-app-features-section .main-app-feature span {
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;
+    font-size: 5em;
+    position: absolute;
+    text-align: center;
+    margin: auto;
+    transform: translateY(-40px) translateX(-50px);
+    opacity: 1;
+    color: #1bba7a;
+    background-color: #c3ecdd;
+    border-radius: 10px;
+    padding: 0.1em;
+}
+
+#towards-green #main-app-features-section .main-app-feature p {
+    margin: auto;
+    text-align: center;
+    border-radius: 10px;
+    background-color: #71d6aa;
+    padding: 0.5em;
+    z-index: 1;
+}
+
+/*
+    /FILE/    /FILE/    resources/projects/TowardsGreen.html    /FILE/    /FILE/
+                                      END-OF
+*/
 
 /* TABLET-BASED LAYOUT */
 @media only screen and (min-width: 425px) {
@@ -2119,6 +2204,105 @@ footer > p {
         /FILE/    /FILE/    projects.html    /FILE/    /FILE/
                             END-OF
     */
+
+    /*
+                                START-OF
+    /FILE/    /FILE/    resources/projects/TowardsGreen.html    /FILE/    /FILE/
+    */
+
+    #towards-green > .header-container {
+        flex-direction: row;
+    }
+
+    #towards-green > .header-container > .header {
+        position: initial;
+    }
+
+    #towards-green > .header-container > .header > h1 {
+        font-size: min(3.8vw, 2em);
+    }
+
+    #towards-green > .header-container > .header > h4 {
+        font-size: min(1.8vw, 1em);
+    }
+
+    #towards-green > .header-container > img {
+        width: 80%;
+    }
+
+
+    /* START-OF: TowardsGreen.html -> introductory */
+
+    #towards-green .introductory-box {
+        transform: skewY(5deg) translateY(-40px);
+    }
+
+    #towards-green .introduction-section {
+        width: 70%;   
+    }
+
+    #towards-green .introduction-section:nth-child(even) {
+        margin-left: auto;  
+    }
+
+    /* END-OF: TowardsGreen.html -> introductory */
+
+    /* START-OF: TowardsGreen.html -> image-section */
+
+    #towards-green .image-section img {
+        width: 400px;
+        height: 250px;
+        
+    }
+
+    #towards-green .image-section > .content > p {
+        width: 50%;
+    }
+
+    #towards-green .image-section .benefits-container {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    #towards-green .image-section .benefits-container > .hint-container {
+        width: 200px;
+        height: 200px;
+    }
+
+    #towards-green .image-section .benefits-container > .hint-container > img {
+        width: 150px;
+        height: 150px;
+        margin: 0em auto;
+    }
+
+    /* END-OF: TowardsGreen.html -> image-section */
+
+    /* START-OF: TowardsGreen.html -> main-app-terms-section */
+
+
+    #towards-green #main-app-terms-section .content {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+
+    #towards-green #main-app-terms-section .main-app-term {
+        position: relative;
+        overflow: hidden;
+        width: 40%;
+        margin: 1em;
+        display: flex;
+        flex-direction: column;
+        border-radius: 10px;
+        background-color: #c3ecdd;
+    }
+
+    /* END-OF: TowardsGreen.html -> main-app-terms-section */
+
+    /*
+        /FILE/    /FILE/    resources/projects/TowardsGreen.html    /FILE/    /FILE/
+                                        END-OF
+    */
 }
 
 /* DESKTOP-BASED LAYOUT */
@@ -2316,5 +2500,72 @@ footer > p {
     /*
         /FILE/    /FILE/    projects.html    /FILE/    /FILE/
                             END-OF
+    */
+
+    /*
+                                START-OF
+    /FILE/    /FILE/    resources/projects/TowardsGreen.html    /FILE/    /FILE/
+    */
+
+    #towards-green > .header-container > .header > h1 {
+        font-size: 3.5em;
+    }
+
+    #towards-green > .header-container img {
+        width: initial;
+        height: initial;
+    }
+
+    /* START-OF: TowardsGreen.html -> introductory */
+
+    #towards-green .introductory-box {
+        flex-direction: row;
+        transform: skewY(5deg) translateY(-100px);
+    }
+
+    /* END-OF: TowardsGreen.html -> introductory */
+
+    /* START-OF: TowardsGreen.html -> image-section */
+
+    #towards-green .image-section > .content {
+        flex-direction: row;
+        
+    }
+
+    #towards-green .image-section > .content .quote-marker {
+        font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;
+        position: absolute;
+        font-size: 5em;
+        transform: translateY(-35px) translateX(-25px);
+        opacity: 0.25;
+    }
+
+    #towards-green .image-section > .content p {
+        width: 20%;
+    }
+
+    #towards-green .image-section img {
+        margin: 1em auto;
+    }
+
+    /* END-OF: TowardsGreen.html -> image-section */
+
+    /* START-OF: TowardsGreen.html -> main-app-terms-section */
+
+    #towards-green #main-app-terms-section .content {
+        flex-direction: row;
+        flex-wrap: nowrap;
+    }
+
+    #towards-green #main-app-terms-section .main-app-term {
+        width: 20%;
+        margin: 1em;
+    }
+
+    /* END-OF: TowardsGreen.html -> main-app-terms-section */
+
+    /*
+        /FILE/    /FILE/    resources/projects/TowardsGreen.html    /FILE/    /FILE/
+                                        END-OF
     */
 }
