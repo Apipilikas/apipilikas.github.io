@@ -1977,16 +1977,59 @@ footer > p {
     margin: 5em 0em;
     padding: 5em 0em;
     transform: skewY(5deg);
-    background-color: #71d6aa;
+    background-color: #c3ecdd;
 }
 
 #towards-green #mockups-section {
     transform: skewY(-5deg);
 }
 
-#towards-green #mockups-section .mockups-item img {
+
+#towards-green #mockups-section .mockups-item {
+    display: flex;
+    background-color: #c3ecdd;
+    transform: skewY(5deg);
+}
+
+#towards-green #mockups-section .mockups-item:nth-child(even) {
+    flex-direction: row-reverse;
+    background-color: #1bba7a;
+    transform: skewY(-5deg);
+}
+
+#towards-green #mockups-section .mockups-item figure {
+    background-color: #71d6aa;
+    padding: 1em;
+    border-radius: 10px;
+    margin: 2em;
+    transform: translateY(-150px) skewY(-5deg);
+}
+
+#towards-green #mockups-section .mockups-item:nth-child(even) figure {
+    transform: translateY(-150px) skewY(5deg);
+}
+
+#towards-green #mockups-section .mockups-item figure figcaption {
+    padding: 0.5em;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: #71d6aa;
+}
+
+#towards-green #mockups-section .mockups-item figure img {
     height: 600px;
 }
+
+#towards-green #mockups-section .mockups-item p {
+    transform: translateY(100px) skewY(-5deg);
+    font-size: 1.5em;
+}
+
+#towards-green #mockups-section .mockups-item:nth-child(even) p {
+    transform: translateY(100px) skewY(5deg);
+}
+
+/* END-OF: TowardsGreen.html -> mockups-section */
 
 /*
     /FILE/    /FILE/    /projects/TowardsGreen.html    /FILE/    /FILE/
