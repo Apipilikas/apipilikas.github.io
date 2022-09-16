@@ -80,7 +80,7 @@ templates.projects = Handlebars.compile(`
         <div class="button-area">
             <a class="button-link" href={{link}}><span></span>CHECK ON GITHUB</a>
             {{#if moreDetails}}
-                <a class="button-link" href="/resources/projects/{{title}}.html"><span></span>MORE DETAILS</a>
+                <a class="button-link" href="/projects/{{title}}.html"><span></span>MORE DETAILS</a>
             {{/if}}
         </div>
     </div>
@@ -173,7 +173,7 @@ function makeProjectsRequest() {
             let promise = makeGetRequest(item.languages_url)
             .then(languageData => {
 
-                let result = checkFileExistence("/resources/projects/" + item.name + ".html");
+                let result = checkFileExistence("/projects/" + item.name + ".html");
 
                 let project = {
                     "title": item.name,

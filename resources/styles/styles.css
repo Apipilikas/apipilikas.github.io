@@ -57,6 +57,109 @@ h2 {
     height: 100%;
 }
 
+/* START-OF: *.html -> loader */
+
+.no-scrolling {
+    overflow: hidden;
+}
+
+#loader {
+    /* display: none; */
+    display: flex;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--green-blue-color);
+    z-index: 100;
+}
+
+#loader > .content {
+    margin: auto;
+    text-align: center;
+    transition: opacity 0.5s ease-in-out;
+}
+
+#loader p {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+#loader p > span {
+    display: block;
+    font-weight: bold;
+}
+
+#loader.fade-out {
+    /* opacity: 0; */
+    animation: 1s loader-animation;
+}
+
+#loader > .content.fade-out {
+    opacity: 0;
+}
+
+@keyframes loader-animation {
+    0% {
+        height: 100%;
+    }
+
+    100% {
+        height: 0%;
+    }
+}
+
+.lds-ripple {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+    margin: auto;
+  }
+  .lds-ripple div {
+    position: absolute;
+    border: 5px solid var(--blue-color);
+    opacity: 1;
+    border-radius: 50%;
+    animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+  }
+  .lds-ripple div:nth-child(2) {
+    animation-delay: -0.5s;
+  }
+  @keyframes lds-ripple {
+    0% {
+      top: 36px;
+      left: 36px;
+      width: 0;
+      height: 0;
+      opacity: 0;
+    }
+    4.9% {
+      top: 36px;
+      left: 36px;
+      width: 0;
+      height: 0;
+      opacity: 0;
+    }
+    5% {
+      top: 36px;
+      left: 36px;
+      width: 0;
+      height: 0;
+      opacity: 1;
+    }
+    100% {
+      top: 0px;
+      left: 0px;
+      width: 72px;
+      height: 72px;
+      opacity: 0;
+    }
+  }
+
+/* END-OF: *.html -> loader */
+
 /* START-OF: *.html -> header */
 
 header {
@@ -581,6 +684,7 @@ header li > a:active {
 
 /* Setting objects placement in grid */
 .education > h3 {
+    text-align: center;
     padding: 0.5em;
     margin: auto;
     grid-row: 1/2;
@@ -588,6 +692,7 @@ header li > a:active {
 }
 
 .education > h4 {
+    text-align: center;
     margin: auto;
     grid-row: 2/3;
     grid-column: 2/3;
@@ -698,8 +803,17 @@ header li > a:active {
     0% {
         width: 0%;
     }
-    20% {
-        width: 20%;
+    100% {
+        width: 90%;
+    }
+}
+
+@keyframes fade-in-animation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
     }
 }
 
@@ -713,20 +827,25 @@ header li > a:active {
     border-radius: 10px;
     padding: 0.5em;
     margin: 1em 0em;
+    animation: 1s fade-in-animation ;
 }
 
 .project > div > p {
     font-weight: bold;
     margin: auto;
+    animation: 1.5s fade-in-animation ;
 }
 
 .project > p {
+    text-align: center;
     padding: 1em;
     margin: 0em;
+    animation: 1.5s fade-in-animation ;
 }
 
 .project > .git-link {
     display: inline-flex;
+    animation: 3s fade-in-animation ;
 }
 
 .project  > .git-link > a {
@@ -1798,8 +1917,7 @@ footer > p {
     margin: 1em auto;
     border-radius: 10px;
     width: 70%;
-    height: 50%px;
-    
+    height: 50%;
 }
 
 #towards-green .image-section > p {
@@ -1923,6 +2041,7 @@ footer > p {
 #towards-green #main-app-features-section .content p {
     margin: 1em auto;
     padding: 0.5em;
+    font-size: 1.3em;
     border-radius: 10px;
     background-color: #71d6aa;
 }
@@ -1984,6 +2103,10 @@ footer > p {
     transform: skewY(-5deg);
 }
 
+#towards-green #mockups-section h2 {
+    text-align: center;
+}
+
 #towards-green #mockups-section .mockups-item {
     transform: skewY(5deg);
 }
@@ -2008,7 +2131,6 @@ footer > p {
 #towards-green #mockups-section .mockups-item h3 {
     width: 40%;
     padding: 0.5em;
-    font-size: 2em;
     border-top-left-radius: 10px;
     background-color: #c3ecdd;
     margin: 0em 0em 0em auto;
@@ -2032,11 +2154,13 @@ footer > p {
 
 #towards-green #mockups-section .mockups-item .content {
     display: flex;
+    flex-direction: column;
     transform: skewY(-5deg);
+    padding-bottom: 1em;
 }
 
 #towards-green #mockups-section .mockups-item:nth-child(even) .content {
-    flex-direction: row-reverse;
+    /* flex-direction: row-reverse; */
     transform: skewY(5deg);
 }
 
@@ -2044,15 +2168,17 @@ footer > p {
     padding: 1em;
     border-radius: 10px;
     background-color: #333;
-    position: relative;
-    top: -100px;
-    height: 600px;
+    /* position: relative; */
+    /* top: -150px; */
+    margin: 4em auto 1em auto;
+    width: 50%;
+    height: 50%;
 }
 
 #towards-green #mockups-section .mockups-item p {
+    padding: 1em;
     margin: auto;
-    width: 50%;
-    font-size: 1.5em;
+    width: 75%;
 }
 
 /* END-OF: TowardsGreen.html -> mockups-section */
@@ -2419,6 +2545,41 @@ footer > p {
 
     /* END-OF: TowardsGreen.html -> progress-section */
 
+        /* START-OF: TowardsGreen.html -> mockups-section */
+
+        #towards-green #mockups-section h2 {
+            text-align: center;
+            margin-bottom: 2em;
+        }
+    
+        #towards-green #mockups-section .mockups-item h3 {
+            font-size: 1.5em;
+        }
+    
+        #towards-green #mockups-section .mockups-item .content {
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+    
+        #towards-green #mockups-section .mockups-item:nth-child(even) .content {
+            flex-direction: row-reverse;
+        }
+    
+        #towards-green #mockups-section .mockups-item img {
+            /* position: relative; */
+            /* top: -150px; */
+            margin: 2em auto;
+            height: 350px;
+            width: initial;
+        }
+    
+        #towards-green #mockups-section .mockups-item p {
+            width: 50%;
+            font-size: 1.2em;
+        }
+    
+        /* END-OF: TowardsGreen.html -> mockups-section */
+
     /*
         /FILE/    /FILE/    /projects/TowardsGreen.html    /FILE/    /FILE/
                                         END-OF
@@ -2698,6 +2859,40 @@ footer > p {
     }
 
     /* END-OF: TowardsGreen.html -> progress-section */
+
+    /* START-OF: TowardsGreen.html -> mockups-section */
+
+    #towards-green #mockups-section h2 {
+        text-align: center;
+        margin-bottom: 2em;
+    }
+
+    #towards-green #mockups-section .mockups-item h3 {
+        font-size: 2em;
+    }
+
+    #towards-green #mockups-section .mockups-item .content {
+        flex-direction: row;
+        flex-wrap: nowrap;
+    }
+
+    #towards-green #mockups-section .mockups-item:nth-child(even) .content {
+        flex-direction: row-reverse;
+    }
+
+    #towards-green #mockups-section .mockups-item img {
+        position: relative;
+        top: -150px;
+        margin: 2em;
+        height: 600px;
+        width: initial;
+    }
+
+    #towards-green #mockups-section .mockups-item p {
+        font-size: 1.5em;
+    }
+
+    /* END-OF: TowardsGreen.html -> mockups-section */
 
     /*
         /FILE/    /FILE/    resources/projects/TowardsGreen.html    /FILE/    /FILE/

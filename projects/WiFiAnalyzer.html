@@ -9,13 +9,13 @@
         <meta name="author" content="Aggelos Pipilikas">
         <meta charset="UTF-8">
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/handlebars@4.7.7/dist/handlebars.js"></script>
-        <script type="text/javascript" src="resources/scripts/projectsScript.js"></script>
-        <script type="text/javascript" src="resources/scripts/menuScript.js"></script>
+        <script type="text/javascript" src="/resources/scripts/menuScript.js"></script>
         <link rel="stylesheet" href="/resources/styles/styles.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
 
-    <body>
+    <body class="no-scrolling">
+        <div id="loader"><div class="content"><p>Welcome to my personal page!<span>Please wait...</span></p><div class="lds-ripple"><div></div><div></div></div></div></div>
         <header>
             <div id="header-container">
                 <div id="menu-container">
@@ -301,8 +301,9 @@
                     </div>
                 </section>
             </div>
-            <section>
+            <section id="final-product-section">
                 <h2>Final product</h2>
+                <video src="/projects/TowardsGreen/videos/TowardsGreen" muted autoplay></video>
             </section>
             <section>
                 <h2>Demonstration</h2>
