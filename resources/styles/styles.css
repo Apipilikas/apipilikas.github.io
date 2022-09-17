@@ -2183,6 +2183,60 @@ footer > p {
 
 /* END-OF: TowardsGreen.html -> mockups-section */
 
+/* START-OF: TowardsGreen.html -> final-product-section */
+
+#towards-green #final-product-section video {
+    width: 400px;
+    padding: 1em;
+    background-color: #c3ecdd;
+    border-radius: 10px;
+}
+
+#towards-green #final-product-section .video-container {
+    display: flex;
+    justify-content: center;
+}
+
+#towards-green #final-product-section .video-container:nth-child(even) {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+#towards-green #final-product-section .text-box {
+    width: 50%;
+    margin: auto 0em auto 0em;
+    display: flex;
+    transform: skewY(-5deg);
+    background-color: #c3ecdd;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+#towards-green #final-product-section .video-container:nth-child(even) .text-box {
+    border-bottom-right-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+#towards-green #final-product-section .video-container p {
+    text-align: center;
+    padding: 1em;
+    width: 75%;
+    margin: auto;
+    font-size: 1.5em;
+}
+
+#towards-green #final-product-section .video-container p span {
+    color: #c3ecdd;
+    font-weight: bold;
+    background-color: #1bba7a;
+    padding: 0.2em;
+    border-radius: 10px;
+}
+
+/* END-OF: TowardsGreen.html -> final-product-section */
+
 /*
     /FILE/    /FILE/    /projects/TowardsGreen.html    /FILE/    /FILE/
                                       END-OF
