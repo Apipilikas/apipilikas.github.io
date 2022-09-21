@@ -9,6 +9,7 @@
         <meta name="author" content="Aggelos Pipilikas">
         <meta charset="UTF-8">
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/handlebars@4.7.7/dist/handlebars.js"></script>
+        <script type="text/javascript" src="/resources/scripts/effectsScript.js"></script>
         <script type="text/javascript" src="/resources/scripts/menuScript.js"></script>
         <link rel="stylesheet" href="/resources/styles/styles.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -72,7 +73,7 @@
                     </p>
                 </section>
             </div>
-            <section class="image-section">
+            <section class="image-section trigger-effect">
                 <h2>Is that what you want?</h2>
                 <div class="image-container">
                     <p>Such a sad sight... I wish I could help by treeplanting!</p>
@@ -97,7 +98,7 @@
                     </div>
                 </div>
             </section>
-            <div class="diagonal-box main-app-terms-box">
+            <div class="diagonal-box main-app-terms-box trigger-effect">
                 <section id="main-app-terms-section">
                     <h2>Main App terms</h2>
                     <div class="content">
@@ -148,7 +149,7 @@
                     </div>
                 </section>
             </div>
-            <section id="main-app-features-section">
+            <section id="main-app-features-section" class="trigger-effect">
                 <h2>Main App features</h2>
                 <p>All these features are supported in version <span>Version 1</span></p>
                 <div class="content">
@@ -161,10 +162,10 @@
                     <p>Leaderboard page</p>
                 </div>
             </section>
-            <section id="progress-section">
+            <section id="progress-section" class="trigger-effect">
                 <h2>Progress</h2>
                 <div class="content">
-                    <div class="progress-item"><span>1</span><p>Idea conception</p></div>
+                    <div class="progress-item trigger-effect"><span>1</span><p>Idea conception</p></div>
                 <div class="progress-item"><span>2</span><p>Main idea</p></div>
                 <div class="progress-item"><span>3</span><p><span class="hint">Phase 1</span>: define specifications</p></div>
                 <div class="progress-item"><span>4</span><p><span class="hint">Phase 2</span>: concept presentation</p></div>
@@ -179,11 +180,11 @@
                     <h2>First mock-ups</h2>
                     <div class="content">
                         <div class="mockups-item">
-                            <h3>Sidemenu</h3>
+                            <h3 class="trigger-effect">Sidemenu</h3>
                             <div class="mockups-item-box diagonal-box">
                                 <div class="content">
-                                    <img src="/projects/TowardsGreen/mockups/sidemenu.png">
-                                    <p>
+                                    <img src="/projects/TowardsGreen/mockups/sidemenu.png" class="trigger-effect">
+                                    <p class="trigger-effect">
                                         This is the sidemenu. User can use this to navigate among the main
                                         pages of the app, such as Post page, Event page, User's profile and 
                                         Leaderboard. Also, you can easily observe that in the top corner is
@@ -194,11 +195,11 @@
                             </div>
                         </div>
                         <div class="mockups-item">
-                            <h3>Post page</h3>
+                            <h3 class="trigger-effect">Post page</h3>
                             <div class="mockups-item-box diagonal-box">
                                 <div class="content">
-                                    <img src="/projects/TowardsGreen/mockups/post.png">
-                                    <p>
+                                    <img src="/projects/TowardsGreen/mockups/post.png" class="trigger-effect">
+                                    <p class="trigger-effect">
                                         This is the post page. Here you will find all the posts that have been posted
                                         from users. You can react with "Agree" or "Disagree", depending on if you have observed
                                         this problem in your municipality and you are willing to help.
@@ -207,11 +208,11 @@
                             </div>
                         </div>
                         <div class="mockups-item">
-                            <h3>Event page</h3>
+                            <h3 class="trigger-effect">Event page</h3>
                             <div class="mockups-item-box diagonal-box">
                                 <div class="content">
-                                    <img src="/projects/TowardsGreen/mockups/event.png">
-                                    <p>
+                                    <img src="/projects/TowardsGreen/mockups/event.png" class="trigger-effect">
+                                    <p class="trigger-effect">
                                         This is the event page. Here you will find all the events that have been posted
                                         from supervisors, since they are the only ones with the privilege to create these.
                                         Every event displays all the appropriate information one will want to know. For example,
@@ -226,11 +227,11 @@
                             </div>
                         </div>
                         <div class="mockups-item">
-                            <h3>Event menu</h3>
+                            <h3 class="trigger-effect">Event menu</h3>
                             <div class="mockups-item-box diagonal-box">
                                 <div class="content">
-                                    <img src="/projects/TowardsGreen/mockups/event_menu.png">
-                                    <p>
+                                    <img src="/projects/TowardsGreen/mockups/event_menu.png" class="trigger-effect">
+                                    <p class="trigger-effect">
                                         By tapping the three dots at the top right corner of the event, a menu is going to be displayed. The options 
                                         are going to be described at the next mock ups.
                                     </p>
@@ -238,11 +239,11 @@
                             </div>
                         </div>
                         <div class="mockups-item">
-                            <h3>Event creation page</h3>
+                            <h3 class="trigger-effect">Event creation page</h3>
                             <div class="mockups-item-box diagonal-box">
                                 <div class="content">
-                                    <img src="/projects/TowardsGreen/mockups/event_creation_2.png">
-                                    <p>
+                                    <img src="/projects/TowardsGreen/mockups/event_creation_2.png" class="trigger-effect">
+                                    <p class="trigger-effect">
                                         This is the event creation page that a supervisor can redirect in to create an event. Supervisor has the privilege to
                                         turn a post into an event. If a post has drew supervisor's interest and has many reactions, one can create an event from that.
                                         Then one will have to choose the date, the time, the location and can add a badge or details for equipment.
@@ -251,11 +252,11 @@
                             </div>
                         </div>
                         <div class="mockups-item">
-                            <h3>Event edit page</h3>
+                            <h3 class="trigger-effect">Event edit page</h3>
                             <div class="mockups-item-box diagonal-box">
                                 <div class="content">
-                                    <img src="/projects/TowardsGreen/mockups/event_edit.png">
-                                    <p>
+                                    <img src="/projects/TowardsGreen/mockups/event_edit.png" class="trigger-effect">
+                                    <p class="trigger-effect">
                                         This is the event edit page that a supervisor can redirect in to change some of the event's details. The most important thing here is
                                         that through this page, one can change the status of the project by tapping "Αλλαγή" (change) on the top corner.
                                     </p>
@@ -263,11 +264,11 @@
                             </div>
                         </div>
                         <div class="mockups-item">
-                            <h3>Attendees list</h3>
+                            <h3 class="trigger-effect">Attendees list</h3>
                             <div class="mockups-item-box diagonal-box">
                                 <div class="content">
-                                    <img src="/projects/TowardsGreen/mockups/attendees_list.png">
-                                    <p>
+                                    <img src="/projects/TowardsGreen/mockups/attendees_list.png" class="trigger-effect">
+                                    <p class="trigger-effect">
                                         This is the attendees list as it is shown when someone tap the three dots at the top right corner of an event. Supervisor has additional information, showing
                                         whether someone has attendeed or not.
                                     </p>
@@ -275,22 +276,22 @@
                             </div>
                         </div>
                         <div class="mockups-item">
-                            <h3>Badge details</h3>
+                            <h3 class="trigger-effect">Badge details</h3>
                             <div class="mockups-item-box diagonal-box">
                                 <div class="content">
-                                    <img src="/projects/TowardsGreen/mockups/badge_details.png">
-                                    <p>
+                                    <img src="/projects/TowardsGreen/mockups/badge_details.png" class="trigger-effect">
+                                    <p class="trigger-effect">
                                         By tapping on the "More" button by a badge's name one can see futher information about it.
                                     </p>
                                 </div>
                             </div>
                         </div>
                         <div class="mockups-item">
-                            <h3>Leaderboard page</h3>
+                            <h3 class="trigger-effect">Leaderboard page</h3>
                             <div class="mockups-item-box diagonal-box">
                                 <div class="content">
-                                    <img src="/projects/TowardsGreen/mockups/leaderboard.png">
-                                    <p>
+                                    <img src="/projects/TowardsGreen/mockups/leaderboard.png" class="trigger-effect">
+                                    <p class="trigger-effect">
                                         Leaderboard shows the rank and points of users. Every time that someone has attendeed succesfully in
                                         an event and a badge has been attached to this specific event (meaning that is going to be accompanied by points),
                                         points are going to be added to his accounts and obviously one's rank will change.
@@ -305,17 +306,17 @@
                 <h2>Final product</h2>
                 <div class="content">
                     <div class="video-container">
-                        <video playsinline src="/projects/TowardsGreen/videos/log_in.mp4" muted autoplay loop></video>
-                        <div class="text-box diagonal-box">
-                            <p>
-                                This is the <span>log in screen</span>. In order to use the app, one has to log in using his credentials.
+                        <video playsinline src="/projects/TowardsGreen/videos/log_in.mp4" muted autoplay loop class="trigger-effect"></video>
+                        <div class="text-box diagonal-box trigger-effect">
+                            <p class="trigger-effect">
+                                This is the <span>log in screen</span>. In order to use the app, one has to log in using one's credentials.
                             </p>
                         </div>
                     </div>
                     <div class="video-container">
-                        <video playsinline src="/projects/TowardsGreen/videos/post_page.mp4" muted autoplay loop></video>
-                        <div class="text-box diagonal-box">
-                            <p>
+                        <video playsinline src="/projects/TowardsGreen/videos/post_page.mp4" muted autoplay loop class="trigger-effect"></video>
+                        <div class="text-box diagonal-box trigger-effect">
+                            <p class="trigger-effect">
                                 This is the <span>post page</span>. Here one can see all the posts. For performance reasons, we have set the post-fetched
                                 boundary at 3 per time. Every time that one scrolls down, more posts are fetched and dipslayed at the screen. Furthermore, 
                                 one can refresh the page by scrolling up (pull-up-refresh).
@@ -323,18 +324,18 @@
                         </div>
                     </div>
                     <div class="video-container">
-                        <video playsinline src="/projects/TowardsGreen/videos/event_page.mp4" muted autoplay loop></video>
-                        <div class="text-box diagonal-box">
-                            <p>
+                        <video playsinline src="/projects/TowardsGreen/videos/event_page.mp4" muted autoplay loop class="trigger-effect"></video>
+                        <div class="text-box diagonal-box trigger-effect">
+                            <p class="trigger-effect">
                                 This is the <span>event page</span>. Here one can see all the events.For performance reasons, we have set the post-fetched
                                 boundary at 2 per time (same mechanism as the posts). Pull-to-refresh works here as well.
                             </p>
                         </div>
                     </div>
                     <div class="video-container">
-                        <video playsinline src="/projects/TowardsGreen/videos/event_creation_page.mp4" muted autoplay loop></video>
-                        <div class="text-box diagonal-box">
-                            <p>
+                        <video playsinline src="/projects/TowardsGreen/videos/event_creation_page.mp4" muted autoplay loop class="trigger-effect"></video>
+                        <div class="text-box diagonal-box trigger-effect">
+                            <p class="trigger-effect">
                                 This is the <span>event creation page</span>. By tapping the "+" floating button, supervisor will redirect to this page.
                                 One will have to fill all the fields. Furthermore, one can fill the requirement field to help the whole organization of the event.
                                 One has the opportunity to set if a requirement is fullfiled or not, edit it or delete it.
@@ -342,33 +343,33 @@
                         </div>
                     </div>
                     <div class="video-container">
-                        <video playsinline src="/projects/TowardsGreen/videos/event_tree_planting.mp4" muted autoplay loop></video>
-                        <div class="text-box diagonal-box">
-                            <p>
+                        <video playsinline src="/projects/TowardsGreen/videos/event_tree_planting.mp4" muted autoplay loop class="trigger-effect"></video>
+                        <div class="text-box diagonal-box trigger-effect">
+                            <p class="trigger-effect">
                                 This is the <span>tree planting event</span> that we created in event creation page.
                             </p>
                         </div>
                     </div>
                     <div class="video-container">
-                        <video playsinline src="/projects/TowardsGreen/videos/attendees_list.mp4" muted autoplay loop></video>
-                        <div class="text-box diagonal-box">
-                            <p>
+                        <video playsinline src="/projects/TowardsGreen/videos/attendees_list.mp4" muted autoplay loop class="trigger-effect"></video>
+                        <div class="text-box diagonal-box trigger-effect">
+                            <p class="trigger-effect">
                                 This is the <span>event attendees list</span>. Supervisor can see whether someone has attendeed the event or not.
                             </p>
                         </div>
                     </div>
                     <div class="video-container">
-                        <video playsinline src="/projects/TowardsGreen/videos/profile_page.mp4" muted autoplay loop></video>
-                        <div class="text-box diagonal-box">
-                            <p>
+                        <video playsinline src="/projects/TowardsGreen/videos/profile_page.mp4" muted autoplay loop class="trigger-effect"></video>
+                        <div class="text-box diagonal-box trigger-effect">
+                            <p class="trigger-effect">
                                 This is the <span>profile page</span>. Here one can find information about one's profile with the most important one the QR code.
                             </p>
                         </div>
                     </div>
                     <div class="video-container">
-                        <video playsinline src="/projects/TowardsGreen/videos/leaderboard.mp4" muted autoplay loop></video>
-                        <div class="text-box diagonal-box">
-                            <p>
+                        <video playsinline src="/projects/TowardsGreen/videos/leaderboard.mp4" muted autoplay loop class="trigger-effect"></video>
+                        <div class="text-box diagonal-box trigger-effect">
+                            <p class="trigger-effect">
                                 This is the <span>leaderboard page</span>. Here it is displayed users rank, username and points.
                             </p>
                         </div>

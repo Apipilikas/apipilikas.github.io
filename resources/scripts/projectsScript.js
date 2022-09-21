@@ -57,26 +57,31 @@ templates.projects = Handlebars.compile(`
                     <span>{{lastModified}}</span>
                 </div>
             </div>   
-            <div class="topics-container project-container">
-                
-                <h3>Topics</h3>
-                <div class="content">
-                    {{#each topics}}
+            {{#if topics}}
+                <div class="topics-container project-container">
+                    <h3>Topics</h3>
+                    <div class="content">
+                        {{#each topics}}
+                            <span>{{this}}</span>
+                        {{/each}}
+                    </div>
+                </div>
+            {{/if}}
+            {{#if languages}}
+                <div class="development-languages-container project-container">
+                    <h3>Development languages</h3>
+                    <div class="content">
+                        {{#each languages}}
                         <span>{{this}}</span>
-                    {{/each}}
+                        {{/each}}
+                    </div>
                 </div>
-            </div>
-    
-            <div class="development-languages-container project-container">
-                <h3>Development languages</h3>
-                <div class="content">
-                    {{#each languages}}
-                    <span>{{this}}</span>
-                    {{/each}}
-                </div>
-            </div>
+            {{/if}}
         </div>
-        <p>{{description}}</p>
+        <div class="description-container">
+            <h3>Description</h3>
+            <p>{{description}}</p>
+        </div>
         <div class="button-area">
             <a class="button-link" href={{link}}><span></span>CHECK ON GITHUB</a>
             {{#if moreDetails}}
