@@ -10,12 +10,14 @@
         <meta charset="UTF-8">
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/handlebars@4.7.7/dist/handlebars.js"></script>
         <script type="text/javascript" src="resources/scripts/mainScript.js"></script>
+        <script type="text/javascript" src="resources/scripts/effectsScript.js"></script>
         <script type="text/javascript" src="resources/scripts/menuScript.js"></script>
         <link rel="stylesheet" href="resources/styles/styles.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
 
-    <body>
+    <body class="no-scrolling">
+        <div id="loader"><div class="content"><p>Welcome to my personal page!<span>Please wait...</span></p><div class="lds-ripple"><div></div><div></div></div></div></div>
         <header>
             <div id="header-container">
                 <div id="menu-container">
@@ -98,24 +100,30 @@
                 
             </section>
             <section id="main-about-me-section">
-                <h2>Hello there!</h2> 
-                <img src="resources/images/me.png" alt="me"/>
+                
             
                 <div class="content">
-                    <p>
-                        I'm Aggelos Pipilikas or ... Evaggelos Pipilikas 
-                        (let's leave that story for another time). I'm 21 years old
-                        and I'm currently studying Computer Science at AUEB. And yes,
-                        my passion is coding. I'm sure you would like to learn more about me.
-                        So, don't be shy!
-                    </p>
+                    <div class="main-body">
+                        <h2>Hello there!</h2> 
+                        <img src="resources/images/me.png" alt="me"/>
+                    </div>
+                    <div class="description">
+                        <p>
+                            I'm Aggelos Pipilikas or ... Evaggelos Pipilikas 
+                            (let's leave that story for another time). I'm 22 years old
+                            and I'm currently studying Computer Science at AUEB. And yes,
+                            my passion is coding. I'm sure you would like to learn more about me.
+                            So, don't be shy!
+                        </p>
+                        
+                        <a class="button-link" href="aboutme.html"><span></span>MORE ABOUT ME</a>
+                    </div>
                     
-                    <a class="button-link" href="aboutme.html"><span></span>MORE ABOUT ME</a>
                 </div>            
             </section>
             <section id="skills-section">
-                <h2>Skills</h2>
-                <div class="content">
+                <h2 class="trigger-effect">Skills</h2>
+                <div class="content trigger-effect">
                     <div id="skills-slideshow">
                         <figure class="slide">
                             <img src="resources/images/java.png">
@@ -149,8 +157,8 @@
                 </div>
             </section>
             <section id="education-section">
-                <h2>Education</h2>
-                <div class="content">
+                <h2 class="trigger-effect">Education</h2>
+                <div class="content trigger-effect">
                     <div class="education">
                         <h3>Athens University of Economics and Business</h3>
                         <h4>Department of Informatics | Computer Science</h4>
@@ -170,8 +178,8 @@
                 </div>
             </section>
             <section id="latest-projects-section">
-                <h2>My latest projects</h2>
-                <div id="latest-projects-slideshow">
+                <h2 class="trigger-effect">My latest projects</h2>
+                <div id="latest-projects-slideshow" class="content trigger-effect">
                     <button class="latest-projects-slideshow-button slideshow-display-button-left"><span></span><</button>
                     <!-- auto-generated -->
                     <div id="latest-projects-content"></div>
@@ -179,23 +187,61 @@
                 </div>
             </section>
             <section id="news-section">
-                <h2>News</h2>
-                <div class="content">
+                <h2 class="trigger-effect">News</h2>
+                <div class="content trigger-effect">
                     <article class="news">
                         <div class="title-container">
                             <div class="border"></div>
-                            <h3>Pre-released version | Bug-sensitive</h3>
+                            <h3>Towards Green page</h3>
                         </div>
                         <div class="date-container">
                             <div class="border"></div>
-                            <p class="date">6/8/2022</p>
+                            <p class="date">21/9/2022</p>
                         </div>
                         <div class="description-container">
                             <div class="border"></div>
                             <p class="description">
-                                This website has been released as a pre-released version. The latter means that mistakes or 
-                                malfunctions/bugs can be found. If you find any of those, make sure to inform me or post it on
-                                the discussion page of this repository on GitHub. (The repository is called apipilikas.github.io)
+                                One of the apps I started developing as a University project and I'm keeping updating it is TowardsGreen. There is
+                                no need to say too much. Go to "Projects" page > TowardsGreen > "More details" and you will learn everything you need to know.
+                                Stay tuned for more exciting news!
+                            </p>
+                        </div>
+                    </article>
+                    <article class="news">
+                        <div class="title-container">
+                            <div class="border"></div>
+                            <h3>New app development</h3>
+                        </div>
+                        <div class="date-container">
+                            <div class="border"></div>
+                            <p class="date">21/9/2022</p>
+                        </div>
+                        <div class="description-container">
+                            <div class="border"></div>
+                            <p class="description">
+                                This summer I spent most of my time designing a note-taking app with my colleagues-friends which is mainly
+                                intented to help students from our University (AUEB) keep notes depending on the courses they have choosen to
+                                attend. This app is still in development and the developing language is Rust. The main goal of this app is to
+                                familiarize ourselves with flutter and Rust. More information about the project are going to be uploaded soon.
+                            </p>
+                        </div>
+                    </article>
+                    <article class="news">
+                        <div class="title-container">
+                            <div class="border"></div>
+                            <h3>New version</h3>
+                        </div>
+                        <div class="date-container">
+                            <div class="border"></div>
+                            <p class="date">21/9/2022</p>
+                        </div>
+                        <div class="description-container">
+                            <div class="border"></div>
+                            <p class="description">
+                                I have changed a few things from version 1 and I'm willing to change even more in the future. One of the main things
+                                I would like to change (and I will) is to use React instead of static HTML. This will happen as soon as I have time. Other than that,
+                                if you find any bugs or you have a nice idea that would fit in my site (in terms of design, color etc) don't hesitate to share it
+                                with me. You can either send my a message (see Contact page) or open an issue on the GitHub.
                             </p>
                         </div>
                     </article>
@@ -220,9 +266,7 @@
                     </article>
                 </div>
             </section>
-            <!-- links,education,skills,about me -> about me page -->
         </main>
-
         <footer>
             <div id="social-networks-footer">
                 <div class="social-network">

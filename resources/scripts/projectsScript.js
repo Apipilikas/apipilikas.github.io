@@ -44,26 +44,64 @@ templates.projects = Handlebars.compile(`
 <details class="detailed-project">
     <summary>
         <img src="resources/images/git.svg">
-        <span>{{title}}</span>
+        <h2>{{title}}</h2>
         <div class="stars-container">
-            <img src="resources/images/star.svg">
-            <span>{{stars}}</span>
+            <span class="stars">{{stars}}</span>
         </div>
     </summary>
     <div class="content">
         <div class="top-container">
-            <p>{{last_modified}}</p>        
-            {{#each languages}}
-            <p>{{this}}</p>
-            {{/each}}
+            <div class="last-modified-container project-container">
+                <h3>Last modified</h3>
+                <div class="content">
+                    <span>{{lastModified}}</span>
+                </div>
+            </div>   
+            {{#if topics}}
+                <div class="topics-container project-container">
+                    <h3>Topics</h3>
+                    <div class="content">
+                        {{#each topics}}
+                            <span>{{this}}</span>
+                        {{/each}}
+                    </div>
+                </div>
+            {{/if}}
+            {{#if languages}}
+                <div class="development-languages-container project-container">
+                    <h3>Development languages</h3>
+                    <div class="content">
+                        {{#each languages}}
+                        <span>{{this}}</span>
+                        {{/each}}
+                    </div>
+                </div>
+            {{/if}}
         </div>
-        <p>{{description}}</p>
+        <div class="description-container">
+            <h3>Description</h3>
+            <p>{{description}}</p>
+        </div>
         <div class="button-area">
             <a class="button-link" href={{link}}><span></span>CHECK ON GITHUB</a>
+            {{#if moreDetails}}
+                <a class="button-link" href="/projects/{{title}}.html"><span></span>MORE DETAILS</a>
+            {{/if}}
         </div>
     </div>
 </details>
 {{/each}}
+`);
+
+templates.failureMessage = Handlebars.compile(`
+<img src="resources/images/attention.svg">
+<p>I'am very sorry to inform you that you got a response with status 403 and message <span>{{message}}</span>Don't panik.
+You got this as I use the GitHub API to fetch all the information needed for my personal profile and repositories.
+To be able to refresh and see the page properly, you will have to wait for an hour or so. However, if you would like to
+check my profile and all the projects that was supposed to be displayed in this page, check my Github account here:
+<a  href="https://github.com/Apipilikas" class="button-link"><span></span>CHECK MY PROFILE</a>
+</p>
+ 
 `);
 
 function init() {
@@ -88,8 +126,17 @@ function makeGetRequest(url) {
         if (response.status == 200) {
             return response.json();
         }
-        else {
+        else if (response.status == 403) {
+            
+            response.json().then(failureDataMessage => {
+                let div = document.getElementById('hint-container');
 
+                let failure = templates.failureMessage(failureDataMessage);
+
+                div.innerHTML = failure;
+            }
+
+            );
         }
     });
 }
@@ -111,7 +158,6 @@ function makeProfileRequest() {
         };
         
         let profileContent = templates.profile(profile);
-
         div.innerHTML = profileContent;
 
     })
@@ -132,21 +178,24 @@ function makeProjectsRequest() {
             let promise = makeGetRequest(item.languages_url)
             .then(languageData => {
 
+                let result = checkFileExistence("/projects/" + item.name + ".html");
+
                 let project = {
                     "title": item.name,
-                    "last_modified": item.pushed_at.split("T")[0],
+                    "lastModified": item.pushed_at.split("T")[0],
                     "description": item.description,
                     "link": item.html_url,
                     "topics" : item.topics,
                     "languages" : Object.keys(languageData),
-                    "stars" : item.stargazers_count
+                    "stars" : item.stargazers_count,
+                    "moreDetails": result
                 };
 
                 return project;
 
             })
             .catch(error => {
-                console.log("error");
+                console.log(error);
             });
             
             fetches.push(promise);
@@ -155,12 +204,10 @@ function makeProjectsRequest() {
 
         return Promise.all(fetches)
         .then(values => {
-            console.log(values)
             return values;
         });
     })
     .then(projectsData => {
-        console.log(projectsData);
         let div = document.getElementById('github-repos');
         
         let projectsContent = templates.projects(projectsData);
@@ -170,4 +217,18 @@ function makeProjectsRequest() {
     .catch(error => {
         console.log(error);
     });
+}
+
+function checkFileExistence(path) {
+    let file = new XMLHttpRequest();
+    file.open("HEAD", path, false);
+    file.send();
+
+    if (file.status == 200) {
+        return true;
+    }
+    else {
+        return false;
+    }
+
 }

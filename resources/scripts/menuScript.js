@@ -1,4 +1,16 @@
-window.addEventListener("load", initializeMenuButton);
+window.addEventListener("load", init);
+
+function init() {
+    const loader = document.getElementById("loader");
+    document.body.classList.remove("no-scrolling");
+    // loader.style.display = "none";
+    loader.firstChild.classList.toggle("fade-out");
+    loader.classList.toggle("fade-out");
+    setInterval(function() {
+        loader.style.display = "none";
+    }, 1000);
+    initializeMenuButton();
+}
 
 // Initialized the button for the menu in mobile-based layout
 function initializeMenuButton() {

@@ -57,6 +57,109 @@ h2 {
     height: 100%;
 }
 
+/* START-OF: *.html -> loader */
+
+.no-scrolling {
+    overflow: hidden;
+}
+
+#loader {
+    /* display: none; */
+    display: flex;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--green-blue-color);
+    z-index: 100;
+}
+
+#loader > .content {
+    margin: auto;
+    text-align: center;
+    transition: opacity 0.5s ease-in-out;
+}
+
+#loader p {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+#loader p > span {
+    display: block;
+    font-weight: bold;
+}
+
+#loader.fade-out {
+    /* opacity: 0; */
+    animation: 1s loader-animation;
+}
+
+#loader > .content.fade-out {
+    opacity: 0;
+}
+
+@keyframes loader-animation {
+    0% {
+        height: 100%;
+    }
+
+    100% {
+        height: 0%;
+    }
+}
+
+.lds-ripple {
+    display: inline-block;
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin: auto;
+  }
+  .lds-ripple div {
+    position: absolute;
+    border: 5px solid var(--blue-color);
+    opacity: 1;
+    border-radius: 50%;
+    animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+  }
+  .lds-ripple div:nth-child(2) {
+    animation-delay: -0.5s;
+  }
+  @keyframes lds-ripple {
+    0% {
+      top: 75px;
+      left: 75px;
+      width: 0;
+      height: 0;
+      opacity: 0;
+    }
+    4.9% {
+      top: 75px;
+      left: 75px;
+      width: 0;
+      height: 0;
+      opacity: 0;
+    }
+    5% {
+      top: 75px;
+      left: 75px;
+      width: 0;
+      height: 0;
+      opacity: 1;
+    }
+    100% {
+      top: 0px;
+      left: 0px;
+      width: 150px;
+      height: 150px;
+      opacity: 0;
+    }
+  }
+
+/* END-OF: *.html -> loader */
+
 /* START-OF: *.html -> header */
 
 header {
@@ -182,6 +285,39 @@ header li > a:active {
 */
 
 /* START-OF: index.html -> welcome-introduction-section */
+
+#home-page > section > h2 {
+    white-space: nowrap;
+    border-left: 10px solid var(--green-blue-color);
+    border-top-left-radius: 10px;
+    background-color: var(--header-color);
+    padding: 0.5em;
+    text-align: center;
+    opacity: 0;
+    transition: all 1.5s;
+    width: 0%;
+}
+
+#home-page > section > h2.reveal {
+    opacity: 1;
+    width: 100%;
+}
+
+#home-page > section  {
+    overflow: hidden;
+}
+
+#home-page > section > .content.trigger-effect {
+    opacity: 0;
+    transform: translateY(150px);
+    transition: all 1s;
+}
+
+#home-page > section > .content.reveal {
+    opacity: 1;
+    transform: translateY(0);
+    
+}
 
 #welcome-introduction-section > .content {
     margin: 5vw auto;
@@ -335,16 +471,28 @@ header li > a:active {
 #main-about-me-section {
     background-color: var(--green-blue-color);
     padding-bottom: 1em;
+}
+
+#main-about-me-section > .content {
     display: flex;
     flex-direction: column;
 }
 
-#main-about-me-section > h2 {
+
+
+#main-about-me-section .main-body {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+#main-about-me-section .main-body h2 {
+    padding: 0.5em;
     margin: auto;
     font-size: 2em;
 }
 
-#main-about-me-section > img {
+#main-about-me-section img {
     width: 50vw;
     height: 50vw;
     max-width: 150px;
@@ -352,16 +500,18 @@ header li > a:active {
     margin: auto;
     border-radius: 10px;
     box-shadow: 0px 10px 20px 0px var(--grey-color);
+    animation: 1s slide-in-animation 0s 1 ;
 }
 
-#main-about-me-section > .content {
+#main-about-me-section .description {
+    text-align: center;
     padding: 1em;
     margin: auto;
     display: flex;
     flex-direction: column;
 }
 
-#main-about-me-section > .content > a {
+#main-about-me-section .description > a {
     margin: auto;
 }
 
@@ -549,12 +699,15 @@ header li > a:active {
 
 /* Setting objects placement in grid */
 .education > h3 {
+    text-align: center;
+    padding: 0.5em;
     margin: auto;
     grid-row: 1/2;
     grid-column: 2/3;
 }
 
 .education > h4 {
+    text-align: center;
     margin: auto;
     grid-row: 2/3;
     grid-column: 2/3;
@@ -572,7 +725,8 @@ header li > a:active {
     grid-column: 1/2;
     grid-row: 1/3;
     margin: 1em;
-    padding: 1em 0em 1em 1em;
+    padding: 1em 0em 1em 0em;
+    
 }
 
 .education:nth-child(even) .timeline {
@@ -664,8 +818,17 @@ header li > a:active {
     0% {
         width: 0%;
     }
-    20% {
-        width: 20%;
+    100% {
+        width: 90%;
+    }
+}
+
+@keyframes fade-in-animation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
     }
 }
 
@@ -674,22 +837,30 @@ header li > a:active {
 }
 
 .project > div > h3 {
-    padding: 1em 0em 1em 0em;
-    margin: 0em;
+    background-color: var(--grey-color);
+    color: var(--header-color);
+    border-radius: 10px;
+    padding: 0.5em;
+    margin: 1em 0em;
+    animation: 1s fade-in-animation ;
 }
 
 .project > div > p {
     font-weight: bold;
     margin: auto;
+    animation: 1.5s fade-in-animation ;
 }
 
 .project > p {
+    text-align: center;
     padding: 1em;
     margin: 0em;
+    animation: 1.5s fade-in-animation ;
 }
 
 .project > .git-link {
     display: inline-flex;
+    animation: 3s fade-in-animation ;
 }
 
 .project  > .git-link > a {
@@ -986,6 +1157,7 @@ footer > p {
 }
 
 .language p {
+    padding: 0.5em;
     margin: auto;
     grid-row: 2/3;
     grid-column: 1/2;
@@ -996,6 +1168,7 @@ footer > p {
     height: 80px;
     grid-row: 1/3;
     grid-column: 2/3;
+    
 }
 
 @keyframes header-color-animation {
@@ -1175,12 +1348,13 @@ footer > p {
 #github-profile .info-container {
     padding: 1em;
     display: flex;
+    justify-content: space-evenly;
     flex-wrap: wrap;
 }
 
 #github-profile .info {
     display: flex;
-    margin: 1em auto;
+    margin: 1em;
     text-align: center;
     padding: 1em;
     border-radius: 10px;
@@ -1240,23 +1414,46 @@ footer > p {
 
 /* START-OF: aboutme.html -> github-repos */
 
-#github-repos > .hint-container {
+#github-repos > #hint-container {
     margin: 3em auto;
-    height: 50px;
+    /* height: 50px; */
     width: 50%;
     display: flex;
+    flex-direction: column;
     background-color: #9697ee;
     border-radius: 10px;
     box-shadow: 0px 10px 20px 0px var(--grey-color);
     padding: 1em;
 }
 
-#github-repos > .hint-container > p {
+#github-repos > #hint-container > p {
     text-align: center;
     margin: auto;
     font-weight: bold;
     color: #333155;
-    animation: hint-animation 1s infinite;
+    /* animation: hint-animation 1s infinite; */
+}
+
+#github-repos > #hint-container > img {
+    padding: 1em;
+    margin: 1em auto;
+    width: 100px;
+    background-color: #c3c3ee;
+    border-radius: 10px;
+    box-shadow: 0px 10px 20px 0px rgb(117, 117, 117);
+}
+
+#github-repos > #hint-container > p > span {
+    display: block;
+    margin: 1em;
+    font-size: 1.2em;
+    color: white;
+}
+
+#github-repos > #hint-container a {
+    display: block;
+    margin: 1em auto;
+    width: 25%;
 }
 
 @keyframes hint-animation {
@@ -1316,47 +1513,73 @@ footer > p {
   } */
   
 .detailed-project > summary {
+    position: relative;
+    overflow: hidden;
     display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
+    flex-direction: row;
+    flex-wrap: nowrap;
     border-radius: 10px;
     box-shadow: 0px 10px 20px 0px var(--grey-color);
     margin: 1em;
     cursor: pointer;
 }
 
-.detailed-project > summary > span {
-    font-size: 1.4em;
-    font-weight: bold;
+.detailed-project > summary::before {
+    content: "";
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background-size: cover;
+    background-image: url(/resources/images/git.svg);
+    background-repeat: no-repeat;
+    transform: rotate(-60deg)  translateX(32%) translateY(10%);
+    opacity: 0.3;
+}
+
+.detailed-project > summary > h2 {
     margin: auto;
 }
 
 .detailed-project > summary > img {
     margin: 0.5em auto;
-    width: 50px;
+    width: 0px;
     height: 50px;
 }
 
 .detailed-project > summary > .stars-container {
-    margin: 0.5em auto;
+    position: relative;
+    overflow: hidden;
+    
+    padding: 1em;
+    margin: 0em !important;
     display: flex;
 }
 
-.detailed-project > summary > .stars-container > img {
-    margin: auto;
-    width: 25px;
-    height: 25px;
+.detailed-project > summary > .stars-container::before {
+    content: "";
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background-image: url(/resources/images/star.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    transform: rotate(45deg) translateX(-10px) translateY(-10px);
+    opacity: 0.5;
     
 }
 
-.detailed-project > summary > .stars-container > span {
+.detailed-project > summary > .stars-container > .stars {
+    color: white;
     font-size: 1.4em;
     font-weight: bold;
     margin: auto 1em;
+    z-index: 1;
 }
 
 .detailed-project > .content {
-    padding: 1em;
+    /* padding: 0em 1em; */
+    display: flex;
+    flex-direction: column;
     background-color: #9697ee;
     margin: 1em;
     border-radius: 10px;
@@ -1367,9 +1590,65 @@ footer > p {
     background-color: #b1c9eb;
 }
 
-.detailed-project > .content > .top-container {
+.detailed-project > .content .top-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex-wrap: nowrap;
+    max-width: inherit;
+}
+
+.detailed-project > .content h3 {
+    white-space: nowrap;
+    text-align: center;
+    margin: 0.5em;
+    padding: 0.5em;
+    background-color: #b1c9eb;
+    border-radius: 10px;
+}
+
+.detailed-project .project-container .last-modified-container h3 {
+    margin-top: 0em;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+
+.detailed-project:nth-child(even) .content h3 {
+    background-color: #9697ee;
+}
+
+.detailed-project > .content .project-container {
+    /* margin: 0em 1em; */
+    display: flex;
+    flex-direction: column;
+}
+
+.detailed-project > .content .project-container > .content {
+    /* border: 3px #9697ee solid; */
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.detailed-project > .content div > span,
+.detailed-project > .content .description-container p {
+    text-align: center;
+    margin: 0.3em 0.5em;
+    color: #201867;
+    background-color: #a3a5ff;
+    padding: 0.5em;
+    /* font-size: 1.1em; */
+    font-weight: bold;
+    border: 3px #b1d1ff solid;
+    border-radius: 10px;
+    /* box-shadow: 0px 0px 20px 0px var(--grey-color); */
+}
+
+.detailed-project:nth-child(even) > .content div > span,
+.detailed-project:nth-child(even) > .content .description-container p {
+    color: #201867;
+    background-color: #b1d1ff;
+    border: 3px #9697ee solid;
 }
 
 .detailed-project > .content > p {
@@ -1378,10 +1657,13 @@ footer > p {
 }
 
 .detailed-project > .content > .button-area {
+    /* margin: 1em; */
     display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
 }
 
-.detailed-project > .content > .top-container > p {
+.detailed-project > .content > span {
     margin: 0.3em auto;
     color: #201867;
     background-color: #b1d1ff;
@@ -1392,7 +1674,7 @@ footer > p {
     box-shadow: 0px 0px 20px 0px var(--grey-color);
 }
 
-.detailed-project:nth-child(even) > .content > .top-container > p {
+.detailed-project:nth-child(even) > .content > .top-container > span {
     color: #313755;
     background-color: #a099e9;
 }
@@ -1400,7 +1682,7 @@ footer > p {
 .detailed-project  .button-link {
     color: #313755;
     border: 3px #313755 solid;
-    margin: auto;
+    margin: 0.5em;
 }
 
 .detailed-project .button-link > span {
@@ -1410,7 +1692,6 @@ footer > p {
 .detailed-project:nth-child(even)  .button-link {
     color: #6964a4;
     border: 3px #6964a4 solid;
-    margin: auto;
 }
 
 .detailed-project:nth-child(even) .button-link > span {
@@ -1541,6 +1822,548 @@ footer > p {
                            END-OF
 */
 
+/*
+                                START-OF
+/FILE/    /FILE/    /projects/TowardsGreen.html    /FILE/    /FILE/
+*/
+
+#towards-green {
+    background-color: #1bba7a;
+}
+
+#towards-green > .header-container {
+    position: relative;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+#towards-green > .header-container > .header {
+    position: absolute;
+    left: 0;
+    right: 0;
+    text-align: center;
+    margin: auto;
+}
+
+#towards-green > .header-container > .header > h1 {
+    font-size: 1em;
+}
+
+#towards-green > .header-container > .header > h4 {
+    margin-top: 0em;
+}
+
+#towards-green > .header-container img {
+    width: 100%;
+    height: 100%;
+}
+
+/* START-OF: TowardsGreen.html -> introductory */
+
+#towards-green .introductory-box {
+    display: flex;
+    flex-direction: column;
+    padding: 5em 0em;
+    transform: skewY(5deg) translateY(-20px);
+    background-color: #71d6aa;
+}
+
+#towards-green .introduction-section {
+    transform: skewY(-5deg);
+    margin: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;    
+}
+
+#towards-green .introduction-section h2 {
+    text-align: center;
+    width: 50%;
+    padding: 0.5em;
+    border-radius: 10px;
+    background-color: #1bba7a;
+    margin: auto;
+    color: white;
+    /* color: white; */
+}
+
+#towards-green .introduction-section > p {
+    text-align: center;
+    font-weight: bold;
+    margin: 0em;
+    grid-column: 2/3;
+    grid-row: 2/3;
+    padding: 1em;
+}
+
+/* END-OF: TowardsGreen.html -> introductory */
+
+/* START-OF: TowardsGreen.html -> image-section */
+
+#towards-green .image-section {
+    margin: 0em 2em;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    transform: translateY(150px);
+    transition: all 1s;
+}
+
+/* Effect animation */
+#towards-green .image-section.reveal {
+    opacity: 1;
+    transform: translateX(0px);
+}
+
+#towards-green .image-section > h2 {
+    text-align: center;
+    margin: 1em auto;
+    font-size: 2em;
+}
+
+#towards-green .image-section > .image-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#towards-green .image-section > .image-container p:before {
+    content: "“";
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;
+    position: absolute;
+    font-size: 5em;
+    transform: translateY(-25px) translateX(-25px);
+    opacity: 0.25;
+}
+
+#towards-green .image-section > .image-container p:after {
+    display: inline;
+    content: "”";
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;
+    position: absolute;
+    font-size: 5em;
+    transform: translateY(-25px) translateX(-25px);
+    opacity: 0.25;
+}
+
+#towards-green .image-section > .image-container > p {
+    position: relative;
+    text-align: center;
+    font-size: min(4vw, 2em);
+    margin: auto;
+}
+
+#towards-green .image-section img {
+    margin: 1em auto;
+    border-radius: 10px;
+    width: 70%;
+    height: 40vw;
+}
+
+#towards-green .image-section > p {
+    font-size: 2em;
+    text-align: center;
+    font-weight: bold;
+}
+
+#towards-green .image-section > p:nth-child(even) {
+    color: white;
+}
+
+#towards-green .image-section .benefits-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+#towards-green .image-section .benefits-container > .hint-container {
+    margin: 1em auto;
+    width: 120px;
+    height: 120px;
+    padding: 2em;
+    background-color: #c3ecdd;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#towards-green .image-section .benefits-container > .hint-container > img {
+    width: 50%;
+    height: 50%;
+    margin: 0em auto;
+}
+
+#towards-green .image-section .benefits-container > .hint-container > span {
+    text-align: center;
+    margin: 1em auto;
+    font-weight: bold;
+}
+
+/* END-OF: TowardsGreen.html -> image-section */
+
+/* START-OF: TowardsGreen.html -> main-app-terms-section */
+
+#towards-green .main-app-terms-box {
+    position: relative;
+    margin: 5em 0em;
+    padding: 5em 0em;
+    background-color: #71d6aa;
+    transform: skewY(5deg) translateX(-100%);
+    transition: transform 1s;
+}
+
+/* Effect animation */
+#towards-green .main-app-terms-box.reveal {
+    transform: skewY(5deg) translateX(0%);
+}
+
+#towards-green #main-app-terms-section {
+    transform: skewY(-5deg);
+}
+
+#towards-green #main-app-terms-section > h2 {
+    margin: 0em;
+    text-align: center;
+}
+
+#towards-green #main-app-terms-section .content {
+    display: flex;
+    flex-direction: column;
+}
+
+#towards-green #main-app-terms-section .main-app-term {
+    position: relative;
+    overflow: hidden;
+    width: 50%;
+    margin: 1em auto;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    background-color: #c3ecdd;
+}
+
+#towards-green #main-app-terms-section .main-app-term > h3 {
+    margin: 1em auto;
+}
+
+#towards-green #main-app-terms-section .main-app-term > p {
+    text-align: center;
+    padding: 1em;
+}
+
+#towards-green #main-app-terms-section .main-app-term > img {
+    position: absolute;
+    width: 75%;
+    height: 75%;
+    top: 60%;
+    transform: rotate(20deg) translateX(-25px) translateY(-30px);
+    opacity: 0.20;
+}
+
+/* END-OF: TowardsGreen.html -> main-app-terms-section */
+
+/* START-OF: TowardsGreen.html -> main-app-features-section */
+
+#towards-green #main-app-features-section {
+    opacity: 0;
+    transform: translateY(150px);
+    transition: all 1s;
+}
+
+/* Effect animation */
+#towards-green #main-app-features-section.reveal {
+    opacity: 1;
+    transform: translateX(0px);
+}
+
+#towards-green #main-app-features-section h2 {
+    text-align: center;
+}
+
+#towards-green #main-app-features-section p {
+    text-align: center;
+}
+
+#towards-green #main-app-features-section p span {
+    font-weight: bold;
+    border-radius: 10px;
+    padding: 0.2em;
+    /* border: 2px solid #71d6aa; */
+}
+
+#towards-green #main-app-features-section .content {
+    margin: auto;
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+}
+
+#towards-green #main-app-features-section .content p {
+    margin: 1em auto;
+    padding: 0.5em;
+    font-size: 1.0em;
+    border-radius: 10px;
+    background-color: #71d6aa;
+}
+
+/* END-OF: TowardsGreen.html -> main-app-features-section */
+
+/* START-OF: TowardsGreen.html -> progress-section */
+
+#towards-green #progress-section {
+    opacity: 0;
+    transform: translateY(150px);
+    transition: all 1s;
+}
+
+/* Effect animation */
+#towards-green #progress-section.reveal {
+    opacity: 1;
+    transform: translateX(0px);
+}
+
+#towards-green #progress-section h2 {
+    text-align: center;
+}
+
+#towards-green #progress-section .content {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2em;
+    margin-left: 1.5em;
+}
+
+#towards-green #progress-section .progress-item {
+    display: flex;
+    flex-direction: column;
+    margin: 2em;
+}
+
+#towards-green #progress-section .progress-item > span {
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;
+    width: 50px;
+    height: 50px;
+    font-size: 2em;
+    position: absolute;
+    text-align: center;
+    margin: auto;
+    transform: translateY(-40px) translateX(-50px);
+    color: #1bba7a;
+    background-color: #c3ecdd;
+    border-radius: 50%;
+    padding: 0.2em;
+}
+
+#towards-green #progress-section .progress-item p {
+    margin: 0em;
+    text-align: center;
+    border-radius: 10px;
+    background-color: #71d6aa;
+    /* font-size: 1.3em; */
+    padding: 0.5em;
+    z-index: 1;
+}
+
+/* END-OF: TowardsGreen.html -> progress-section */
+
+/* START-OF: TowardsGreen.html -> mockups-section */
+
+#towards-green .mockups-box {
+    margin: 5em 0em;
+    padding: 5em 0em;
+    transform: skewY(5deg);
+    background-color: #1bba7a;
+    overflow: hidden;
+}
+
+#towards-green #mockups-section {
+    transform: skewY(-5deg);
+}
+
+#towards-green #mockups-section h2 {
+    text-align: center;
+}
+
+#towards-green #mockups-section .mockups-item {
+    transform: skewY(5deg);
+}
+
+#towards-green #mockups-section .mockups-item:nth-child(even) {
+    transform: skewY(-5deg);
+}
+
+#towards-green #mockups-section .mockups-item:not(:last-child)::after {
+    position: absolute;
+    display: block;
+    content: "";
+    width: 100%;
+    height: 50%;
+    background-color: #c3ecdd;
+}
+
+#towards-green #mockups-section .mockups-item:nth-child(even):after {
+    background-color: #1bba7a;
+}
+
+#towards-green #mockups-section .mockups-item h3 {
+    width: 40%;
+    padding: 0.5em;
+    border-top-left-radius: 10px;
+    background-color: #c3ecdd;
+    margin: 0em 0em 0em auto;
+    text-align: center;
+    transform: translateX(100%);
+    transition: transform 1s;
+}
+
+/* Effect animation */
+#towards-green #mockups-section .mockups-item h3.reveal {
+    transform: translateX(0);
+}
+
+#towards-green #mockups-section .mockups-item:nth-child(even) h3 {
+    background-color: #1bba7a;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 10px;
+    transform: translateX(-100%);
+    margin: 0em auto 0em 0em;
+    transition: transform 1s;
+}
+
+/* Effect animation */
+#towards-green #mockups-section .mockups-item:nth-child(even) h3.reveal {
+    transform: translateX(0);
+}
+
+#towards-green #mockups-section .mockups-item .mockups-item-box {
+    background-color: #c3ecdd;
+}
+
+#towards-green #mockups-section .mockups-item:nth-child(even) .mockups-item-box {
+    background-color: #1bba7a;
+}
+
+#towards-green #mockups-section .mockups-item .content {
+    display: flex;
+    flex-direction: column;
+    transform: skewY(-5deg);
+    padding-bottom: 1em;
+}
+
+#towards-green #mockups-section .mockups-item:nth-child(even) .content {
+    transform: skewY(5deg);
+}
+
+#towards-green #mockups-section .mockups-item img {
+    padding: 1em;
+    border-radius: 10px;
+    background-color: #333;
+    margin: 4em auto 1em auto;
+    width: 50%;
+    height: 50%;
+    transform: translateY(100px);
+    opacity: 0;
+    transition: all 1s;
+}
+
+/* Effect animation */
+#towards-green #mockups-section .mockups-item img.reveal {
+    transform: translateY(0px);
+    opacity: 1;
+}
+
+#towards-green #mockups-section .mockups-item p {
+    text-align: center;
+    padding: 1em;
+    margin: auto;
+    width: 75%;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1s;
+}
+
+/* Effect animation */
+#towards-green #mockups-section .mockups-item p.reveal {
+    opacity: 1;
+    transform: translateY(0px) translateX(0px);
+}
+
+/* END-OF: TowardsGreen.html -> mockups-section */
+
+/* START-OF: TowardsGreen.html -> final-product-section */
+
+#towards-green #final-product-section {
+    padding-bottom: 1em;
+}
+
+#towards-green #final-product-section h2 {
+    text-align: center;
+}
+
+#towards-green #final-product-section video {
+    margin: auto;
+    height: 50%;
+    width: 50%;
+    padding: 1em;
+    background-color: #c3ecdd;
+    border-radius: 10px;
+    transform: translateX(100%);
+    transition: 1s all;
+    opacity: 0;
+}
+
+/* Effect animation */
+#towards-green #final-product-section video.reveal {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+#towards-green #final-product-section .video-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#towards-green #final-product-section .text-box {
+    margin: 1em;
+    display: flex;
+    background-color: #c3ecdd;
+    border-radius: 10px;
+    padding: 1em;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: all 1s;
+}
+
+/* Effect animation */
+#towards-green #final-product-section .text-box.reveal {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+
+#towards-green #final-product-section .video-container p {
+    text-align: center;
+    margin: auto;
+}
+
+#towards-green #final-product-section .video-container p span {
+    color: #c3ecdd;
+    font-weight: bold;
+    background-color: #1bba7a;
+    padding: 0.2em;
+    border-radius: 10px;
+}
+
+/* END-OF: TowardsGreen.html -> final-product-section */
+
+/*
+    /FILE/    /FILE/    /projects/TowardsGreen.html    /FILE/    /FILE/
+                                      END-OF
+*/
+
 /* TABLET-BASED LAYOUT */
 @media only screen and (min-width: 425px) {
 
@@ -1597,28 +2420,30 @@ footer > p {
 
     /* START-OF: index.html -> main-about-me-section */
 
-    #main-about-me-section {
-        background-color: var(--green-blue-color);
+    #main-about-me-section > .content {
         padding: 2em;
-        display: grid;
-        grid-template-columns: 1fr 2fr 1fr;
-        grid-template-rows: 0.25fr 1fr;
+        flex-direction: row;
     }
 
     #main-about-me-section > h2 {
         margin: 0em;
     }
 
-    #main-about-me-section > img {
+    #main-about-me-section .main-body {
         margin: 0em;
-        grid-column: 1/2;
-        grid-row: 2/3;
+        flex-basis: 30%;
     }
 
-    #main-about-me-section > .content {
-        grid-column: 2/4;
-        grid-row: 2/3;
+    #main-about-me-section .description {
+        flex-basis: 70%;
         margin: auto 2em;
+    }
+
+    #main-about-me-section img {
+        width: 40vw;
+        height: 40vw;
+        max-width: 300px;
+        max-height: 300px;
     }
 
     /* END-OF: index.html -> main-about-me-section */
@@ -1740,7 +2565,6 @@ footer > p {
     /* START-OF: aboutme.html -> about-me-languages-section */
 
     .language {
-        margin: auto 1em;
         width: 490px;
     }
 
@@ -1795,6 +2619,242 @@ footer > p {
     /*
         /FILE/    /FILE/    projects.html    /FILE/    /FILE/
                             END-OF
+    */
+
+    /*
+                                START-OF
+    /FILE/    /FILE/    resources/projects/TowardsGreen.html    /FILE/    /FILE/
+    */
+
+    #towards-green > .header-container {
+        flex-direction: row;
+    }
+
+    #towards-green > .header-container > .header {
+        position: initial;
+    }
+
+    #towards-green > .header-container > .header > h1 {
+        font-size: min(3.8vw, 2em);
+    }
+
+    #towards-green > .header-container > .header > h4 {
+        font-size: min(1.8vw, 1em);
+    }
+
+    #towards-green > .header-container > img {
+        width: 80%;
+    }
+
+
+    /* START-OF: TowardsGreen.html -> introductory */
+
+    #towards-green .introductory-box {
+        transform: skewY(5deg) translateY(-40px);
+    }
+
+    #towards-green .introduction-section {
+        width: 70%;   
+    }
+
+    #towards-green .introduction-section:nth-child(even) {
+        margin-left: auto;  
+    }
+
+    /* END-OF: TowardsGreen.html -> introductory */
+
+    /* START-OF: TowardsGreen.html -> image-section */
+
+    #towards-green .image-section img {
+        width: 400px;
+        height: 250px;
+    }
+
+    #towards-green .image-section > .content > p {
+        width: 50%;
+    }
+
+    #towards-green .image-section .benefits-container {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    #towards-green .image-section .benefits-container > .hint-container {
+        width: 200px;
+        height: 200px;
+    }
+
+    #towards-green .image-section .benefits-container > .hint-container > img {
+        width: 150px;
+        height: 150px;
+        margin: 0em auto;
+    }
+
+    /* END-OF: TowardsGreen.html -> image-section */
+
+    /* START-OF: TowardsGreen.html -> main-app-terms-section */
+
+
+    #towards-green #main-app-terms-section .content {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+
+    #towards-green #main-app-terms-section .main-app-term {
+        position: relative;
+        overflow: hidden;
+        width: 40%;
+        margin: 1em;
+        display: flex;
+        flex-direction: column;
+        border-radius: 10px;
+        background-color: #c3ecdd;
+    }
+
+    /* END-OF: TowardsGreen.html -> main-app-terms-section */
+
+    /* START-OF: TowardsGreen.html -> main-app-features-section */
+
+    #towards-green #main-app-features-section .content p {
+        font-size: 1.3em;
+    }
+
+    #towards-green #main-app-features-section p span {
+        border: 2px solid #71d6aa;
+    }
+
+    /* START-OF: TowardsGreen.html -> main-app-features-section */
+
+    /* START-OF: TowardsGreen.html -> progress-section */
+
+    #towards-green #progress-section .content {
+        flex-direction: column;
+    }
+
+    #towards-green #progress-section .progress-item {
+        width: 50%;
+        margin: 2em auto;
+    }
+
+    #towards-green #progress-section .progress-item > span {
+        font-size: 3em;
+    }
+    
+    #towards-green #progress-section .progress-item p {
+        font-size: 1.3em;
+    }
+
+    /* END-OF: TowardsGreen.html -> progress-section */
+
+    /* START-OF: TowardsGreen.html -> mockups-section */
+
+    #towards-green #mockups-section h2 {
+        text-align: center;
+        margin-bottom: 2em;
+    }
+
+    #towards-green #mockups-section .mockups-item h3 {
+        font-size: 1.5em;
+    }
+
+    #towards-green #mockups-section .mockups-item .content {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    #towards-green #mockups-section .mockups-item:nth-child(even) .content {
+        flex-direction: row-reverse;
+    }
+
+    #towards-green #mockups-section .mockups-item img {
+        /* position: relative; */
+        /* top: -150px; */
+        margin: 2em auto;
+        height: 350px;
+        width: initial;
+    }
+
+    #towards-green #mockups-section .mockups-item p {
+        width: 50%;
+        font-size: 1.2em;
+        transform: translateX(-150px);
+    }
+
+    #towards-green #mockups-section .mockups-item:nth-child(even) p {
+        transform: translateX(150px);
+    }
+
+    /* Effect animation */
+    #towards-green #mockups-section .mockups-item p.reveal {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+
+    /* END-OF: TowardsGreen.html -> mockups-section */
+
+    /* START-OF: TowardsGreen.html -> final-product-section */
+
+    #towards-green #final-product-section video {
+        margin: 0em;
+        width: 25%;
+        height: 25%;
+        z-index: 1;
+    }
+
+    #towards-green #final-product-section .video-container {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    #towards-green #final-product-section .video-container:nth-child(even) {
+        display: flex;
+        flex-direction: row-reverse;
+    }
+
+    #towards-green #final-product-section .text-box {
+        width: 50%;
+        margin: auto 0em auto 0em;
+        display: flex;
+        transform: skewY(-5deg) translateX(-50%);
+        border-bottom-left-radius: 0px;
+        border-top-left-radius: 0px;
+        opacity: 0;
+        /* font-size: 0; */
+    }
+
+    #towards-green #final-product-section .video-container:nth-child(even) .text-box {
+        transform: skewY(-5deg) translateX(50%);
+        /* font-size: 0; */
+    }
+
+    /* Effect animation */
+    #towards-green #final-product-section .text-box.reveal,
+    #towards-green #final-product-section .video-container:nth-child(even) .text-box.reveal {
+        transform: skewY(-5deg) translateX(0);
+        /* font-size: initial; */
+    }
+
+    #towards-green #final-product-section .video-container:nth-child(even) .text-box {
+        border-bottom-right-radius: 0px;
+        border-top-right-radius: 0px;
+        border-bottom-left-radius: 10px;
+        border-top-left-radius: 10px;
+    }
+
+    #towards-green #final-product-section .video-container p {
+        width: 100%;
+        margin: auto;
+        font-size: min(2.0vw,1.0em);
+    }
+
+    /* END-OF: TowardsGreen.html -> final-product-section */
+
+    /*
+        /FILE/    /FILE/    /projects/TowardsGreen.html    /FILE/    /FILE/
+                                        END-OF
     */
 }
 
@@ -1866,6 +2926,10 @@ footer > p {
     }
     
     /* END-OF: index.html -> welcome-introduction-section */
+
+    #main-about-me-section .description p {
+        font-size: 1.3em;
+    }
     
     /* START-OF: index.html -> latest-projects-section */
     
@@ -1970,12 +3034,38 @@ footer > p {
     /* START-OF: projects.html -> github-repos */
 
     .detailed-project {
-        margin: 4em;
-        width: 50%;
+        margin: 4em 1em;
+        width: 75%;
+    }
+
+    .detailed-project .project-container h3 {
+        margin-top: 0em;
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
     }
 
     .detailed-project:nth-child(even) {
         margin-left: auto;
+    }
+
+    .detailed-project > .content .top-container {
+        flex-direction: row;
+    }
+
+    .detailed-project > .content .description-container {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .detailed-project > .content .description-container h3 {
+        border-top-left-radius: 0em;
+        border-bottom-left-radius: 0em;
+        margin: auto 0em;
+        text-align: center;
+    }
+
+    .detailed-project > .content .description-container p {
+        width: 100%;
     }
     
     /* END-OF: projects.html -> github-repos */
@@ -1983,5 +3073,164 @@ footer > p {
     /*
         /FILE/    /FILE/    projects.html    /FILE/    /FILE/
                             END-OF
+    */
+
+    /*
+                                START-OF
+    /FILE/    /FILE/    resources/projects/TowardsGreen.html    /FILE/    /FILE/
+    */
+
+    #main-app-terms-section h2, 
+    #main-app-features-section h2,
+    #progress-section h2,
+    #mockups-section h2,
+    #final-product-section h2 {
+        font-size: 2.5em;
+    }
+    
+    #towards-green > .header-container > .header > h1 {
+        font-size: 3.5em;
+    }
+
+    #towards-green > .header-container img {
+        width: 70%;
+        height: 70%;
+    }
+
+    /* START-OF: TowardsGreen.html -> introductory */
+
+    #towards-green .introductory-box {
+        flex-direction: row;
+        transform: skewY(5deg) translateY(-100px);
+    }
+
+    /* END-OF: TowardsGreen.html -> introductory */
+
+    /* START-OF: TowardsGreen.html -> image-section */
+
+    #towards-green .image-section > .image-container {
+        flex-direction: row;
+        
+    }
+
+    #towards-green .image-section > .image-container .quote-marker {
+        font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;
+        position: absolute;
+        font-size: 5em;
+        transform: translateY(-35px) translateX(-25px);
+        opacity: 0.25;
+    }
+
+    #towards-green .image-section > .image-container p {
+        width: 20%;
+    }
+
+    #towards-green .image-section img {
+        margin: 1em auto;
+        width: 20%;
+        height: 250px;
+    }
+
+    /* END-OF: TowardsGreen.html -> image-section */
+
+    /* START-OF: TowardsGreen.html -> main-app-terms-section */
+
+    #towards-green #main-app-terms-section .content {
+        flex-direction: row;
+    }
+
+    #towards-green #main-app-terms-section .main-app-term {
+        width: 250px;
+        margin: 1em;
+    }
+
+    /* END-OF: TowardsGreen.html -> main-app-terms-section */
+
+    /* START-OF: TowardsGreen.html -> progress-section */
+
+    #towards-green #progress-section .content {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    #towards-green #progress-section .progress-item {
+        width: initial;
+        margin: 2em;
+    }
+
+    /* END-OF: TowardsGreen.html -> progress-section */
+
+    /* START-OF: TowardsGreen.html -> mockups-section */
+
+    #towards-green #mockups-section h2 {
+        text-align: center;
+        margin-bottom: 2em;
+    }
+
+    #towards-green #mockups-section .mockups-item h3 {
+        font-size: 2em;
+    }
+
+    #towards-green #mockups-section .mockups-item .content {
+        flex-direction: row;
+        flex-wrap: nowrap;
+    }
+
+    #towards-green #mockups-section .mockups-item:nth-child(even) .content {
+        flex-direction: row-reverse;
+    }
+
+    #towards-green #mockups-section .mockups-item img {
+        position: relative;
+        top: -150px;
+        margin: 2em;
+        height: 600px;
+        width: initial;
+    }
+
+    #towards-green #mockups-section .mockups-item p {
+        font-size: 1.5em;
+    }
+
+    /* END-OF: TowardsGreen.html -> mockups-section */
+
+    /* START-OF: TowardsGreen.html -> final-product-section */
+
+    #towards-green #final-product-section video {
+        width: 400px;
+        padding: 1em;
+        background-color: #c3ecdd;
+        border-radius: 10px;
+    }
+
+    #towards-green #final-product-section .video-container {
+        display: flex;
+        justify-content: center;
+    }
+
+    #towards-green #final-product-section .video-container:nth-child(even) {
+        display: flex;
+        flex-direction: row-reverse;
+    }
+
+    #towards-green #final-product-section .text-box {
+        width: 50%;
+        margin: auto 0em auto 0em;
+    }
+
+    #towards-green #final-product-section .video-container p {
+        text-align: center;
+        padding: 1em;
+        width: 75%;
+        margin: auto;
+        font-size: 1.5em;
+    }
+
+    /* END-OF: TowardsGreen.html -> final-product-section */
+
+    /*
+        /FILE/    /FILE/    resources/projects/TowardsGreen.html    /FILE/    /FILE/
+                                        END-OF
     */
 }
