@@ -287,21 +287,35 @@ header li > a:active {
 /* START-OF: index.html -> welcome-introduction-section */
 
 #home-page > section > h2 {
+    white-space: nowrap;
     border-left: 10px solid var(--green-blue-color);
     border-top-left-radius: 10px;
     background-color: var(--header-color);
     padding: 0.5em;
     text-align: center;
-    animation: 1.5s ease-out 0s 1 slide-in-animation;
+    opacity: 0;
+    transition: all 1.5s;
+    width: 0%;
 }
 
-@keyframes slide-in-animation {
-    0% {
-        transform: translateX(-100%);
-    }
-    100% {
-        transform: translateX(0%);
-    }
+#home-page > section > h2.reveal {
+    opacity: 1;
+    width: 100%;
+}
+
+#home-page > section  {
+    overflow: hidden;
+}
+
+#home-page > section > .content.trigger-effect {
+    opacity: 0;
+    transform: translateY(150px);
+    transition: all 1s;
+}
+
+#home-page > section > .content.reveal {
+    opacity: 1;
+    transform: translateY(0);
     
 }
 
@@ -490,6 +504,7 @@ header li > a:active {
 }
 
 #main-about-me-section .description {
+    text-align: center;
     padding: 1em;
     margin: auto;
     display: flex;
@@ -2424,6 +2439,13 @@ footer > p {
         margin: auto 2em;
     }
 
+    #main-about-me-section img {
+        width: 40vw;
+        height: 40vw;
+        max-width: 300px;
+        max-height: 300px;
+    }
+
     /* END-OF: index.html -> main-about-me-section */
 
     /* START-OF: index.html -> education-section */
@@ -2904,6 +2926,10 @@ footer > p {
     }
     
     /* END-OF: index.html -> welcome-introduction-section */
+
+    #main-about-me-section .description p {
+        font-size: 1.3em;
+    }
     
     /* START-OF: index.html -> latest-projects-section */
     
