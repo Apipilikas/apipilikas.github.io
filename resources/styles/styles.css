@@ -91,6 +91,10 @@ h2 {
     font-weight: bold;
 }
 
+#loader p:last-child {
+    animation: fade-in-animation cubic-bezier(1,-0.55, 1, 1) 3s;
+}
+
 #loader.fade-out {
     /* opacity: 0; */
     animation: 1s loader-animation;
@@ -2161,7 +2165,6 @@ footer > p {
     text-align: center;
     border-radius: 10px;
     background-color: #71d6aa;
-    /* font-size: 1.3em; */
     padding: 0.5em;
     z-index: 1;
 }
@@ -2296,6 +2299,7 @@ footer > p {
 
 #towards-green #final-product-section {
     padding-bottom: 1em;
+    overflow: hidden;
 }
 
 #towards-green #final-product-section h2 {
