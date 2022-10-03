@@ -1816,7 +1816,15 @@ footer > p {
 }
 
 .resume-content > .button-area {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
     margin: 5em auto;
+}
+
+.resume-content > .button-area a {
+    white-space: nowrap;
+    margin: 1em;
 }
 
 /* END-OF: resume.html -> resume-content */
