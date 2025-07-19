@@ -292,7 +292,7 @@ header li > a:active {
 
 #home-page > section > h2 {
     white-space: nowrap;
-    border-left: 10px solid var(--green-blue-color);
+    border-left: 10px solid var(--blue-color);
     border-top-left-radius: 10px;
     background-color: var(--header-color);
     padding: 0.5em;
@@ -604,15 +604,15 @@ header li > a:active {
         transform: translateX(100%);
     }
     100% {
-        transform: translateX(-1600px);
+        transform: translateX(-2000px);
     }
 }
 
 /* END-OF: index.html -> skills-section */
 
-/* START-OF: index.html -> education-section */
+/* START-OF: index.html -> liferoad-section */
 
-.education {
+.liferoad {
     display: grid;
     margin: 3em;
     width: 80%;
@@ -624,7 +624,7 @@ header li > a:active {
 }
 
 /* TO and FROM dots */
-.education:nth-child(odd) .timeline > p::before {
+.liferoad:nth-child(odd) .timeline > p::before {
     content: "";
     position: absolute;
     width: 10px;
@@ -635,7 +635,7 @@ header li > a:active {
     border: 3px solid var(--green-blue-color);
 }
 
-.education:nth-child(even) .timeline > p::after {
+.liferoad:nth-child(even) .timeline > p::after {
     content: "";
     position: absolute;
     width: 10px;
@@ -647,18 +647,18 @@ header li > a:active {
 }
 
 /* container gravity and grid layout */
-.education:nth-child(odd) {
+.liferoad:nth-child(odd) {
     grid-template-columns: 1fr 4fr;
 }
 
-.education:nth-child(even) {
+.liferoad:nth-child(even) {
     margin-left: auto;
     margin-right: 3em;
     grid-template-columns: 4fr 1fr;
 }
 
 /* Timeline */
-.education::before {
+.liferoad::before {
     content: "";
     position: absolute;
     width: 80%;
@@ -666,7 +666,7 @@ header li > a:active {
 }
   
   /* Setting the border of top, bottom, left */
-  .education:nth-child(odd)::before {
+  .liferoad:nth-child(odd)::before {
     left: -2em;
     top: -1.3em;
     bottom: -2em;
@@ -675,7 +675,7 @@ header li > a:active {
   }
   
 /* Setting the border of top, bottom, right */
-.education:nth-child(even)::before {
+.liferoad:nth-child(even)::before {
     right: -2em;
     top: -1.3em;
     bottom: -2em;
@@ -683,26 +683,26 @@ header li > a:active {
     border-radius: 0 50px 50px 0;
 }
   
-/* Removing the border if it is the first education */
-.education:first-child::before {
+/* Removing the border if it is the first liferoad */
+.liferoad:first-child::before {
     border-top: 0;
     border-top-left-radius: 5px;
 }
   
-  /* Removing the border if it is the last education  and it's odd */
-.education:last-child:nth-child(odd)::before {
+  /* Removing the border if it is the last liferoad  and it's odd */
+.liferoad:last-child:nth-child(odd)::before {
     border-bottom: 0;
     border-bottom-left-radius: 5px;
 }
   
-/* Removing the border if it is the last education  and it's even */
-.education:last-child:nth-child(even)::before {
+/* Removing the border if it is the last liferoad  and it's even */
+.liferoad:last-child:nth-child(even)::before {
     border-bottom: 0;
     border-bottom-right-radius: 5px;
 }
 
 /* Setting objects placement in grid */
-.education > h3 {
+.liferoad h3 {
     text-align: center;
     padding: 0.5em;
     margin: auto;
@@ -710,18 +710,23 @@ header li > a:active {
     grid-column: 2/3;
 }
 
-.education > h4 {
+.liferoad h4 {
     text-align: center;
     margin: auto;
     grid-row: 2/3;
     grid-column: 2/3;
 }
 
-.education:nth-child(even) > h3 {
+.liferoad .description {
+    margin: auto;
+    text-align: center;
+}
+
+.liferoad:nth-child(even) h3 {
     grid-column: 1/2;
 }
 
-.education:nth-child(even) > h4 {
+.liferoad:nth-child(even) h4 {
     grid-column: 1/2;
 }
 
@@ -733,7 +738,7 @@ header li > a:active {
     
 }
 
-.education:nth-child(even) .timeline {
+.liferoad:nth-child(even) .timeline {
     text-align: right;
     grid-column: 2/3;
 }
@@ -747,7 +752,7 @@ header li > a:active {
     margin-top: 4em;
 }
 
-/* END-OF: index.html -> education-section */
+/* END-OF: index.html -> liferoad-section */
 
 /* START-OF: index.html -> latest-projects-section */
 
@@ -1253,7 +1258,7 @@ footer > p {
     width: 80%;
 }
 
-.progress-bar.python , .progress-bar.sql {
+.progress-bar.python {
     width: 60%;
 }
 
@@ -2460,17 +2465,17 @@ footer > p {
 
     /* END-OF: index.html -> main-about-me-section */
 
-    /* START-OF: index.html -> education-section */
+    /* START-OF: index.html -> liferoad-section */
 
-    .education {
+    .liferoad {
         width: 50%;
     }
 
-    .education::before {
+    .liferoad::before {
         width: 100%;
     }
 
-    /* END-OF: index.html -> education-section */
+    /* END-OF: index.html -> liferoad-section */
 
     /* START-OF: index.html -> latest-projects-section */
 
