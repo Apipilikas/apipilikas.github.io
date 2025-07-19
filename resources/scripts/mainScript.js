@@ -1,4 +1,7 @@
+import { LoadResourcesUtils } from "./utils/loadResourcesUtils.js";
+
 const url = "https://api.github.com/users/Apipilikas/repos?sort=pushed_at";
+const path = "../files/main";
 
 window.onload = init;
 
@@ -8,6 +11,7 @@ var slidePagesNumber = 0;
 var slidesPerPage = 0;
 var latestProjectsData = [];
 var div;
+var data;
 
 templates.latest_projects = Handlebars.compile(`
 {{#each this}}
@@ -24,10 +28,52 @@ templates.latest_projects = Handlebars.compile(`
 {{/each}}
 `);
 
-function init() {
+templates.liferoad = Handlebars.compile(`
+{{#each this}}
+<div class="liferoad">
+    <div class="main-info">
+        <h3>{{title}}</h3>
+        <h4>{{subtitle}}</h4>
+    </div>
+    <p class="description">{{description}}</p>
+    <div class="timeline">
+        <p>TO <span>{{timeline.to}}</span></p>
+        <p>FROM <span>{{timeline.from}}</span></p>
+    </div>
+</div>
+{{/each}}
+`);
+
+templates.news = Handlebars.compile(`
+{{#each this}}
+<article class="news">
+    <div class="title-container">
+        <div class="border"></div>
+        <h3>{{title}}</h3>
+    </div>
+    <div class="date-container">
+        <div class="border"></div>
+        <p class="date">{{date}}</p>
+    </div>
+    <div class="description-container">
+        <div class="border"></div>
+        <p class="description">
+            {{description}}
+        </p>
+    </div>
+</article>
+{{/each}}
+`);
+
+async function init() {
+    data = await LoadResourcesUtils.loadJSON("main");
     div = document.getElementById('latest-projects-content');
     makeLatestProjectsRequest();
 
+
+    renderLiferoadSection();
+    renderNewsSection();
+    renderAboutMeSection();
     //initializeMenuButton();
 }
 
@@ -54,7 +100,7 @@ function makeLatestProjectsRequest() {
     })
     .then(data => {
 
-        for (item of data) {
+        for (let item of data) {
 
             let project = {
                 "title": item.name,
@@ -120,7 +166,7 @@ function makeLatestProjectsRequest() {
     })
     .catch(error => {
         showNoResultFoundContent();
-        console.log("error");
+        console.log(error);
     });
 }
 
@@ -209,4 +255,19 @@ function getLatestProjects() {
     }
     
     return latestProjectsSubData;
+}
+
+function renderAboutMeSection() {
+    const description = document.querySelector("#main-about-me-section .description > p");
+    description.innerHTML = data.aboutMe;
+}
+
+function renderLiferoadSection() {
+    const liferoadContent = document.querySelector("#liferoad-section .content");
+    liferoadContent.innerHTML = templates.liferoad(data.liferoad);
+}
+
+function renderNewsSection() {
+    const liferoadContent = document.querySelector("#news-section .content");
+    liferoadContent.innerHTML = templates.news(data.news);
 }
