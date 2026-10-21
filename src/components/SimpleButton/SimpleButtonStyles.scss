@@ -1,0 +1,29 @@
+.simple-button, button {
+    color: black;
+    font-family: 'Jura', sans-serif;
+    font-size: 1em;
+    font-weight: 700;
+    padding: 1em;
+    background-color: transparent;
+    border: 3px black solid;
+    box-shadow: 0px 10px 20px 0px var(--grey-color);
+    text-decoration: none;
+    position: relative;
+    z-index: 1;
+}
+
+.simple-button span {
+    width: 0%;
+    height: 100%;
+    position: absolute;
+    bottom: 0%;
+    left: 0%;
+    background: var(--blue-color);
+    z-index: -1;
+    transition: 0.25s;
+}
+
+.simple-button:hover {
+    color: white;
+    transition: all 0.5s;
+}

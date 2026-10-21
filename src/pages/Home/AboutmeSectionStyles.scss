@@ -1,0 +1,108 @@
+@use '../../index.module.scss' as *;
+
+#main-about-me-section {
+    background-color: var(--green-blue-color);
+    padding-bottom: 1em;
+}
+
+#main-about-me-image-content {
+    padding: 2em;
+    background-color: var(--blue-color);
+}
+
+#main-about-me-section > .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+#main-about-me-image-content img {
+    width: 50vw;
+    height: 50vw;
+    max-width: 250px;
+    max-height: 450px;
+    // margin: auto;
+    // border-radius: 10px;
+    // box-shadow: 0px 10px 20px 0px var(--grey-color);
+    animation: 1s slide-in-animation 0s 1 ;
+}
+
+#main-about-me-section .text-area {
+    padding: 1em;
+    font-size: 2em;
+    font-weight: 600;
+}
+
+#main-about-me-section .text-area .name-text {
+    font-size: 1.4em;
+    font-family: Sansation;
+    color: var(--blue-color);
+}
+
+#main-about-me-section .text-area p {
+    font-size: 0.8em;
+}
+
+#main-about-me-section .buttons-area {
+    display: flex;
+}
+
+#main-about-me-section .buttons-area > .simple-button {
+    margin-left: 2em;
+}
+
+#main-about-me-section .right-content {
+    width: 60%;
+}
+
+#main-about-me-section .social-networks-area {
+    width: 330px;
+    margin: 2em;
+    display: flex;
+    justify-content: space-around;
+}
+
+#main-about-me-section .social-network {
+    position: relative;
+    top: 0%;
+    right: 0%;
+    padding: 0.5em;
+    color: white;
+    background-color: var(--blue-color);
+    // border-radius: 5px;
+    box-shadow: 0px 5px 20px 0px #63707a;
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+    margin-bottom: 1em;
+}
+
+#main-about-me-section .social-network img {
+    filter: brightness(0) saturate(100%) invert(86%) sepia(22%) saturate(342%) hue-rotate(138deg) brightness(85%) contrast(95%);
+}
+
+/* TABLET-BASED LAYOUT */
+@media only screen and (min-width: $tablet) {
+
+    #main-about-me-section > .content {
+        padding: 2em;
+        flex-direction: row;
+    }
+
+    #main-about-me-section > h2 {
+        margin: 0em;
+    }
+
+    #main-about-me-section .main-body {
+        margin: 0em;
+        flex-basis: 30%;
+    }
+}
+
+/* DESKTOP-BASED LAYOUT */
+@media only screen and (min-width: $desktop) {
+
+    #main-about-me-section .description p {
+        font-size: 1.3em;
+    }
+}

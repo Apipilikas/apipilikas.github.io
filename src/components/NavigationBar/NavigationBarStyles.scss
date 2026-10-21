@@ -1,0 +1,81 @@
+@use '../../index.module.scss' as *;
+
+#navigation-bar {
+    width: 100%;
+}
+
+#navigation-bar ul {
+    display: flex;
+    white-space: nowrap;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    padding: 0em;
+    margin-top: 0em;
+    background-color: var(--header-color);
+    list-style-type: none;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    z-index: 5;
+}
+
+#navigation-bar li {
+    width: 50%;
+}
+
+#navigation-bar li > a {
+    color: black;
+    display: block;
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: 700;
+    padding: 1em 0em 1em 0em;
+    transition: 0.25s;
+}
+
+#navigation-bar li > a:hover {
+    background-color: var(--blue-color);
+    color: white;
+}
+
+#navigation-bar li > a:active {
+    background-color: var(--green-blue-color);
+    color: var(--blue-color);
+}
+
+/* TABLET-BASED LAYOUT */
+@media only screen and (min-width: $tablet) {
+    #navigation-bar ul {
+        display: flex !important;
+        margin-top: 1em;
+        margin-bottom: 0em;
+        flex-direction: row;
+        position: initial;
+        /* flex-wrap: wrap; */
+    }
+    
+    #navigation-bar li {
+        flex-basis: 50%;
+    }
+}
+
+@media only screen and (min-width: $desktop) {
+    #navigation-bar {
+        margin: 0em;
+        flex-basis: 70%;
+    }
+    
+    #navigation-bar ul {
+        margin: auto;
+    }
+    
+    #navigation-bar li {
+        flex-basis: 20%;
+    }
+    
+    #navigation-bar li > a {
+        padding: 2em 0em 2em 0em;
+    }
+}

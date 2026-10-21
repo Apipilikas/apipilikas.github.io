@@ -1,0 +1,153 @@
+@use '../../index.module.scss' as *;
+
+.liferoad {
+    display: grid;
+    margin: 3em;
+    width: 80%;
+    position: relative;
+    background-color: var(--header-color);
+    border-radius: 10px;
+    box-shadow: 0px 10px 20px 0px var(--grey-color);
+    grid-template-rows: 1fr 1fr;
+}
+
+/* TO and FROM dots */
+.liferoad:nth-child(odd) .timeline > p::before {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: white;
+    border-radius: 5px;
+    left: -2.3em;
+    border: 3px solid var(--green-blue-color);
+}
+
+.liferoad:nth-child(even) .timeline > p::after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: white;
+    border-radius: 5px;
+    right: -2.3em;
+    border: 3px solid var(--green-blue-color);
+}
+
+/* container gravity and grid layout */
+.liferoad:nth-child(odd) {
+    grid-template-columns: 1fr 4fr;
+}
+
+.liferoad:nth-child(even) {
+    margin-left: auto;
+    margin-right: 3em;
+    grid-template-columns: 4fr 1fr;
+}
+
+/* Timeline */
+.liferoad::before {
+    content: "";
+    position: absolute;
+    width: 80%;
+    border: solid #333;
+}
+  
+  /* Setting the border of top, bottom, left */
+  .liferoad:nth-child(odd)::before {
+    left: -2em;
+    top: -1.3em;
+    bottom: -2em;
+    border-width: 5px 0 5px 5px;
+    border-radius: 50px 0 0 50px;
+  }
+  
+/* Setting the border of top, bottom, right */
+.liferoad:nth-child(even)::before {
+    right: -2em;
+    top: -1.3em;
+    bottom: -2em;
+    border-width: 5px 5px 5px 0;
+    border-radius: 0 50px 50px 0;
+}
+  
+/* Removing the border if it is the first liferoad */
+.liferoad:first-child::before {
+    border-top: 0;
+    border-top-left-radius: 5px;
+}
+  
+  /* Removing the border if it is the last liferoad  and it's odd */
+.liferoad:last-child:nth-child(odd)::before {
+    border-bottom: 0;
+    border-bottom-left-radius: 5px;
+}
+  
+/* Removing the border if it is the last liferoad  and it's even */
+.liferoad:last-child:nth-child(even)::before {
+    border-bottom: 0;
+    border-bottom-right-radius: 5px;
+}
+
+/* Setting objects placement in grid */
+.liferoad h3 {
+    text-align: center;
+    padding: 0.5em;
+    margin: auto;
+    grid-row: 1/2;
+    grid-column: 2/3;
+}
+
+.liferoad h4 {
+    text-align: center;
+    margin: auto;
+    grid-row: 2/3;
+    grid-column: 2/3;
+}
+
+.liferoad .description {
+    margin: auto;
+    text-align: center;
+}
+
+.liferoad:nth-child(even) h3 {
+    grid-column: 1/2;
+}
+
+.liferoad:nth-child(even) h4 {
+    grid-column: 1/2;
+}
+
+.timeline {
+    grid-column: 1/2;
+    grid-row: 1/3;
+    margin: 1em;
+    padding: 1em 0em 1em 0em;
+    
+}
+
+.liferoad:nth-child(even) .timeline {
+    text-align: right;
+    grid-column: 2/3;
+}
+
+.timeline > p > span {
+    color: var(--blue-color);
+    font-weight: 700;
+}
+
+.timeline p:nth-child(2) {
+    margin-top: 4em;
+}
+
+/* TABLET-BASED LAYOUT */
+@media only screen and (min-width: $tablet) {
+
+    .liferoad {
+        width: 50%;
+    }
+
+    .liferoad::before {
+        width: 100%;
+    }
+}

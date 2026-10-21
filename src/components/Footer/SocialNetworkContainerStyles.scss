@@ -1,0 +1,18 @@
+@use '../../index.module.scss' as *;
+
+footer .social-network {
+    display: flex;
+    margin: 0.5em;
+
+    img {
+        filter: brightness(0) saturate(100%) invert(30%) sepia(8%) saturate(5260%) hue-rotate(169deg) brightness(90%) contrast(85%);
+    }
+
+    a {
+        margin: auto 0.5em;
+        text-decoration: none;
+        font-weight: bold;
+        color: var(--blue-color);
+        transition: 0.25s;
+    }
+}

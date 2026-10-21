@@ -1,0 +1,9 @@
+// Variables
+
+$tablet: 425px;
+$desktop: 992px;
+
+:export {
+  tabletMinWidth: $tablet;
+  desktopMinWidth: $desktop;
+}

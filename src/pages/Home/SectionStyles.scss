@@ -1,0 +1,13 @@
+section > h2 {
+    white-space: nowrap;
+    font-size: 2em;
+    // border-left: 10px solid var(--blue-color);
+    // border-top-left-radius: 10px;
+    // background-color: var(--header-color);
+    padding: 0.5em;
+    text-align: center;
+    /* opacity: 0; */
+    transition: all 1.5s;
+    color: var(--blue-color);
+    /* width: 0%; */
+}
