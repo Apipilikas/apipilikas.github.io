@@ -11,9 +11,7 @@ export default function AboutmeSection() {
     return (
         <Section id="main-about-me-section">
             <div className="content">
-                <div id="main-about-me-image-content">
-                    <img src="/images/me_2.png" alt="me" />
-                </div>
+                <img id="main-about-me-image" src="/images/me_2.png" alt="me" />
                 <div className="right-content">
                     <div className="text-area">
                         <TypewriterText texts={["Hello World!", "Καλησπέρα!"]} />

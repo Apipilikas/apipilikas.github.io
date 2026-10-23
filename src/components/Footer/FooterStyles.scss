@@ -30,13 +30,15 @@ hr {
 
 footer > .content {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-evenly;
     gap: 2em;
+    flex-wrap: wrap;
+    align-items: flex-start;
 }
 
 footer .name-text {
-    margin: auto 2em;
+    margin: 0.5em 2em;
     text-align: center;
     font-size: 2em;
     font-family: Sansation;
@@ -54,8 +56,8 @@ footer .name-text {
 
 .footer-container {
     display: flex;
-    flex-basis: 100%;
-    width: 100%;
+    flex-basis: 40%;
+    width: auto;
     flex-wrap: wrap;
 }
 
@@ -78,24 +80,13 @@ footer .name-text {
     footer .name-text {
         font-size: 3em;
     }
-
-    footer > .content {
-        flex-direction: row;
-        flex-wrap: wrap;
-        // justify-content: space-evenly;
-        align-items: flex-start;
-    }
-
-    .footer-container {
-        flex-basis: 40%;
-        width: auto;
-    }
 }
 
 /* DESKTOP-BASED LAYOUT */
 @media only screen and (min-width: $desktop) {
     footer .name-text {
         font-size: 4em;
+        margin: auto 1em;
     }
 
     footer > .content {
