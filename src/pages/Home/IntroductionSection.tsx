@@ -1,4 +1,4 @@
-import Section from "./Section";
+import Section from "../../components/Section";
 import { animated } from '@react-spring/web'
 import './IntroductionSectionStyles.scss'
 import { useSpring } from "@react-spring/core";

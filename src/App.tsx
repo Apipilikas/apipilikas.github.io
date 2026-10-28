@@ -7,22 +7,31 @@ import Head from './components/Head';
 import { useEffect, useState } from 'react';
 import Loader from './components/Loader';
 import { useLoading } from './contexts';
+import { useTranslation } from './contexts/TranslationProvider';
 
 function App() {
 
   const location = useLocation();
+  const {getTranslation, isReady, language} = useTranslation();
   const {clearTasks} = useLoading(); 
 
   useEffect(() => {
     if (location) {
-      let caption = getPageCaption(location.pathname) ?? "";
-      document.title = `Aggelos Pipilikas | ${caption}`;
+      console.log(language);
+      document.title = `${getTranslation("fullName")} | ${getPageCaption(location.pathname)}`;
       clearTasks();
     }
-  }, [location])
+  }, [location, isReady, language])
 
   const getPageCaption = (pathname : string) => {
-    return pages.find(page => page.to == pathname)?.caption
+    let caption = "";
+    const captionKey = pages.find(page => page.to == pathname)?.captionKey;
+
+    if (captionKey != null) {
+      caption = getTranslation(captionKey);
+    }
+
+    return caption;
   }
 
   const renderedRoutes = pages.map(page => <Route path={page.to} element={page.element}/>)

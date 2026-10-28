@@ -7,7 +7,8 @@ import Contact from './Contact';
 
 export interface PageRouteProps {
   to: string;
-  caption: string;
+  id: string;
+  captionKey: string;
   element: ReactNode;
 }
 
@@ -26,11 +27,11 @@ const socialNetworks : SocialNetworkProps[] = [
     ]
 
 const pages : PageRouteProps[] = [
-    {to : "/", caption : "Home", element : <Home/>},
-    {to : "/aboutme", caption : "About Me", element : <Aboutme/>},
-    {to : "/projects", caption : "Projects", element : <Projects/>},
-    {to : "/resume", caption : "Resume", element : <Resume/>},
-    {to : "/contact", caption : "Contact", element : <Contact/>}
+    {to: "/", id: "home", captionKey: "homePage", element: <Home/>},
+    {to: "/aboutme", id: "aboutme", captionKey : "aboutmePage", element : <Aboutme/>},
+    {to: "/projects", id:"projects", captionKey: "projectsPage", element: <Projects/>},
+    {to: "/resume", id:"resume", captionKey: "resumePage", element: <Resume/>},
+    {to: "/contact", id:"contact", captionKey: "contactPage", element: <Contact/>}
 ]
 
 export {pages, socialNetworks}

@@ -1,13 +1,22 @@
-import { liferoad, LiferoadProps } from "./config";
-import Section from "./Section";
+import { LiferoadProps } from "./config";
+import Section from "../../components/Section";
 import './LiferoadSectionStyles.scss'
+import { useTranslation } from "../../contexts/TranslationProvider";
+import { useEffect, useState } from "react";
 
 export default function LiferoadSection() {
 
-    const renderedLiferoad = liferoad.map(item => <Liferoad {...item}/>)
+    const {language, getTranslation, isReady} = useTranslation();
+    const [liferoad, setLiferoad] = useState<LiferoadProps[]>([]);
+
+    useEffect(() => {
+        setLiferoad(getTranslation<LiferoadProps[]>("liferoadContent"))
+    }, [language, isReady])
+
+    const renderedLiferoad = liferoad?.map(item => <Liferoad {...item}/>)
 
     return (
-        <Section id="liferoad-section" caption="Liferoad">
+        <Section id="liferoad-section" caption={getTranslation("liferoadSection")}>
             <div className="content">
                 {renderedLiferoad}
             </div>
@@ -16,6 +25,9 @@ export default function LiferoadSection() {
 }
 
 function Liferoad({title, subtitle, description, timeline} : LiferoadProps) {
+
+    const {getTranslation} = useTranslation();
+
     return (
         <div className="liferoad">
             <div className="main-info">
@@ -24,8 +36,8 @@ function Liferoad({title, subtitle, description, timeline} : LiferoadProps) {
             </div>
             <p className="description">{description}</p>
             <div className="timeline">
-                <p>TO <span>{timeline.to}</span></p>
-                <p>FROM <span>{timeline.from}</span></p>
+                <p>{getTranslation("liferoadTo")} <span>{timeline.to}</span></p>
+                <p>{getTranslation("liferoadFrom")} <span>{timeline.from}</span></p>
             </div>
         </div>
     )

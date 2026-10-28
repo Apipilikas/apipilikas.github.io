@@ -1,16 +1,16 @@
 import { createContext, useContext, useState, ReactNode, useRef } from 'react';
 
-interface LoadingContextProps {
+interface LoadingProps {
   isReady: boolean;
   setPageReady: () => void;
   setPageLoading: () => void;
-  registerTask: (id : string) => void;
-  deregisterTask: (id : string) => void;
-  resolveTask: (id : string) => void;
+  registerTask: (id: string) => void;
+  deregisterTask: (id: string) => void;
+  resolveTask: (id: string) => void;
   clearTasks: () => void;
 }
 
-const LoadingContext = createContext<LoadingContextProps | undefined>(undefined);
+const LoadingContext = createContext<LoadingProps | undefined>(undefined);
 
 export const useLoading = () => {
   const context = useContext(LoadingContext);

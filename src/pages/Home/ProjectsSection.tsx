@@ -1,18 +1,22 @@
 import { useEffect, useState } from "react";
 import SimpleButton from "../../components/SimpleButton";
-import Section from "./Section";
+import Section from "../../components/Section";
 import deviceWidths from '../../index.module.scss'
 import './ProjectsSectionStyles.scss'
 import TextContainer from "../../components/TextContainer";
 import { useLoading } from "../../contexts";
 import useWindowSize from "../../hooks/useWindowSize";
+import { useTranslation } from "../../contexts/TranslationProvider";
 
 const url = "https://api.github.com/users/Apipilikas/repos?sort=pushed_at";
 const id = "latest-projects-section"
 
 export default function ProjectsSection() {
+
+    const {getTranslation} = useTranslation();
+
     return (
-        <Section id={id} caption="My latest projects">
+        <Section id={id} caption={getTranslation("projectsSection")}>
             <SlideShow/>
         </Section>
     )

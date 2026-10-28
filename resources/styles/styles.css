@@ -59,48 +59,6 @@
     text-align: center;
 }
 
-/* START-OF: aboutme.html -> about-me-introduction-section */
-
-#about-me-introduction-section {
-    width: 80%;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    background: linear-gradient(45deg, var(--grey-color), var(--header-color), var(--green-blue-color), var(--blue-color));
-    border-radius: 10px;
-    box-shadow: 0px 10px 20px 0px var(--grey-color);
-    animation: color-animation 10s infinite;
-    background-size: 200% 200%;
-}
-
-#about-me-introduction-section > .content {
-    display: flex;
-    flex-direction: column;
-}
-
-#about-me-introduction-section > .content > p {
-    padding: 1em;
-    margin: auto;
-}
-
-#about-me-introduction-section > .content > img {
-    margin: 1em auto;
-}
-
-#about-me-introduction-section > h2 {
-    margin: auto;
-    padding: 0.5em;
-    white-space: nowrap;
-    
-}
-
-#about-me-introduction-section img {
-    border-radius: 10px;
-    box-shadow: 0px 10px 20px 0px var(--grey-color);
-}
-
-/* END-OF: aboutme.html -> about-me-introduction-section */
-
 /* START-OF: aboutme.html -> about-me-languages-section */
 
 #about-me-languages-section h2 {
@@ -1833,22 +1791,6 @@
                           START-OF
     /FILE/    /FILE/    aboutme.html    /FILE/    /FILE/
     */
-
-    /* START-OF: aboutme.html -> about-me-introduction-section */
-
-    #about-me-introduction-section {
-        flex-direction: row;
-    }
-
-    #about-me-introduction-section > .content {
-        flex-direction: row;
-    }
-
-    #about-me-introduction-section > .content > img {
-        margin: 1em;
-    }
-
-    /* END-OF: aboutme.html -> about-me-introduction-section */
 
     /* START-OF: aboutme.html -> about-me-languages-section */
 

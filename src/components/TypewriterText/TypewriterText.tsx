@@ -35,6 +35,8 @@ export default function TypewriterText({
   });
 
   useEffect(() => {
+    if (texts == null) return;
+
     let timeout: NodeJS.Timeout;
     let text: string = texts[selectedTextIndex];
 

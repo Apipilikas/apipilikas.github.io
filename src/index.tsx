@@ -5,19 +5,22 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { LoadingProvider } from './contexts';
+import { TranslationProvider } from './contexts/TranslationProvider';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
+    <BrowserRouter>
+    <TranslationProvider>
     <LoadingProvider>
     <HelmetProvider>
-    <BrowserRouter>
       <App />
-    </BrowserRouter>
     </HelmetProvider>
     </LoadingProvider>
+    </TranslationProvider>
+    </BrowserRouter>
   </React.StrictMode>
 );
 

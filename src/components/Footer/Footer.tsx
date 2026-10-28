@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from '../../contexts/TranslationProvider';
 import { pages, socialNetworks } from '../../pages/config';
 import TextContainer from '../TextContainer';
 import './FooterStyles.scss'
@@ -7,22 +8,24 @@ import SocialNetworkContainer from './SocialNetworkContainer';
 
 export default function Footer() {
 
+    const {getTranslation} = useTranslation();
+
     const renderedSocialNetworks = socialNetworks.map(socialNetwork => <SocialNetworkContainer {...socialNetwork}/>);
-    const renderedPages = pages.map(page => <Link to={page.to}>{page.caption}</Link>);
+    const renderedPages = pages.map(page => <Link to={page.to}>{getTranslation(page.captionKey)}</Link>);
 
     return (
         <footer>
             <div className='content'>
-                <h1 className="name-text">Aggelos Pipilikas</h1>
-                <FooterContainer id="social-network-footer" caption="Connect">
+                <h1 className="name-text">{getTranslation("fullName")}</h1>
+                <FooterContainer id="social-network-footer" caption={getTranslation("footerConnect")}>
                     {renderedSocialNetworks}
                 </FooterContainer>
-                <FooterContainer id="pages-footer" caption="Pages">
+                <FooterContainer id="pages-footer" caption={getTranslation("footerPages")}>
                     {renderedPages}
                 </FooterContainer>
             </div>
             <hr/>
-            <p>© 2026 | Built and designed by Aggelos Pipilikas</p>
+            <p>© 2026 | {getTranslation("footerDescription")}</p>
         </footer>
     );
 }

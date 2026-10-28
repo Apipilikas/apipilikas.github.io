@@ -1,33 +1,20 @@
 import React, { useState } from 'react';
 import { useSpring, animated } from '@react-spring/web';
 import { joinProps } from '../../utils/propUtils';
-import './SimpleButtonStyles.scss';
+import BaseButton, { BaseButtonProps } from '../BaseButton/BaseButton';
 
-export interface SimpleButtonProps {
-    caption: string;
-    className?: string;
-    link?: string;
-    onClick?: React.MouseEventHandler<HTMLAnchorElement>;
+export interface SimpleButtonProps extends BaseButtonProps {
+    caption: string,
 }
 
 export default function SimpleButton({ caption, className, link, onClick }: SimpleButtonProps) {
-    const [isHovered, setIsHovered] = useState(false);
-
-    const spanStyles = useSpring({
-        width: isHovered ? '100%' : '0%',
-        config: { tension: 550 }
-    });
-
     return (
-        <a 
-            className={joinProps("simple-button", className)} 
-            href={link} 
+        <BaseButton 
+            className={joinProps("simple-button", className)}
+            link={link}
             onClick={onClick}
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
         >
-            <animated.span style={spanStyles}></animated.span>
             {caption}
-        </a>
-    );
+        </BaseButton>
+    )
 }

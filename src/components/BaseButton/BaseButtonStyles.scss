@@ -1,4 +1,4 @@
-.simple-button, button {
+.base-button, button {
     color: black;
     font-family: 'Jura', sans-serif;
     font-size: 1em;
@@ -12,7 +12,7 @@
     z-index: 1;
 }
 
-.simple-button span {
+.base-button span {
     width: 0%;
     height: 100%;
     position: absolute;
@@ -23,7 +23,7 @@
     transition: 0.25s;
 }
 
-.simple-button:hover {
+.base-button:hover {
     color: white;
     transition: all 0.5s;
 }

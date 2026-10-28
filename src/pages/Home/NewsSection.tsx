@@ -1,14 +1,23 @@
-import { news, NewsProps } from "./config"
-import Section from "./Section"
+import { NewsProps } from "./config"
+import Section from "../../components/Section/Section"
 import './NewsSectionStyles.scss'
 import TextContainer from "../../components/TextContainer"
+import { useTranslation } from "../../contexts/TranslationProvider"
+import { useEffect, useState } from "react"
 
 export default function NewsSection() {
 
-    const renderedNews = news.map(item => <NewsContainer {...item}/>)
+    const {language, getTranslation, isReady} = useTranslation();
+    const [news, setNews] = useState<NewsProps[]>([]);
+
+    useEffect(() => {
+        setNews(getTranslation<NewsProps[]>("newsContent"))
+    }, [language, isReady])
+
+    const renderedNews = news?.map(item => <NewsContainer {...item}/>)
 
     return (
-        <Section id="news-section" caption="News">
+        <Section id="news-section" caption={getTranslation("newsSection")}>
             <div className="content">
                 {renderedNews}
             </div>
