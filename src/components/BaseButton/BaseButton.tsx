@@ -1,4 +1,4 @@
-import React, { ReactNode, useState } from 'react';
+import React, { CSSProperties, ReactNode, useState } from 'react';
 import { useSpring, animated } from '@react-spring/web';
 import { joinProps } from '../../utils/propUtils';
 import './BaseButtonStyles.scss';
@@ -7,13 +7,14 @@ export interface BaseButtonProps {
     className?: string,
     link?: string,
     onClick?: React.MouseEventHandler<HTMLAnchorElement>
+    style?: CSSProperties;
 }
 
 interface BaseButtonPropsEx {
     children: ReactNode
 }
 
-export default function BaseButton({ className, link, onClick, children }: BaseButtonProps & BaseButtonPropsEx) {
+export default function BaseButton({ className, link, onClick, style, children }: BaseButtonProps & BaseButtonPropsEx) {
     const [isHovered, setIsHovered] = useState(false);
 
     const spanStyles = useSpring({
@@ -23,14 +24,17 @@ export default function BaseButton({ className, link, onClick, children }: BaseB
 
     return (
         <a 
-            className={joinProps("base-button", className)} 
+            className={joinProps("base-button", className, "box-shadow", "hover")} 
             href={link} 
             onClick={onClick}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
+            style={style}
         >
             <animated.span style={spanStyles}></animated.span>
-            {children}
+            <div className="content">
+                {children}
+            </div>
         </a>
     );
 }

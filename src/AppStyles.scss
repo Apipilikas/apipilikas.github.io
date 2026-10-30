@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Commissioner:wght@100;200;300;400;500;600;700;800&family=Jura:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+
+:root {
+    --main-color: #deeeef;
+    --header-color: #bcdbdf;
+    --blue-color: #235784;
+    --green-blue-color: #99c8ce;
+    --grey-color: #89a6c0;
+
+    --blue-dark-color: #201867;
+    --blue-light-color: #b1d1ff;
+    --green-dark-color: #315555;
+    --green-light-color: #aadcda;
+    --yellow-dark-color: #937729;
+    --yellow-light-color: #ffeec4;
+    --purple-dark-color: #4f577a;
+    --purple-light-color: #d4dbf9;
+}
+
+.blue-theme {
+    color: var(--blue-dark-color);
+    background-color: var(--blue-light-color);
+}
+
+.green-theme {
+    color: var(--green-dark-color);
+    background-color: var(--green-light-color);
+}
+
+.yellow-theme {
+    color: var(--yellow-dark-color);
+    background-color: var(--yellow-light-color);
+}
+
+.purple-theme {
+    color: var(--purple-dark-color);
+    background-color: var(--purple-light-color);
+}
+
+@keyframes color-animation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.hover:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 24px rgba(32, 24, 103, 0.15);
+}
+
+.box-shadow {
+    box-shadow: 0 4px 15px rgba(32, 24, 103, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+body {
+    background-color: var(--main-color);
+    font-family: 'Jura', sans-serif;
+    margin: 0em;
+}
+
+h2, h3 {
+    margin-left: 1em;
+}
+
+h2 {
+    font-size: 1.5em;
+}

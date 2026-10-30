@@ -14,7 +14,7 @@
     "newsSection": "News",
     "liferoadTo": "To",
     "liferoadFrom": "From",
-    "liferoadContent": [
+    "liferoadSectionContent": [
         {
         "title" : "Msc in Software Engineering",
         "subtitle" : "University of Amsterdam",
@@ -52,7 +52,7 @@
             }
         }
     ],
-    "newsContent": [
+    "newsSectionContent": [
         {
             "title" : "New chapter ...",
             "date" : "19/07/2025",

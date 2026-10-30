@@ -1,5 +1,5 @@
-import { useTranslation } from "../../contexts/TranslationProvider";
-import useWindowSize from "../../hooks/useWindowSize";
+import { useTranslation } from "../../contexts";
+import { useWindowSize } from "../../hooks";
 import NavigationBar from "../NavigationBar";
 import './HeaderStyles.scss';
 import LanguageSelector from "./LanguageSelector";
@@ -25,7 +25,7 @@ export default function Header() {
                 </MenuContainer>
                 {!isMobile ? <NavigationBar/> : null}
                 {/* <ThemeSelector/> */}
-                <LanguageSelector/>
+                {!isMobile ? <LanguageSelector/> : null}
             </div>
         </header>
     )

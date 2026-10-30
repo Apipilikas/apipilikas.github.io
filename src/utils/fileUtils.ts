@@ -1,4 +1,4 @@
-import { Language } from "../contexts/TranslationProvider";
+import { Language } from "../contexts";
 import { PageRouteProps } from "../pages/config";
 
 export class FileUtils {

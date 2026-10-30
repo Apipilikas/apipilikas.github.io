@@ -1,19 +1,15 @@
-import { NewsProps } from "./config"
+import { NewsProps } from "../config"
 import Section from "../../components/Section/Section"
 import './NewsSectionStyles.scss'
 import TextContainer from "../../components/TextContainer"
-import { useTranslation } from "../../contexts/TranslationProvider"
-import { useEffect, useState } from "react"
+import { useTranslation } from "../../contexts"
+import { useTranslatedData } from "../../hooks"
 
 export default function NewsSection() {
 
-    const {language, getTranslation, isReady} = useTranslation();
-    const [news, setNews] = useState<NewsProps[]>([]);
+    const {getTranslation} = useTranslation();
 
-    useEffect(() => {
-        setNews(getTranslation<NewsProps[]>("newsContent"))
-    }, [language, isReady])
-
+    const news = useTranslatedData<NewsProps[]>("newsSectionContent", []);
     const renderedNews = news?.map(item => <NewsContainer {...item}/>)
 
     return (
@@ -26,7 +22,7 @@ export default function NewsSection() {
 }
 
 function NewsContainer({title, date, description} : NewsProps) {
-    return <article className="news">
+    return <article className="news box-shadow">
                 <TextContainer className="title-container" applySecondaryColor>
                     <h3>{title}</h3>
                 </TextContainer>

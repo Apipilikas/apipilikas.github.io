@@ -1,9 +1,9 @@
 import { useSpring, animated } from "@react-spring/web";
 import { useState } from "react";
-import { SkillProps, skills } from "./config";
+import { SkillProps, skills } from "../config";
 import Section from "../../components/Section";
 import './SkillsSectionStyles.scss'
-import { useTranslation } from "../../contexts/TranslationProvider";
+import { useTranslation } from "../../contexts";
 
 export default function SkillsSection() {
 
@@ -55,7 +55,7 @@ function SkillContainer({imagePath, caption, index} : SkillProps & SkillsPropsEx
     }
 
     return (
-        <figure className={`slide ${resolveColor()}`}>
+        <figure className={`slide ${resolveColor()} hover box-shadow`}>
             <img src={imagePath}/>
             <figcaption>{caption}</figcaption>
         </figure>

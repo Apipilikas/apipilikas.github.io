@@ -1,3 +1,34 @@
 {
-    
+    "bioSection": "Who Am I?",
+    "bioSectionContent": "Hello there! I'm Aggelos (Evaggelos) Pipilikas. I'm 26 years old and I will soon be studying Software Engineering at University of Amsterdam. I describe myself as a highly determined-perfectionist IT person who you can rely on. Areas of interest are Software engineering, Machine Learning and Artificial Intelligence.",
+    "statusSection": "Status",
+    "statusSectionContent": [
+        {
+            "description": "Born in",
+            "content": "2000"
+        },
+        {
+            "description": "Location",
+            "content": "Athens, Greece"
+        },
+        {
+            "description": "Languages",
+            "content": "Greek (Native), English (Fluent)"
+        },
+        {
+            "description": "Interests",
+            "content": "AI & Software Engineering"
+        },
+        {
+            "description": "Current Status",
+            "content": "Mandatory Military Service Commitment (Greek Army)"
+        }
+    ],
+    "scriptingSkillsSection": "Scripting Skills",
+    "experienceSection": "Other Experience",
+    "softSkillsSection": "Soft Skills",
+    "softSkillsSectionContent" : [
+        "Teamwork", "Time Management", "Problem Solving", "Highly Organized",
+        "Communicative", "Collaborative", "Critical Thinking"
+    ]
 }

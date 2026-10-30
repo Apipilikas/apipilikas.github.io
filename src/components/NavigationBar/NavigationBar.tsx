@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import { useTranslation } from "../../contexts/TranslationProvider"
+import { useTranslation } from "../../contexts"
 import { pages, PageRouteProps } from "../../pages/config"
 import './NavigationBarStyles.scss'
 

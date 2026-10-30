@@ -1,0 +1,43 @@
+@use '../../index.module.scss' as *;
+
+#experience-section {
+    width: 90%;
+    max-width: 1000px;
+    margin: 4em auto;
+}
+
+#experience-section > .content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.2em;
+    padding: 1em 0;
+}
+
+.experience {
+    padding: 0.8em 1.8em;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.05em;
+    letter-spacing: 0.5px;
+    
+    border: 1px solid rgba(32, 24, 103, 0.05);
+    
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: default;
+}
+
+.experience {
+    color: #315555;
+    background-color: #aadcda;
+}
+
+.experience:nth-child(2n) {
+    color: #4f577a;
+    background-color: #d4dbf9;
+}
+
+.experience:nth-child(3n) {
+    color: #937729;
+    background-color: #ffeec4;
+}

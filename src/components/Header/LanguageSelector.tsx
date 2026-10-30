@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { Language, useTranslation } from "../../contexts/TranslationProvider";
-import SimpleButton from "../SimpleButton";
+import { Language, useTranslation } from "../../contexts";
+import TextButton from "../TextButton";
 
 const greekLanguage = Language.getGreekLanguage();
 const englishLanguage = Language.getEnglishLanguage();
@@ -17,6 +17,6 @@ export default function LanguageSelector() {
     }, [selectedLanguage])
 
     return (
-        <SimpleButton caption={caption} onClick={() => setIsGreek(value => !value)}/>
+        <TextButton style={{margin:"auto"}} caption={caption} onClick={() => setIsGreek(value => !value)}/>
     )
 }

@@ -14,7 +14,7 @@
     "newsSection": "Νέα",
     "liferoadTo": "Μέχρι",
     "liferoadFrom": "Από",
-    "liferoadContent": [
+    "liferoadSectionContent": [
         {
         "title" : "Μεταπτυχιακό στο Software Engineering",
         "subtitle" : "Πανεπιστήμιο Άμστερνταμ (University of Amsterdam)",
@@ -52,7 +52,7 @@
             }
         }
     ],
-    "newsContent": [
+    "newsSectionContent": [
         {
             "title" : "Καινούρια κεφάλαιο...",
             "date" : "19/07/2025",

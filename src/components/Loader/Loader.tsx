@@ -1,5 +1,4 @@
 import { useSpring, animated } from "@react-spring/web";
-import { useEffect, useState } from "react";
 import { useLoading } from "../../contexts";
 import './LoaderStyles.scss'
 

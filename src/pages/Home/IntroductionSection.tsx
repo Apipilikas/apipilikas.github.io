@@ -3,7 +3,7 @@ import { animated } from '@react-spring/web'
 import './IntroductionSectionStyles.scss'
 import { useSpring } from "@react-spring/core";
 import { useEffect, useState } from "react";
-import SimpleButton from "../../components/SimpleButton";
+import TextButton from "../../components/TextButton";
 
 export default function IntroductionSection() {
     return (

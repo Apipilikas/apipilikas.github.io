@@ -37,7 +37,7 @@ export const LanguageMapper = new Map(
 interface TranslationProps {
     language: Language;
     changeLanguage: (newLanguage: string | Language) => void;
-    getTranslation: <T = string>(id: string) => T;
+    getTranslation: <T = string>(key: string) => T;
     isReady: boolean;
 }
 
@@ -54,7 +54,7 @@ export const useTranslation = () => {
 export const TranslationProvider = ({children} : {children: ReactNode}) => {
     const location = useLocation();
     const [language, setLanguage] = useState<Language>(Language.getEnglishLanguage());
-    const [translations, setTranslations] = useState<Record<string, string>>({});
+    const [translations, setTranslations] = useState<Record<string, any>>({});
     const [isReady, setIsReady] = useState<boolean>(false);
 
     useEffect(() => {
@@ -65,7 +65,7 @@ export const TranslationProvider = ({children} : {children: ReactNode}) => {
     const activeLanguageId = useRef<string>(language.id);
 
     const loadTranslations = async () => {
-        let newTranslations: Record<string, string> = {};
+        let newTranslations: Record<string, any> = {};
 
         const isLanguageChange = activeLanguageId.current !== language.id;
             
@@ -85,12 +85,14 @@ export const TranslationProvider = ({children} : {children: ReactNode}) => {
         if (page != null && !loadedPages.current.has(page.id)) {
             const pageTranslations = await FileUtils.readTranslations(page, language);
             newTranslations = {...newTranslations, ...pageTranslations};
+            loadedPages.current.add(page.id);
         }
 
         if (newTranslations != null) {
             setTranslations(value => {return {...value, ...newTranslations}});
-            setIsReady(true);
         }
+        
+        setIsReady(true);
     }
 
     const changeLanguage = (newLanguage: string | Language) => {
@@ -106,7 +108,7 @@ export const TranslationProvider = ({children} : {children: ReactNode}) => {
         }
     }
 
-    const getTranslation = <T = string>(id: string): T => (translations[id] || null) as T;
+    const getTranslation = <T = string>(key: string): T => (translations[key] || null) as T;
 
     return (
         <TranslationContext.Provider value={{language, changeLanguage, getTranslation, isReady}}>

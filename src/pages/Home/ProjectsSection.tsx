@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import SimpleButton from "../../components/SimpleButton";
+import TextButton from "../../components/TextButton";
 import Section from "../../components/Section";
 import deviceWidths from '../../index.module.scss'
 import './ProjectsSectionStyles.scss'
 import TextContainer from "../../components/TextContainer";
 import { useLoading } from "../../contexts";
-import useWindowSize from "../../hooks/useWindowSize";
-import { useTranslation } from "../../contexts/TranslationProvider";
+import { useWindowSize } from "../../hooks";
+import { useTranslation } from "../../contexts";
 
 const url = "https://api.github.com/users/Apipilikas/repos?sort=pushed_at";
 const id = "latest-projects-section"
@@ -106,7 +106,7 @@ function ProjectContainer({title, update_date, description, link} : ProjectProps
                 <p>{description}</p>
             </TextContainer>
             <div className="git-link">
-                <SimpleButton caption="MORE" link={link}/>
+                <TextButton caption="MORE" link={link}/>
                 {/* <a className="button-link subject-link-more" href="{{link}}"><span></span>MORE</a> */}
             </div>
         </article>

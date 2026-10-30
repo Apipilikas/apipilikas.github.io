@@ -46,18 +46,12 @@
     padding: 0.5em 1.5em 0.5em 0.5em;
     border-radius: 50px;
     
-    background: rgba(255, 255, 255, 0.1);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     
     transition: transform 0.3s ease, background 0.3s ease;
     cursor: default;
-}
-
-.slide:hover {
-    transform: translateY(-5px); 
 }
 
 .slide > img {
@@ -73,19 +67,4 @@
 .slide > figcaption {
     font-weight: 600;
     white-space: nowrap;
-}
-
-.slide.yellow-theme {
-    color: #937729;
-    background-color: #ffeec4;
-}
-
-.slide.blue-theme {
-    color: #201867;
-    background-color: #b1d1ff;
-}
-
-.slide.green-theme {
-    color: #315555;
-    background-color: #aadcda;
 }

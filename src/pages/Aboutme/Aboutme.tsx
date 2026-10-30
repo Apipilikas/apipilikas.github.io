@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useLoading } from "../../contexts";
 import BioSection from "./BioSection";
 import ExperienceSection from "./ExperienceSection";
-import InfoSection from "./InfoSection";
+import StatusSection from "./StatusSection";
 import ScriptingSkillsSection from "./ScriptingSkillsSection";
 import SoftSkillsSection from "./SoftSkillsSection";
 import TimelineSection from "./TimelineSection";
@@ -18,8 +18,8 @@ export default function Aboutme() {
     return (
         <main>
             <BioSection/>
-            <InfoSection/>
-            <TimelineSection/>
+            <StatusSection/>
+            {/* <TimelineSection/> */}
             <ScriptingSkillsSection/>
             <ExperienceSection/>
             <SoftSkillsSection/>

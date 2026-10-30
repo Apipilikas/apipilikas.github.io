@@ -1,9 +1,10 @@
 import { useSpring, animated } from "@react-spring/web";
 import { ReactNode, useState } from "react";
-import useWindowSize from "../../hooks/useWindowSize";
+import { useWindowSize } from "../../hooks";
 import NavigationBar from "../NavigationBar";
 import { PageRouteProps } from "../../pages/config"
 import './MenuContainerStyles.scss'
+import LanguageSelector from "./LanguageSelector";
 
 export default function MenuContainer({children} : {children : ReactNode}) {
     
@@ -22,7 +23,12 @@ export default function MenuContainer({children} : {children : ReactNode}) {
         <>
             <div id="menu-container">
                 {children}
-                {isMobile ? <MenuButton onClick={handleOnMenuButtonClick}/> : null}
+                {isMobile ? 
+                <>
+                    <MenuButton onClick={handleOnMenuButtonClick}/>
+                    <LanguageSelector/> 
+                </>
+                : null}
             </div>
             {isMobile ? <OverlayNavigationBar isOpen={isOpen} onClick={handleOnNavigationBarClick}/> : null}
         </>

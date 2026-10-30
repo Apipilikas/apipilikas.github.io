@@ -1,9 +1,9 @@
 import Section from "../../components/Section/Section";
 import './AboutmeSectionStyles.scss'
-import SimpleButton from "../../components/SimpleButton";
+import TextButton from "../../components/TextButton";
 import TypewriterText from "../../components/TypewriterText";
 import { SocialNetworkProps, socialNetworks } from "../config";
-import { useTranslation } from "../../contexts/TranslationProvider";
+import { useTranslation } from "../../contexts";
 
 export default function AboutmeSection() {
 
@@ -24,8 +24,8 @@ export default function AboutmeSection() {
                         <p>{textAreaContent[0]} <span className="name-text">{textAreaContent[1]}</span> {textAreaContent[2]}</p>
                     </div>
                     <div className="buttons-area">
-                        <SimpleButton caption={getTranslation("moreAboutmeButton")} />
-                        <SimpleButton caption={getTranslation("projectsButton")} />
+                        <TextButton caption={getTranslation("moreAboutmeButton")} />
+                        <TextButton caption={getTranslation("projectsButton")} />
                     </div>
                     <div className="social-networks-area">
                         {renderedSocialNetworks}

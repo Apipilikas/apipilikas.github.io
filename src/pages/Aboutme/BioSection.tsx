@@ -1,16 +1,15 @@
 import Section from "../../components/Section";
+import { useTranslation } from "../../contexts";
 import './BioSectionStyles.scss';
 
 export default function BioSection() {
+
+    const {getTranslation} = useTranslation();
+
     return (
-        <Section id="bio-section" caption="Who Am I?">
+        <Section id="bio-section" className="box-shadow" caption={getTranslation("bioSection")}>
             <div className="content">
-                <p>
-                    Hello there! I'm Aggelos (Evaggelos) Pipilikas. I'm 25 years old and
-                    I will soon be studying Software Engineering at University of Amsterdam.
-                    I describe myself as a highly determined-perfectionist IT person who you can rely on.
-                    Areas of interest are Software engineering, Machine Learning and Artificial Intelligence.        
-                </p>
+                <p>{getTranslation("bioSectionContent")}</p>
                 <img src="images/me.png" alt="me" width="200px" height="200px"/>
             </div>
         </Section>

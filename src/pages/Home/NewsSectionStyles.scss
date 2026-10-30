@@ -13,7 +13,6 @@
     flex-direction: column;
     /* background-color: var(--green-blue-color); */
     border-radius: 10px;
-    box-shadow: 0px 10px 20px 0px var(--grey-color);
 }
 
 .news:nth-child(2n+1) {
@@ -25,7 +24,7 @@
 }
 
 .news:nth-child(2n) {
-    background-color: #ffeec4;
+    background-color: var(--yellow-light-color);
 }
 
 .news:nth-child(4n) {
@@ -33,20 +32,20 @@
 }
 
 .news:nth-child(2n+1) {
-    --container-pc: #d4dbf9;
-    --container-sc: #4f577a;
+    --container-pc: var(--purple-light-color);
+    --container-sc: var(--purple-dark-color);
 }
 .news:nth-child(4n+1) {
-    --container-pc: #aadcda;
-    --container-sc: #315555;
+    --container-pc: var(--green-light-color);
+    --container-sc: var(--green-dark-color);
 }
 .news:nth-child(2n) {
-    --container-pc: #ffeec4;
-    --container-sc: #937729;
+    --container-pc: var(--yellow-light-color);
+    --container-sc: var(--yellow-dark-color);
 }
 .news:nth-child(4n) {
-    --container-pc: #b1d1ff;
-    --container-sc: #201867;
+    --container-pc: var(--blue-light-color);
+    --container-sc: var(--blue-dark-color);
 }
 
 .news > .description-container {

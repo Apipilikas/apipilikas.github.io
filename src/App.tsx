@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
-import './App.css';
+import './AppStyles.scss';
 import Header from './components/Header';
 import { pages } from './pages/config';
 import Footer from './components/Footer';
@@ -7,7 +7,7 @@ import Head from './components/Head';
 import { useEffect, useState } from 'react';
 import Loader from './components/Loader';
 import { useLoading } from './contexts';
-import { useTranslation } from './contexts/TranslationProvider';
+import { useTranslation } from './contexts';
 
 function App() {
 
@@ -17,7 +17,6 @@ function App() {
 
   useEffect(() => {
     if (location) {
-      console.log(language);
       document.title = `${getTranslation("fullName")} | ${getPageCaption(location.pathname)}`;
       clearTasks();
     }

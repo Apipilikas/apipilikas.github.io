@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
-import { useTranslation } from '../../contexts/TranslationProvider';
+import { useTranslation } from '../../contexts';
 import { pages, socialNetworks } from '../../pages/config';
 import TextContainer from '../TextContainer';
 import './FooterStyles.scss'
