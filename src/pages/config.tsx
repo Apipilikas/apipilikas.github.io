@@ -4,6 +4,7 @@ import Aboutme from './Aboutme';
 import Projects from './Projects';
 import Resume from './Resume';
 import Contact from './Contact';
+import { jsonProperty } from '../decorators';
 
 export interface PageRouteProps {
   to: string;
@@ -32,20 +33,67 @@ export interface SkillProps {
 }
 
 export interface LiferoadProps {
-    title: string,
-    subtitle: string,
-    description: string,
-    timeline: LiferoadTimelineProps
+    title: string;
+    subtitle: string;
+    description: string;
+    timeline: LiferoadTimelineProps;
 }
 
 export interface LiferoadTimelineProps {
-    to : string,
-    from : string
+    to : string;
+    from : string;
 }
 
 export interface InfoLineProps {
     description: string;
     content: string;
+}
+
+export class GitHubProfileProps {
+    @jsonProperty("login")
+    username: string = "";
+
+    name: string = "";
+    
+    @jsonProperty("avatar_url")
+    avatarUrl: string = "";
+
+    @jsonProperty("html_url")
+    link: string = "";
+
+    location: string = "";
+    
+    bio: string = "";
+    
+    @jsonProperty("public_repos")
+    publicRepositoryNumber: number = 0;
+    
+    followers: number = 0;
+
+    constructor() {}
+}
+
+export class GitHubProjectProps {
+    @jsonProperty("name")
+    title: string = "";
+
+    @jsonProperty<string>("pushed_at", (v) => v.split("T")[0])
+    updateDate: string = "";
+
+    description: string = "";
+
+    @jsonProperty("html_url")
+    link: string = "";
+
+    topics: string[] = [];
+
+    @jsonProperty("languages_url")
+    languageUrl: string = "";
+
+    languages: string[] = [];
+
+    @jsonProperty("stargazers_count")
+    stars: number = 0;
 }
 
 const socialNetworks : SocialNetworkProps[] = [
@@ -117,9 +165,7 @@ const experiences: string[] = [
   "DOT Net Framework", "Microsoft SQL Server" 
 ]
 
-const softSkills: string[] = [
-  "Teamwork", "Time Management", "Problem Solving", "Highly Organized",
-  "Communicative", "Collaborative", "Critical Thinking"
-]
+const projectsUrl = "https://api.github.com/users/Apipilikas/repos?sort=pushed_at";
+const profileUrl = "https://api.github.com/users/Apipilikas";
 
-export {pages, socialNetworks, skills, experiences, softSkills}
+export {pages, socialNetworks, skills, experiences, projectsUrl, profileUrl}

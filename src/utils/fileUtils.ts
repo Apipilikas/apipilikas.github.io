@@ -3,9 +3,16 @@ import { PageRouteProps } from "../pages/config";
 
 export class FileUtils {
     static async readFile(filePath: string) {
-        const response = await fetch(filePath);
-        const json = await response.json();
-        return json;
+        try {
+            const response = await fetch(filePath);
+    
+            if (response.ok) return await response.json();
+    
+            return null;
+        }
+        catch (e) {
+            return null;
+        }
     }
 
     static async readTranslations(page: PageRouteProps, language: Language) {

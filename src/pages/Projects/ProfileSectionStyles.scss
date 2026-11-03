@@ -1,0 +1,124 @@
+@use '../../index.module.scss' as *;
+
+#profile-section {
+    width: 90%;
+    max-width: 1000px;
+    margin: 4em auto;
+}
+
+#profile-section > .content {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+#profile-section > .content > .username-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 3em 2em;
+    
+    gap: 1em;
+}
+
+#profile-section > .content > .username-container img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid white;
+    object-fit: cover;
+}
+
+.side-logo h2 { 
+    margin: 0; 
+    font-size: 1.8em; 
+}
+
+.side-logo h3 { 
+    margin: 0.5em 0em; 
+    font-weight: 500; 
+}
+
+#profile-section > .content .info-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding: 2em;
+}
+
+#profile-section > .content .info {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    padding: 1.2em 1.5em;
+    border-radius: 12px;
+}
+
+#profile-section > .content .info > img {
+    width: 24px;
+    height: 24px;
+    opacity: 0.6;
+}
+
+#profile-section > .content .info p {
+    margin: 0;
+    font-weight: 600;
+    display: flex;
+    align-items: baseline;
+    gap: 0.5em;
+}
+
+#profile-section > .content .info .hint-caption {
+    font-size: 1.6em;
+    font-weight: 800;
+}
+
+
+
+#profile-section > .content .button-area {
+    margin: 1em auto 0 auto;
+    display: flex;
+    justify-content: center;
+}
+
+#profile-section > .content .button-area > .text-button {
+    color: var(--purple-dark-color);
+
+    span {
+        background: var(--purple-light-color);
+    }
+}
+
+/* TABLET-BASED LAYOUT */
+@media only screen and (min-width: $tablet) {
+    #profile-section > .content {
+        width: 85%;
+        margin: 0 auto;
+    }
+}
+
+/* DESKTOP-BASED LAYOUT */
+@media only screen and (min-width: $desktop) {
+    #profile-section > .content {
+        flex-direction: row;
+    }
+
+    #profile-section > .content > .username-container {
+        flex: 0 0 35%;
+        justify-content: center;
+    }
+
+    #profile-section > .content .info-container {
+        gap: 1.5em;
+        padding: 3em;
+        align-content: center;
+    }
+
+    #profile-section > .content .button-area {
+        justify-content: flex-end;
+        margin-top: 0;
+    }
+}

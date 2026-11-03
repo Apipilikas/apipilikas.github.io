@@ -7,9 +7,10 @@ import TextContainer from "../../components/TextContainer";
 import { useLoading } from "../../contexts";
 import { useWindowSize } from "../../hooks";
 import { useTranslation } from "../../contexts";
+import { ApiUtils } from "../../utils/apiUtils";
+import { GitHubProjectProps, projectsUrl } from "../config";
 
-const url = "https://api.github.com/users/Apipilikas/repos?sort=pushed_at";
-const id = "latest-projects-section"
+const id = "latest-projects-section";
 
 export default function ProjectsSection() {
 
@@ -22,62 +23,30 @@ export default function ProjectsSection() {
     )
 }
 
-export interface ProjectProps {
-    title : string,
-    update_date: string,
-    description : string,
-    link : string
-}
-
 function SlideShow() {
 
     const {registerTask, deregisterTask, resolveTask} = useLoading();
     const {isTablet, isDesktop} = useWindowSize();
 
-    const [projects, setProjects] = useState<ProjectProps[]>([]);
+    const [projects, setProjects] = useState<GitHubProjectProps[]>([]);
     const slidesPerPage = isDesktop ? 4 : isTablet ? 2 : 1;
 
     useEffect(() => {
-        registerEvents();
+        registerTask(id);
 
         fetchProjects();
 
-        return () => deregisterEvents();
+        return () => deregisterTask(id);
     },[])
 
-    const registerEvents = () => {
-        registerTask(id);
-    }
-
-    const deregisterEvents = () => {
-        deregisterTask(id);
-    }
-
     const fetchProjects = async() => {
-        let myHeaders = new Headers();
-        myHeaders.append("Accept", "application/json");
 
-        let init = {
-            method: "GET",
-            headers: myHeaders
-        };
+        try {    
+            const data = await ApiUtils.makeGetRequest<GitHubProjectProps[]>(projectsUrl, GitHubProjectProps);
 
-        try {
-            const response = await fetch(url, init);
-    
-            if (response.ok) {
-                const data = await response.json();
-                setProjects(
-                    data.map((item : any) => ({
-                        "title": item.name,
-                        "update_date": item.pushed_at.split("T")[0],
-                        "description": item.description,
-                        "link": item.html_url
-                    }))
-                );
+            setProjects(data);
 
-                resolveTask(id);
-            }
+            resolveTask(id);
         }
         catch (e) {
 
@@ -93,14 +62,14 @@ function SlideShow() {
     )
 }
 
-function ProjectContainer({title, update_date, description, link} : ProjectProps) {
+function ProjectContainer({title, updateDate, description, link} : GitHubProjectProps) {
     return (
         <article className="project">
             <TextContainer className="git-repo-date-info" applySecondaryColor>
                 <h3>{title}</h3>
             </TextContainer>
             <TextContainer>
-                <p>{update_date}</p>
+                <p>{updateDate}</p>
             </TextContainer>
             <TextContainer>
                 <p>{description}</p>

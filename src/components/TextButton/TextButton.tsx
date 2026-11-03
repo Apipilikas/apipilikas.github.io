@@ -10,7 +10,7 @@ export interface TextButtonProps extends BaseButtonProps {
 export default function TextButton({ style, caption, className, link, onClick }: TextButtonProps) {
     return (
         <BaseButton 
-            className={joinProps("simple-button", className)}
+            className={joinProps("text-button", className)}
             link={link}
             onClick={onClick}
             style={style}

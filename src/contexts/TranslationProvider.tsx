@@ -23,6 +23,10 @@ export class Language {
     static getEnglishLanguage() {
         return new Language("en", "EN", "English", "USA");
     }
+
+    static getLanguages() {
+        return languages;
+    }
 }
 
 const languages = [

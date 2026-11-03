@@ -1,3 +1,11 @@
+import ProfileSection from "./ProfileSection";
+import ProjectsSection from "./ProjectsSection";
+
 export default function Projects() {
-    return <div>Projects</div>
+    return (
+        <main>
+            <ProfileSection/>
+            <ProjectsSection/>
+        </main>
+    )
 }

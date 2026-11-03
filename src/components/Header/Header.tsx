@@ -9,7 +9,7 @@ import ThemeSelector from "./ThemeSelector";
 export default function Header() {
 
     const {getTranslation} = useTranslation();
-    const {isMobile} = useWindowSize();
+    const {isMobile, isTablet, isDesktop} = useWindowSize();
 
     return (
         <header>
@@ -22,10 +22,11 @@ export default function Header() {
                             <span>{getTranslation("subtitle")}</span>
                         </div>
                     </div>
+                    {isTablet && !isDesktop ? <LanguageSelector/> : null}
                 </MenuContainer>
                 {!isMobile ? <NavigationBar/> : null}
                 {/* <ThemeSelector/> */}
-                {!isMobile ? <LanguageSelector/> : null}
+                {isDesktop ? <LanguageSelector/> : null}
             </div>
         </header>
     )

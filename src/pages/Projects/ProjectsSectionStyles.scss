@@ -1,0 +1,298 @@
+@use '../../index.module.scss' as *;
+
+.detailed-project {
+    margin: auto;
+    width: 90%;
+}
+
+.detailed-project .summary::-webkit-details-marker {
+    display: none;
+}
+
+.detailed-project:nth-child(odd) .summary {
+    background-color: var(--yellow-light-color);
+}
+
+.detailed-project:nth-child(even) .summary {
+    background-color: var(--purple-light-color);
+}
+
+.detailed-project:nth-child(odd) .summary:hover {
+    background-color: var(--yellow-dark-color);
+}
+
+.detailed-project:nth-child(even) .summary:hover {
+    background-color: var(--purple-dark-color);
+}
+
+.detailed-project > .summary {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between; 
+    padding: 1.2em 1.5em;
+    border-radius: 12px;
+    background-color: transparent;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+/* Optional: A tiny click effect to make it feel interactive */
+.detailed-project > .summary:active {
+    transform: scale(0.99);
+}
+
+/* The Left Side: Icon + Title */
+.summary .title-container {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+.detailed-project > .summary h2 {
+    margin: 0;
+    font-size: 1.3em;
+}
+
+.detailed-project > .summary h2 {
+    color: var(--yellow-dark-color);
+}
+
+.detailed-project:nth-child(even) > .summary h2 {
+    color: var(--purple-dark-color);
+}
+
+.detailed-project > .summary:hover h2 {
+    color: var(--yellow-light-color);
+}
+
+.detailed-project:nth-child(even) > .summary:hover h2 {
+    color: var(--purple-light-color);
+}
+
+.detailed-project > .summary img {
+    width: 35px;
+    height: 35px;
+    object-fit: contain;
+    opacity: 0.5;
+}
+
+.detailed-project > .summary > .stars-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    
+    padding: 0.4em 1em;
+    border-radius: 50px; /* Pill shape */
+    font-weight: bold;
+    font-size: 1em;
+}
+
+.detailed-project:nth-child(odd) > .summary > .stars-container {
+    background-color: var(--yellow-dark-color); 
+    color: var(--yellow-light-color);
+}
+
+.detailed-project:nth-child(even) > .summary > .stars-container {
+    background-color: var(--purple-dark-color); 
+    color: var(--purple-light-color);
+}
+
+.detailed-project > .summary > .stars-container::before {
+    content: "★";
+    color: var(--yellow-light-color);
+    font-size: 1.1em;
+}
+
+.detailed-project:nth-child(even) > .summary > .stars-container::before {
+    color: var(--purple-light-color);
+}
+
+.detailed-project > .content {
+    /* padding: 0em 1em; */
+    display: flex;
+    flex-direction: column;
+    background-color: var(--yellow-light-color);
+    margin: 1em;
+    border-radius: 10px;
+    box-shadow: 0px 10px 20px 0px var(--grey-color);
+}
+
+.detailed-project:nth-child(even) > .content {
+    background-color: var(--purple-light-color);
+}
+
+.detailed-project > .content .top-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex-wrap: nowrap;
+    max-width: inherit;
+}
+
+.detailed-project > .content h3 {
+    white-space: nowrap;
+    text-align: center;
+    margin: 0.5em;
+    padding: 0.5em;
+    color: var(--yellow-light-color);
+    background-color: var(--yellow-dark-color);
+    border-radius: 10px;
+}
+
+.detailed-project .project-container .last-modified-container h3 {
+    margin-top: 0em;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+
+.detailed-project:nth-child(even) .content h3 {
+    color: var(--purple-light-color);
+    background-color: var(--purple-dark-color);
+}
+
+.detailed-project > .content .project-container {
+    /* margin: 0em 1em; */
+    display: flex;
+    flex-direction: column;
+}
+
+.detailed-project > .content .project-container > .content {
+    /* border: 3px #9697ee solid; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.detailed-project > .content div > span,
+.detailed-project > .content .description-container p {
+    text-align: center;
+    margin: 0.3em 0.5em;
+    color: var(--yellow-dark-color);
+    background-color: #ffe9b2;
+    padding: 0.5em;
+    /* font-size: 1.1em; */
+    font-weight: bold;
+    border: 3px var(--yellow-dark-color) solid;
+    border-radius: 10px;
+    /* box-shadow: 0px 0px 20px 0px var(--grey-color); */
+}
+
+.detailed-project:nth-child(even) > .content div > span,
+.detailed-project:nth-child(even) > .content .description-container p {
+    color: var(--purple-dark-color);
+    background-color: #c3ccf7;
+    border: 3px var(--purple-dark-color) solid;
+}
+
+.detailed-project > .content > p {
+    margin: 1em;
+    text-align: center;
+}
+
+.detailed-project > .content > .button-area {
+    /* margin: 1em; */
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.detailed-project > .content > span {
+    margin: 0.3em auto;
+    color: #201867;
+    background-color: #b1d1ff;
+    padding: 0.5em;
+    font-size: 1.1em;
+    font-weight: bold;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px 0px var(--grey-color);
+}
+
+.detailed-project:nth-child(even) > .content > .top-container > span {
+    color: #313755;
+    background-color: #a099e9;
+}
+
+.detailed-project .github-button {
+    color: var(--yellow-dark-color);
+    border: 3px var(--yellow-dark-color) solid;
+    margin: 0.5em;
+
+    :hover {
+        color: var(--yellow-light-color);
+    }
+
+    span {
+        background-color: var(--yellow-dark-color);
+    }
+}
+
+.detailed-project:nth-child(even)  .github-button {
+    color: var(--purple-dark-color);
+    border: 3px var(--purple-dark-color) solid;
+
+    :hover {
+        color: var(--purple-light-color);
+    }
+    
+    span {
+        background: var(--purple-dark-color);
+    }
+}
+
+/* TABLET-BASED LAYOUT */
+@media only screen and (min-width: $tablet) {
+    .detailed-project {
+        width: 80%;
+    }
+
+    .detailed-project > .summary {
+        flex-direction: row;
+    }
+
+    .detailed-project > .summary > img {
+        margin: 0.5em;
+    }
+
+    .detailed-project > .summary > .stars-container {
+        margin: auto 0.5em;
+    }
+}
+
+/* DESKTOP-BASED LAYOUT */
+@media only screen and (min-width: $desktop) {
+    .detailed-project {
+        margin: 4em 1em;
+        width: 75%;
+    }
+
+    .detailed-project .project-container h3 {
+        margin-top: 0em;
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+    }
+
+    .detailed-project:nth-child(even) {
+        margin-left: auto;
+    }
+
+    .detailed-project > .content .top-container {
+        flex-direction: row;
+    }
+
+    .detailed-project > .content .description-container {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .detailed-project > .content .description-container h3 {
+        border-top-left-radius: 0em;
+        border-bottom-left-radius: 0em;
+        margin: auto 0em;
+        text-align: center;
+    }
+
+    .detailed-project > .content .description-container p {
+        width: 100%;
+    }
+}
