@@ -17,6 +17,6 @@ export default function LanguageSelector() {
     }, [selectedLanguage])
 
     return (
-        <TextButton style={{margin:"auto"}} caption={caption} onClick={() => setIsGreek(value => !value)}/>
+        <TextButton style={{margin:"auto 1em"}} caption={caption} onClick={() => setIsGreek(value => !value)}/>
     )
 }

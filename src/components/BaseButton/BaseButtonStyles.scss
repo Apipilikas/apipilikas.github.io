@@ -12,7 +12,7 @@
     cursor: pointer;
 }
 
-.base-button span {
+.base-button > .cover {
     width: 0%;
     height: 100%;
     position: absolute;

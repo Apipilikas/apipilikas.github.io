@@ -1,0 +1,17 @@
+#resume-section > .content {
+    display: flex;
+    flex-direction: column;
+}
+
+#resume-section > .content embed {
+    margin: auto;
+    width: 80%;
+    height: 500px;
+}
+
+#resume-section .button-area {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 1em;
+    flex-wrap: wrap;
+}

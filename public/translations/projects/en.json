@@ -1,0 +1,13 @@
+{
+    "profileSection": "My GitHub Profile!",
+    "infoFollowers": "followers",
+    "infoRepositories": "repositories",
+    "infoHelp": "This is my GitHub account! Every project I have implemented is uploaded there!",
+    "profileButton": "CHECK MY PROFILE",
+    "projectsSection": "Projects",
+    "lastModifiedProject": "Last modified",
+    "topicsProject": "Topics",
+    "developmentLangaugesProject": "Development languages",
+    "descriptionProject": "Description",
+    "githubProjectButton": "CHECK ON GITHUB"
+}

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import Section from "../../components/Section"
 import TextButton from "../../components/TextButton"
-import { useLoading } from "../../contexts"
+import { useLoading, useTranslation } from "../../contexts"
 import { ApiUtils } from "../../utils/apiUtils"
 import { joinProps } from "../../utils/propUtils"
 import { GitHubProfileProps, profileUrl } from "../config"
@@ -11,6 +11,7 @@ const id = "profile-section"
 
 export default function ProfileSection() {
     
+    const {getTranslation} = useTranslation();
     const {registerTask, deregisterTask, resolveTask} = useLoading();
 
     const [profile, setProfile] = useState<GitHubProfileProps>(new GitHubProfileProps());
@@ -24,7 +25,7 @@ export default function ProfileSection() {
     }, [])
 
     const fetchProfile = async () => {
-        const data = await ApiUtils.makeGetRequest<GitHubProfileProps>(profileUrl);
+        const data = await ApiUtils.makeGetRequest<GitHubProfileProps>(profileUrl, GitHubProfileProps);
 
         setProfile(data);
 
@@ -32,7 +33,7 @@ export default function ProfileSection() {
     }
     
     return (
-        <Section id={id} caption="My GitHub Profile!">
+        <Section id={id} caption={getTranslation("profileSection")}>
             <div className="content box-shadow">
                 <div className="username-container purple-theme">
                     <img src={profile.avatarUrl} className="box-shadow"/>
@@ -44,11 +45,11 @@ export default function ProfileSection() {
                 <div className="info-container">
                     <InfoContainer caption={profile.bio} imgPath="images/bio.svg"/>
                     <InfoContainer caption={profile.location} imgPath="images/location.svg"/>
-                    <InfoContainer hintCaption={profile.followers?.toString()} caption=" followers" imgPath="images/followers.svg"/>
-                    <InfoContainer hintCaption={profile.publicRepositoryNumber?.toString()} caption=" repositories" imgPath="images/repos.svg"/>
-                    <InfoContainer caption="This is my GitHub account! Every project I have implemented is uploaded there!" className="hint-container"/>
+                    <InfoContainer hintCaption={profile.followers?.toString()} caption={` ${getTranslation("infoFollowers")}`} imgPath="images/followers.svg"/>
+                    <InfoContainer hintCaption={profile.publicRepositoryNumber?.toString()} caption={` ${getTranslation("infoRepositories")}`} imgPath="images/repos.svg"/>
+                    <InfoContainer caption={getTranslation("infoHelp")} className="hint-container"/>
                     <div className="button-area">
-                        <TextButton caption="CHECK MY PROFILE" link={profile.link}/>
+                        <TextButton caption={getTranslation("profileButton")} link={profile.link}/>
                         {/* <a  href={link} class="button-link"><span></span>CHECK MY PROFILE</a> */}
                     </div>
                 </div>

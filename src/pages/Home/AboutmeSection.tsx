@@ -36,8 +36,6 @@ export default function AboutmeSection() {
     )
 }
 
-// https://www.anish7.me/
-
 function SocialNetworkContainer({link, imageName, caption} : SocialNetworkProps) {
     return (
         <div className="social-network">

@@ -8,13 +8,14 @@ export interface BaseButtonProps {
     link?: string,
     onClick?: React.MouseEventHandler<HTMLAnchorElement>
     style?: CSSProperties;
+    download?: boolean;
 }
 
 interface BaseButtonPropsEx {
     children: ReactNode
 }
 
-export default function BaseButton({ className, link, onClick, style, children }: BaseButtonProps & BaseButtonPropsEx) {
+export default function BaseButton({ className, link, download, onClick, style, children }: BaseButtonProps & BaseButtonPropsEx) {
     const [isHovered, setIsHovered] = useState(false);
 
     const spanStyles = useSpring({
@@ -30,8 +31,9 @@ export default function BaseButton({ className, link, onClick, style, children }
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
             style={style}
+            download={download}
         >
-            <animated.span style={spanStyles}></animated.span>
+            <animated.span className="cover" style={spanStyles}></animated.span>
             <div className="content">
                 {children}
             </div>

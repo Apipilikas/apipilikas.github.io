@@ -17,7 +17,7 @@ export default function ProjectsSection() {
     const {getTranslation} = useTranslation();
 
     return (
-        <Section id={id} caption={getTranslation("projectsSection")}>
+        <Section id={id} caption={getTranslation("latestProjectsSection")}>
             <SlideShow/>
         </Section>
     )

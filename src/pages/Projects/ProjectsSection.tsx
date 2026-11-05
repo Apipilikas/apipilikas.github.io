@@ -2,7 +2,7 @@ import { useSpring, animated } from "@react-spring/web";
 import { ReactNode, useEffect, useRef, useState } from "react";
 import Section from "../../components/Section";
 import TextButton from "../../components/TextButton";
-import { useLoading } from "../../contexts";
+import { useLoading, useTranslation } from "../../contexts";
 import { ApiUtils } from "../../utils/apiUtils";
 import { joinProps } from "../../utils/propUtils";
 import { GitHubProfileProps, GitHubProjectProps, projectsUrl } from "../config";
@@ -12,6 +12,7 @@ const id = "projects-section";
 
 export default function ProjectsSection() {
 
+    const {getTranslation} = useTranslation();
     const {registerTask, deregisterTask, resolveTask} = useLoading();
 
     const [projects, setProjects] = useState<GitHubProjectProps[]>([]);
@@ -45,13 +46,15 @@ export default function ProjectsSection() {
     }
 
     return (
-        <Section id={id} caption="Projects">
+        <Section id={id} caption={getTranslation("projectsSection")}>
             {renderedProjects}
         </Section>
     )
 }
 
 function Project({title, updateDate, description, link, topics, languages, stars}: GitHubProjectProps) {
+
+    const {getTranslation} = useTranslation();
 
     const [isOpen, setIsOpen] = useState(false);
     const [contentHeight, setContentHeight] = useState(0);
@@ -88,27 +91,27 @@ function Project({title, updateDate, description, link, topics, languages, stars
             <animated.div ref={divRef} className="content" style={contentStyles}>
                 <div className="top-container">
                     <div className="last-modified-container project-container">
-                        <h3>Last modified</h3>
+                        <h3>{getTranslation("lastModifiedProject")}</h3>
                         <div className="content">
                             <span>{updateDate}</span>
                         </div>
                     </div>
                     {topics.length != 0 ?
-                        <ProjectContainer className="topics-container" caption="Topics">
+                        <ProjectContainer className="topics-container" caption={getTranslation("topicsProject")}>
                             {renderedTopics}
                         </ProjectContainer>
                         : null
                     }
-                    <ProjectContainer className="development-languages-container" caption="Development languages">
+                    <ProjectContainer className="development-languages-container" caption={getTranslation("developmentLangaugesProject")}>
                         {renderedLanguages}
                     </ProjectContainer>
                 </div>
                 <div className="description-container">
-                    <h3>Description</h3>
+                    <h3>{getTranslation("descriptionProject")}</h3>
                     <p>{description}</p>
                 </div>
                 <div className="button-area">
-                    <TextButton className="github-button" caption="CHECK ON GITHUB" link={link}/>
+                    <TextButton className="github-button" caption={getTranslation("githubProjectButton")} link={link}/>
                 </div>
             </animated.div>
         </div>

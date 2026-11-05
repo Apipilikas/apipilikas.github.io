@@ -1,7 +1,7 @@
 {
     "developmentSkillsSection": "Development Skills",
     "liferoadSection": "Liferoad",
-    "projectsSection": "My latest projects",
+    "latestProjectsSection": "My latest projects",
     "aboutmeTexts": ["Welcome!", "Hello World!"],
     "aboutmeText": ["I'm", "Aggelos"],
     "moreAboutmeButton": "MORE ABOUT ME",

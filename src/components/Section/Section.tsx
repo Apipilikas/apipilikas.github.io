@@ -4,7 +4,7 @@ import './SectionStyles.scss'
 export interface SectionProps {
     id: string;
     className?: string;
-    caption?: string; 
+    caption?: string;
     children: React.ReactNode;
 }
 
