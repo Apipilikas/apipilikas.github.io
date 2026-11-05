@@ -1,0 +1,76 @@
+@use '../../index.module.scss' as *;
+
+#news-section > .content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.news {
+    margin: 2em;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* background-color: var(--green-blue-color); */
+    border-radius: 10px;
+}
+
+.news:nth-child(2n+1) {
+    background-color: #d4dbf9;
+}
+
+.news:nth-child(4n+1) {
+    background-color: #aadcda;
+}
+
+.news:nth-child(2n) {
+    background-color: var(--yellow-light-color);
+}
+
+.news:nth-child(4n) {
+    background-color: #b1d1ff;
+}
+
+.news:nth-child(2n+1) {
+    --container-pc: var(--purple-light-color);
+    --container-sc: var(--purple-dark-color);
+}
+.news:nth-child(4n+1) {
+    --container-pc: var(--green-light-color);
+    --container-sc: var(--green-dark-color);
+}
+.news:nth-child(2n) {
+    --container-pc: var(--yellow-light-color);
+    --container-sc: var(--yellow-dark-color);
+}
+.news:nth-child(4n) {
+    --container-pc: var(--blue-light-color);
+    --container-sc: var(--blue-dark-color);
+}
+
+.news > .description-container {
+    margin-bottom: 1em;
+}
+
+.news .date {
+    font-weight: bold;
+    padding: 0.5em;
+    margin: 0em 0em 0em 0.5em;
+    /* padding-left: 1em;
+    border-left: 10px solid var(--grey-color); */
+}
+
+.news .description {
+    padding: 0.5em;
+    margin: 0em 0em 0em 0.5em;
+}
+
+/* TABLET-BASED LAYOUT */
+@media only screen and (min-width: $tablet) {
+
+    /* START-OF: index.html -> news-section */
+
+    .news {
+        width: 45%;
+    }
+}

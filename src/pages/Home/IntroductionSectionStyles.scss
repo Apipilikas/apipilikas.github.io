@@ -1,0 +1,268 @@
+@use '../../index.module.scss' as *;
+
+#home-page > section > h2 {
+    white-space: nowrap;
+    border-left: 10px solid var(--blue-color);
+    border-top-left-radius: 10px;
+    background-color: var(--header-color);
+    padding: 0.5em;
+    text-align: center;
+    opacity: 0;
+    transition: all 1.5s;
+    width: 0%;
+}
+
+#home-page > section > h2.reveal {
+    opacity: 1;
+    width: 100%;
+}
+
+#home-page > section  {
+    overflow: hidden;
+}
+
+#home-page > section > .content.trigger-effect {
+    opacity: 0;
+    transform: translateY(150px);
+    transition: all 1s;
+}
+
+#home-page > section > .content.reveal {
+    opacity: 1;
+    transform: translateY(0);
+    
+}
+
+#welcome-introduction-section > .content {
+    margin: 5vw auto;
+    width: 100%;
+    position: absolute;
+    top: 90px;
+    display: flex;
+    /* flex */
+    /* background: linear-gradient(to right, var(--main-color), var(--blue-color)); */
+}
+
+#welcome-introduction-section video {
+    width: 100%;
+    height: 100%;
+}
+
+/* Since mobile browsers seem not to support video responsiveness via
+   the element source, this is a quite easy way-trick to make videos change. */
+#mobile-video {
+    display: block;
+}
+
+#tablet-desktop-video {
+    display: none;
+}
+
+#welcome-introduction-section > .content > .text-area {
+    display: none;
+    flex-basis: 20%;
+    margin: auto;
+    text-align: center;
+}
+
+
+#window {
+    flex-basis: 80%;
+    width: 100%;
+    margin: 1em auto;
+    background-color: rgba(30, 30, 30, 0.801);
+    border-radius: 10px;
+    min-height: min(28vw, 250px);
+        
+    max-width: 100%;
+    max-height: 80vh;
+}
+
+#window-line {
+    background-color: #333533;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+#window-line-left-side {
+    grid-column: 1/2;
+    display: flex;
+}
+
+#window-line-left-side > span {
+    font-size: min(3vw, 1.2em);
+    color: white;
+    font-weight: 700;
+    margin: auto 0em auto 1em;
+}
+
+#window-line-left-side > #cmd-icon {
+    font-size: min(3vw, 1em);
+    font-weight: 700;
+    color: black;
+    padding: 0.2em;
+    background-color: #4ec9b0;
+    border-radius: 5px;
+}
+
+#window-line-right-side {
+    grid-column: 2/3;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#window-line img {
+    width: min(2vw, 15px);
+    height: min(2vw, 15px);
+    margin: 0.3em;
+    border-radius: 30px;
+}
+
+#window-minimize-button {
+    background-color: #fca311;
+    padding: 0.3em;
+}
+
+#window-full-screen-button {
+    background-color: #2dc653;
+    padding: 0.3em;
+}
+
+#window-close-button {
+    background-color: #e01e37;
+    padding: 0.3em;
+}
+
+#code-section {
+    font-size: min(2.3vw, 1em);
+    margin-left: 1em;
+}
+
+.code-line {
+    white-space: nowrap;
+    display: block;
+    color: #cccccc;
+}
+
+.code-line .code-number {
+    color: #7e7975;
+}
+
+.code-line .comment {
+    color: #669461;
+}
+
+.code-line .class-name {
+    color: #4ec9b0;
+}
+
+.code-line .variable-name {
+    color: #96d8fc;
+}
+
+.code-line .reserved-name {
+    color: #13c60d;
+}
+
+.code-line .function-name {
+    color: #dbd9a6;
+}
+
+.code-line .plain-text {
+    color: #d38469;
+}
+
+#welcome-introduction-section > .content > .button-area {
+    flex-basis: 20%;
+    margin: 1em auto 1em auto;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+#introduction-container {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* TABLET-BASED LAYOUT */
+@media only screen and (min-width: $tablet) {
+
+    #mobile-video {
+        display: none;
+    }
+
+    #tablet-desktop-video {
+        display: block;
+    }
+
+    #welcome-introduction-section > .content {
+        margin: auto;
+        top: 153px;
+    }
+}
+
+/* DESKTOP-BASED LAYOUT */
+@media only screen and (min-width: $desktop) {
+    
+    /* START-OF: *.html -> header */
+    
+    header > #header-container {
+        margin: 0em 10%;
+        flex-direction: row;
+    }
+    
+    #main-logo-desc > span:first-child {
+        white-space: nowrap;
+        font-size: 2em;
+    }
+    
+    header nav {
+        margin: 0em;
+        flex-basis: 70%;
+    }
+    
+    header nav > ul {
+        margin: auto;
+    }
+    
+    header li {
+        flex-basis: 20%;
+    }
+    
+    header nav li > a {
+        padding: 2em 0em 2em 0em;
+    }
+    
+    #menu-container {
+        flex-basis: 30%;
+    }
+    
+    #welcome-introduction-section > .content {
+        top: 92px;
+        /* background: linear-gradient(to right, var(--main-color), var(--blue-color)); */
+    }
+    
+    #window {
+        width: 100%;
+        margin: 5em auto;
+    }
+    
+    #window-line img {
+        height: 20px;
+        width: 20px;
+        margin: 0.3em;
+        border-radius: 30px;
+    }
+    
+    #code-section {
+        font-size: 2em;
+        margin-left: 1em;
+    }
+}

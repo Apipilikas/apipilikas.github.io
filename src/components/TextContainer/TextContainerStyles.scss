@@ -1,0 +1,26 @@
+.text-container {
+    display: flex;
+    margin-bottom: 1em; 
+
+    &:first-child {
+        margin-top: 1em;
+    }
+
+    .border {
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+        border-right: 10px solid var(--container-sc);
+    }
+
+    > :nth-child(2) {
+        border-radius: 10px;
+        padding: 0.5em;
+        margin: 0em 0.5em 0em 0.5em;
+        color: var(--container-sc);
+    }
+
+    &.filled > :nth-child(2) {
+    background-color: var(--container-sc);
+    color: var(--container-pc);
+    }
+}

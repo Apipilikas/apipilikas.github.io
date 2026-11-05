@@ -1,0 +1,105 @@
+#latest-projects-slideshow {
+    position: relative;
+}
+
+#latest-projects-slideshow > button {
+    display: none;
+    position: absolute;
+    top: 50%;
+}
+
+#latest-projects-slideshow > button > span {
+    width: 0%;
+    height: 100%;
+    position: absolute;
+    bottom: 0%;
+    background: var(--blue-color);
+    z-index: -1;
+    transition: 0.25s;
+}
+
+#latest-projects-slideshow > .slideshow-display-button-bottom > span {
+    right: 0%;
+}
+
+#latest-projects-slideshow > button:hover > span {
+    width: 100%;
+}
+
+#latest-projects-content {
+    margin: 4em;
+    display: flex;
+    justify-content: space-between;
+}
+
+.project {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 300px;
+    background-color: var(--header-color);
+    border-radius: 10px;
+    box-shadow: 0px 10px 20px 0px var(--grey-color);
+    // border-left: 10px solid var(--grey-color);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.project {
+    --container-pc: #d4dbf9;
+    --container-sc: #4f577a;
+}
+
+@keyframes fade-in-animation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.project > div {
+    text-align: center;
+}
+
+// .project > div > h3 {
+//     background-color: var(--grey-color);
+//     color: var(--header-color);
+//     border-radius: 10px;
+//     padding: 0.5em;
+//     margin: 1em 0em;
+//     animation: 1s fade-in-animation ;
+// }
+
+.project > div > p {
+    font-weight: bold;
+    margin: auto;
+    animation: 1.5s fade-in-animation ;
+}
+
+.project > p {
+    text-align: center;
+    padding: 1em;
+    margin: 0em;
+    animation: 1.5s fade-in-animation ;
+}
+
+.project > .git-link {
+    display: inline-flex;
+    animation: 3s fade-in-animation ;
+}
+
+.project  > .git-link > a {
+    color: black;
+    margin: 1em auto 1em auto;
+}
+
+#latest-projects-content .no-result-found-error {
+    font-size: 1.2em;
+    background-color: var(--header-color);
+    border-radius: 10px;
+    box-shadow: 0px 10px 20px 0px var(--grey-color);
+    padding: 1em;
+    margin: auto;
+}

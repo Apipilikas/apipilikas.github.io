@@ -1,0 +1,150 @@
+@use '../../index.module.scss' as *;
+
+.liferoad {
+    position: relative;
+    display: grid;
+    width: 70%;
+    margin: 3em;
+    padding: 2em;
+    gap: 1.5em;
+    background-color: var(--header-color);
+    border-radius: 16px;
+    
+    grid-template-columns: auto 1fr;
+    grid-template-areas:
+        "timeline header"
+        "timeline desc";
+}
+
+.liferoad:nth-child(even) {
+    margin-left: auto;
+    margin-right: 3em;
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+        "header timeline"
+        "desc timeline";
+    text-align: right;
+}
+
+.main-info {
+    grid-area: header;
+}
+
+.description {
+    grid-area: desc;
+    line-height: 1.6;
+    color: inherit;
+    opacity: 0.9;
+    margin: 0;
+}
+
+.timeline {
+    grid-area: timeline;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0 1.5em;
+    border-right: 2px dashed rgba(0, 0, 0, 0.1); 
+}
+
+.liferoad:nth-child(even) .timeline {
+    border-right: none;
+    border-left: 2px dashed rgba(0, 0, 0, 0.1);
+}
+
+.main-info h3 {
+    margin: 0 0 0.2em 0;
+    font-size: 1.4em;
+}
+
+.main-info h4 {
+    margin: 0;
+    font-weight: 500;
+    opacity: 0.7;
+}
+
+.timeline p {
+    margin: 0;
+    font-size: 0.9em;
+}
+
+.timeline > p > span {
+    color: var(--blue-color);
+    font-weight: 700;
+    display: block;
+    font-size: 1.2em;
+}
+
+/* TO and FROM dots */
+.liferoad:nth-child(odd) .timeline > p::before {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: white;
+    border-radius: 50%;
+    left: -2.65em; 
+    border: 3px solid var(--blue-color);
+}
+
+.liferoad:nth-child(even) .timeline > p::after {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: white;
+    border-radius: 50%;
+    right: -2.65em;
+    border: 3px solid var(--blue-color);
+}
+
+/* Timeline borders */
+.liferoad::before {
+    content: "";
+    position: absolute;
+    width: 80%;
+    border: solid #333;
+}
+  
+.liferoad:nth-child(odd)::before {
+    left: -2em;
+    top: -1.25em;
+    bottom: -2em;
+    border-width: 4px 0 4px 4px;
+    border-radius: 40px 0 0 40px;
+}
+  
+.liferoad:nth-child(even)::before {
+    right: -2em;
+    top: -1.25em;
+    bottom: -2em;
+    border-width: 4px 4px 4px 0;
+    border-radius: 0 40px 40px 0;
+}
+  
+.liferoad:first-child::before {
+    border-top: 0;
+    border-top-left-radius: 5px;
+}
+  
+.liferoad:last-child:nth-child(odd)::before {
+    border-bottom: 0;
+    border-bottom-left-radius: 5px;
+}
+  
+.liferoad:last-child:nth-child(even)::before {
+    border-bottom: 0;
+    border-bottom-right-radius: 5px;
+}
+
+/* TABLET-BASED LAYOUT */
+@media only screen and (min-width: $tablet) {
+    .liferoad {
+        width: 50%;
+        padding: 2.5em;
+    }
+
+    .liferoad::before {
+        width: 100%;
+    }
+}

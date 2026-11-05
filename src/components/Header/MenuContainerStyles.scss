@@ -1,0 +1,40 @@
+@use '../../index.module.scss' as *;
+
+#menu-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--header-color);
+    z-index: 6;
+}
+
+#menu-button {
+    margin: auto 1em;
+}
+
+#menu-button > img {
+    width: 5vw;
+    height: 5vw;
+}
+
+.overlay-navigation-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 5;
+}
+
+/* TABLET-BASED LAYOUT */
+@media only screen and (min-width: $tablet) {
+    #menu-container {
+        position: initial !important;
+    }
+}
+
+@media only screen and (min-width: $desktop) {
+    #menu-container {
+        flex-basis: 30%;
+    }
+}
