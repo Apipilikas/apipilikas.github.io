@@ -1,6 +1,11 @@
 {
     "fullName": "Aggelos Pipilikas",
     "subtitle": "Personal Website",
+    "loaderContent": [
+        "Welcome to my personal website!",
+        "Please wait..."
+    ],
+    "loaderText": "This may take a little longer...",
     "homePage": "Home",
     "aboutmePage": "About Me",
     "projectsPage": "Projects",
