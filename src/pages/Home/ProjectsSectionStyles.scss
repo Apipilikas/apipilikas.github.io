@@ -39,8 +39,6 @@
     width: 300px;
     background-color: var(--header-color);
     border-radius: 10px;
-    box-shadow: 0px 10px 20px 0px var(--grey-color);
-    // border-left: 10px solid var(--grey-color);
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
 }
@@ -88,10 +86,6 @@
 .project > .git-link {
     display: inline-flex;
     animation: 3s fade-in-animation ;
-}
-
-.project  > .git-link > a {
-    color: black;
     margin: 1em auto 1em auto;
 }
 

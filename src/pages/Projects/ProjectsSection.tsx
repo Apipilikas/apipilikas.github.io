@@ -1,5 +1,6 @@
 import { useSpring, animated } from "@react-spring/web";
 import { ReactNode, useEffect, useRef, useState } from "react";
+import LoadingContainer from "../../components/LoadingContainer";
 import Section from "../../components/Section";
 import TextButton from "../../components/TextButton";
 import { useLoading, useTranslation } from "../../contexts";
@@ -13,9 +14,11 @@ const id = "projects-section";
 export default function ProjectsSection() {
 
     const {getTranslation} = useTranslation();
-    const {registerTask, deregisterTask, resolveTask} = useLoading();
+    const {registerTask, deregisterTask, resolveTask, failTask, observeTask} = useLoading();
 
     const [projects, setProjects] = useState<GitHubProjectProps[]>([]);
+
+    const task = observeTask(id);
     
     const renderedProjects = projects?.map((project, key) => <Project key={key} {...project}/>)
 
@@ -41,13 +44,18 @@ export default function ProjectsSection() {
             resolveTask(id);
         }
         catch (e) {
-
+            if (e instanceof Error) {
+                console.log(e);
+                failTask(id, e.message);
+            }
         }
     }
 
     return (
         <Section id={id} caption={getTranslation("projectsSection")}>
-            {renderedProjects}
+            <LoadingContainer status={task?.status} error={task?.error}>
+                {renderedProjects}
+            </LoadingContainer>
         </Section>
     )
 }
@@ -59,8 +67,8 @@ function Project({title, updateDate, description, link, topics, languages, stars
     const [isOpen, setIsOpen] = useState(false);
     const [contentHeight, setContentHeight] = useState(0);
 
-    const renderedTopics = topics.map(topic => <span>{topic}</span>);
-    const renderedLanguages = languages.map(language => <span>{language}</span>);
+    const renderedTopics = topics.map(topic => <span className="project-detail">{topic}</span>);
+    const renderedLanguages = languages.map(language => <span className="project-detail">{language}</span>);
 
     const divRef = useRef<HTMLDivElement>(null);
 
@@ -88,12 +96,12 @@ function Project({title, updateDate, description, link, topics, languages, stars
                     <span className="stars">{stars}</span>
                 </div>
             </div>
-            <animated.div ref={divRef} className="content" style={contentStyles}>
+            <animated.div ref={divRef} className="content box-shadow" style={contentStyles}>
                 <div className="top-container">
                     <div className="last-modified-container project-container">
                         <h3>{getTranslation("lastModifiedProject")}</h3>
                         <div className="content">
-                            <span>{updateDate}</span>
+                            <span className="project-detail">{updateDate}</span>
                         </div>
                     </div>
                     {topics.length != 0 ?

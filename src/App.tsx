@@ -18,9 +18,14 @@ function App() {
   useEffect(() => {
     if (location) {
       document.title = `${getTranslation("fullName")} | ${getPageCaption(location.pathname)}`;
+    }
+  }, [location, isReady, language]);
+
+  useEffect(() => {
+    if (location) {
       clearTasks();
     }
-  }, [location, isReady, language])
+  }, [location.pathname]);
 
   const getPageCaption = (pathname : string) => {
     let caption = "";

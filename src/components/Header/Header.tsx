@@ -1,5 +1,6 @@
 import { useTranslation } from "../../contexts";
 import { useWindowSize } from "../../hooks";
+import AnimatedTranslatedText from "../AnimatedTranslatedText";
 import NavigationBar from "../NavigationBar";
 import './HeaderStyles.scss';
 import LanguageSelector from "./LanguageSelector";
@@ -18,8 +19,8 @@ export default function Header() {
                     <div id="main-logo">
                         <img src="/images/ap_logo_2.png" alt="AP Logo"/>
                         <div id="main-logo-desc">
-                            <span>{getTranslation("fullName")}</span>
-                            <span>{getTranslation("subtitle")}</span>
+                            <AnimatedTranslatedText translationKey="fullName"/>
+                            <AnimatedTranslatedText translationKey="subtitle"/>
                         </div>
                     </div>
                     {isTablet && !isDesktop ? <LanguageSelector/> : null}

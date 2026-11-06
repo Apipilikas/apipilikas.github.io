@@ -9,6 +9,8 @@ import { useWindowSize } from "../../hooks";
 import { useTranslation } from "../../contexts";
 import { ApiUtils } from "../../utils/apiUtils";
 import { GitHubProjectProps, projectsUrl } from "../config";
+import LoadingContainer from "../../components/LoadingContainer";
+import { TaskStatus } from "../../contexts/LoadingProvider";
 
 const id = "latest-projects-section";
 
@@ -25,11 +27,13 @@ export default function ProjectsSection() {
 
 function SlideShow() {
 
-    const {registerTask, deregisterTask, resolveTask} = useLoading();
+    const {registerTask, deregisterTask, resolveTask, failTask, observeTask} = useLoading();
     const {isTablet, isDesktop} = useWindowSize();
 
     const [projects, setProjects] = useState<GitHubProjectProps[]>([]);
     const slidesPerPage = isDesktop ? 4 : isTablet ? 2 : 1;
+
+    const task = observeTask(id);
 
     useEffect(() => {
         registerTask(id);
@@ -49,7 +53,9 @@ function SlideShow() {
             resolveTask(id);
         }
         catch (e) {
-
+            if (e instanceof Error) {
+                failTask(id, e.message);
+            }
         }
     }
 
@@ -57,14 +63,16 @@ function SlideShow() {
 
     return (
         <div id="latest-projects-slideshow" className="content">
-            <div id="latest-projects-content">{renderedProjects}</div>
+            <LoadingContainer status={task?.status} error={task?.error}>
+                <div id="latest-projects-content">{renderedProjects}</div>
+            </LoadingContainer>
         </div>
     )
 }
 
 function ProjectContainer({title, updateDate, description, link} : GitHubProjectProps) {
     return (
-        <article className="project">
+        <article className="project box-shadow">
             <TextContainer className="git-repo-date-info" applySecondaryColor>
                 <h3>{title}</h3>
             </TextContainer>

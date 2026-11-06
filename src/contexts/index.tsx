@@ -1,7 +1,7 @@
-import { LoadingProvider, useLoading } from "./LoadingProvider";
+import { LoadingProvider, useLoading, TaskStatus } from "./LoadingProvider";
 import { TranslationProvider, useTranslation, Language } from "./TranslationProvider";
 
 export {
-    LoadingProvider, useLoading,
+    LoadingProvider, useLoading, TaskStatus,
     TranslationProvider, useTranslation, Language
 };
