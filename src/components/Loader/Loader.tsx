@@ -1,10 +1,13 @@
 import { useSpring, animated } from "@react-spring/web";
-import { useLoading } from "../../contexts";
+import { useLoading, useTranslation } from "../../contexts";
 import './LoaderStyles.scss'
 
 export default function Loader() {
     
+    const {getTranslation} = useTranslation();
     const {isReady} = useLoading();
+
+    const loaderContent = getTranslation<string[]>("loaderContent") || [];
 
     const loaderStyles = useSpring({
     transform: isReady ? "translateY(-100%)" : "translateY(0%)",
@@ -14,10 +17,10 @@ export default function Loader() {
     return (
         <animated.div id="loader" style={loaderStyles}>
             <div className="content">
-                <p>Welcome to my personal website!<span>Please wait...</span></p>
+                <p>{loaderContent[0]}<span>{loaderContent[1]}</span></p>
                 <div className="lds-ripple">
                     <div></div><div></div></div>
-                    <p>This may take a little longer...</p>
+                    <p>{getTranslation("loaderText")}</p>
                     </div>
         </animated.div>
     )

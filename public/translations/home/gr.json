@@ -7,9 +7,9 @@
     "moreAboutmeButton": "ΠΕΡΙΣΣΟΤΕΡΑ ΓΙΑ ΜΕΝΑ",
     "projectsButton": "ΕΡΓΑ",
     "textAreaContent": [
-        "A highly reliable and determined", 
-        "software engineer", 
-        "currently pursuing his Master's degree in Software Engineering at the University of Amsterdam."
+        "Αξιόπιστος επαγγελματίας πληροφορικής και", 
+        "μηχανικός λογισμικού", 
+        "με πάθος για τον προγραμματισμό και τον κύκλο ανάπτυξης εφαρμογών."
     ],
     "newsSection": "Νέα",
     "liferoadTo": "Μέχρι",
@@ -27,7 +27,7 @@
         {
             "title" : "Προγραμματιστής",
             "subtitle" : "Entersoft",
-            "description" : "Improving and maintaining Entersoft ERP Suite by solving bugs and providing solutions.",
+            "description" : "Επαύξηση,βελτίωση και συντήρηση της σουίτας λογισμικού Entersoft ERP.",
             "timeline" : {
                 "to" : "2025",
                 "from" : "2022"
@@ -35,7 +35,7 @@
         },
         {
             "title" : "Προπτυχιακό στην Επιστήμη Υπολογιστών",
-            "subtitle" : "Athens University of Economics and Business",
+            "subtitle" : "Οικονομικό Πανεπιστήμιο Αθηνών (Ο.Π.Α.)",
             "description" : "Βαθμός : 8.15/10",
             "timeline" : {
                 "to" : "2023",
@@ -54,49 +54,29 @@
     ],
     "newsSectionContent": [
         {
-            "title" : "Καινούρια κεφάλαιο...",
-            "date" : "19/07/2025",
-            "description" : "I’m super excited to share that starting this September, I’ll be moving to Amsterdam to pursue my master’s degree! Can’t wait for this new adventure and all the learning and experiences ahead. It’s going to be a big step, and I’m ready for it!"
+            "title" : "Ένα μικρό-υποχρεωτικό διάλειμμα ...",
+            "date" : "06/11/2026",
+            "description" : "Για τον επόμενο χρόνο και μέχρι τα μέσα του 2027, θα είμαι επαγγελματικά ανενεργός μιας και πρέπει να εκπληρώσω τις υποχρεωτικές στρατιωτικές μου υποχρεώσεις στον ελληνικό στρατό. Σε περίπτωση που επιθυμείται να έρθετε σε επαφή μαζί μου, επιτρέψτε μου λίγο επιπλέον χρόνο για την απάντηση μου."
         },
         {
-            "title" : "Eurovision Voting App | Version 2",
-            "date" : "12/05/2024",
-            "description" : "I am happy to announce that version 2 of eurovision voting app is under development. Radical changes have been made in both client and server sides. Server has been under major refactoring, as well as client in both front-end and back-end. It is worth noticing that this is my first attemp to integrate React into one of my projects."
+            "title" : "Καινούριο κεφάλαιο ...",
+            "date" : "19/07/2025",
+            "description" : "Μετά από σχεδόν τρία χρόνια εργασίας και ολοκλήρωσης του προπτυχιακού μου, αποφάσισα να κάνω το επόμενο μου βήμα μετακομίζοντας στο Άμστερνταμ για να πραγματοποιήσω το μεταπτυχιακό μου πάνω στην μηχανική λογισμικού. Πρόκειται για μια μεθοδική μου απόφαση που θα με εξειδικεύσει στον τομέα μου. Είμαι έτοιμος για κάθε νέα πρόκληση!"
         },
         {
             "title" : "DB Model Handler",
             "date" : "12/05/2024",
-            "description" : "I am happy to give it a go with uploading my first ever npm package. DB model handler is a way to ensure data accuracy before reaching the actual database."
+            "description" : "Είμαι στην ευχάριστη θέση να σας ανακοινώσω την δημοσίευση του πρώτου μου npm package. Το DB Model Handler είναι μία σύγχρονη μηχανή απθήκευσης δεδομένων, η οποία διασφαλίζει την ακεραιότητα των δεδομένων πριν επικοινωνήσουν με την βάση δεδομένων."
         },
         {
             "title" : "Eurovision Voting App",
             "date" : "12/05/2024",
-            "description" : "Eurovision voting app is one of my latest projects. It is a project that constitutes of a full-stack application and a server. As a fun of eurivision song contest, I came with the idea of creating a way that my friends and I could vote for every country, in order to avoid writing the results on paper. In this way, not only could we vote more easily, but we could also get informed about the points that each person has allocated among countries."
+            "description" : "Η Eurovision voting app πρόκειται για μία full-stack εφαρμογή η οποία έχει ως στόχο την διευκόλυνση της ψηφοφορίας κατά την Eurovision. Η ιδέα γεννήθηκε ως ανάγκη επιτάγχυνσης συλλογής των ψήφων αντί καταγραφή αυτών σε χαρτί. Η εφαρμογή υποστηρίζεται μέσω της επικοινωνίας με server."
         },
         {
-            "title" : "Graduation alert!",
+            "title" : "Αποφοίτηση!",
             "date" : "20/05/2023",
-            "description" : "At this date, I'am oficially a graduate computer science student. What a journey. A five-year journey full of challenges, interesting projects, collaborations and hard work."
-        },
-        {
-            "title" : "Towards Green page",
-            "date" : "21/9/2022",
-            "description" : "One of the apps I started developing as a University project and I'm keeping updating it is TowardsGreen. There is no need to say too much. Go to \"Projects\" page > TowardsGreen > \"More details\" and you will learn everything you need to know. Stay tuned for more exciting news!"
-        },
-        {
-            "title" : "New app development",
-            "date" : "21/9/2022",
-            "description" : "This summer I spent most of my time designing a note-taking app with my colleagues-friends which is mainly intented to help students from our University (AUEB) keep notes depending on the courses they have choosen to attend. This app is still in development and the developing language is Dart. The main goal of this app is to familiarize ourselves with flutter and Dart. More information about the project is going to be uploaded soon."
-        },
-        {
-            "title" : "New version",
-            "date" : "21/9/2022",
-            "description" : "I have changed a few things from version 1 and I'm willing to change even more in the future. One of the main things I would like to change (and I will) is to use React instead of static HTML. This will happen as soon as I have time. Other than that, if you find any bugs or you have a nice idea that would fit in my site (in terms of design, color etc) don't hesitate to share it with me. You can either send my a message (see Contact page) or open an issue on the GitHub."
-        },
-        {
-            "title" : "Welcome!",
-            "date" : "6/8/2022",
-            "description" : "Welcome to my personal website! This website has been created by me from scratch and its purpose is mainly informational. Make sure to explore among the pages. I am sure you will find all the information you need there. Also, keep an eye here in news section, since I will post everything \"new\" I do, in terms of new projects, update on projects etc."
+            "description" : "Αυτή την συγκεκριμένη ημερομηνία, Είμαι επισήμως απόφοιτος του Οικονομικού Πανεπιστημίου Αθηνών. Πραγματικά, μία μακροχρόνια διαδρομή που μου χάρισε πολύτιμες εμπειρίες και γνώση πάνω στην επιστήμη πληροφορικής."
         }
     ]
 }

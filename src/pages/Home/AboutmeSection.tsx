@@ -38,7 +38,7 @@ export default function AboutmeSection() {
 
 function SocialNetworkContainer({link, imageName, caption} : SocialNetworkProps) {
     return (
-        <div className="social-network">
+        <div className="social-network box-shadow hover">
             <a href={link}>
                 <img src={`/images/${imageName}.svg`} width="40px" height="40px"/>
             </a>

@@ -27,6 +27,10 @@ export class ApiUtils {
             return json as T;
         }
 
-        throw new Error(`Response status: ${response.status}`);
+        throw new Error(
+            `I'm very sorry to inform you that you got a response with status ${response.status}. Don't panik.
+            You got this as I use the GitHub API to fetch all the information needed for my personal profile and repositories.
+            To be able to refresh and see the page properly, you will have to wait for an hour or so.`
+        );
     }
 }

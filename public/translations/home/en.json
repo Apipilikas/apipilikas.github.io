@@ -9,7 +9,7 @@
     "textAreaContent": [
         "A highly reliable and determined", 
         "software engineer", 
-        "currently pursuing his Master's degree in Software Engineering at the University of Amsterdam."
+        "passionate about programming, coding and designing applications."
     ],
     "newsSection": "News",
     "liferoadTo": "To",
@@ -54,14 +54,14 @@
     ],
     "newsSectionContent": [
         {
+            "title" : "A little break ...",
+            "date" : "06/11/2026",
+            "description" : "For the next year, I will be taking a short professional break to fulfill my mandatory military service. If you'd like to connect, feel free to reach out via email—just please allow a little extra time for my response."
+        },
+        {
             "title" : "New chapter ...",
             "date" : "19/07/2025",
             "description" : "I’m super excited to share that starting this September, I’ll be moving to Amsterdam to pursue my master’s degree! Can’t wait for this new adventure and all the learning and experiences ahead. It’s going to be a big step, and I’m ready for it!"
-        },
-        {
-            "title" : "Eurovision Voting App | Version 2",
-            "date" : "12/05/2024",
-            "description" : "I am happy to announce that version 2 of eurovision voting app is under development. Radical changes have been made in both client and server sides. Server has been under major refactoring, as well as client in both front-end and back-end. It is worth noticing that this is my first attemp to integrate React into one of my projects."
         },
         {
             "title" : "DB Model Handler",
@@ -77,26 +77,6 @@
             "title" : "Graduation alert!",
             "date" : "20/05/2023",
             "description" : "At this date, I'am oficially a graduate computer science student. What a journey. A five-year journey full of challenges, interesting projects, collaborations and hard work."
-        },
-        {
-            "title" : "Towards Green page",
-            "date" : "21/9/2022",
-            "description" : "One of the apps I started developing as a University project and I'm keeping updating it is TowardsGreen. There is no need to say too much. Go to \"Projects\" page > TowardsGreen > \"More details\" and you will learn everything you need to know. Stay tuned for more exciting news!"
-        },
-        {
-            "title" : "New app development",
-            "date" : "21/9/2022",
-            "description" : "This summer I spent most of my time designing a note-taking app with my colleagues-friends which is mainly intented to help students from our University (AUEB) keep notes depending on the courses they have choosen to attend. This app is still in development and the developing language is Dart. The main goal of this app is to familiarize ourselves with flutter and Dart. More information about the project is going to be uploaded soon."
-        },
-        {
-            "title" : "New version",
-            "date" : "21/9/2022",
-            "description" : "I have changed a few things from version 1 and I'm willing to change even more in the future. One of the main things I would like to change (and I will) is to use React instead of static HTML. This will happen as soon as I have time. Other than that, if you find any bugs or you have a nice idea that would fit in my site (in terms of design, color etc) don't hesitate to share it with me. You can either send my a message (see Contact page) or open an issue on the GitHub."
-        },
-        {
-            "title" : "Welcome!",
-            "date" : "6/8/2022",
-            "description" : "Welcome to my personal website! This website has been created by me from scratch and its purpose is mainly informational. Make sure to explore among the pages. I am sure you will find all the information you need there. Also, keep an eye here in news section, since I will post everything \"new\" I do, in terms of new projects, update on projects etc."
         }
     ]
 }

@@ -1,4 +1,5 @@
 import React from "react";
+import AnimatedText from "../AnimatedText";
 import './SectionStyles.scss'
 
 export interface SectionProps {
@@ -11,7 +12,7 @@ export interface SectionProps {
 export default function Section({id, className, caption, children} : SectionProps) {
     return (
         <section id={id} className={className}>
-            {caption ? <h2>{caption}</h2> : null}
+            {caption ? <h2><AnimatedText caption={caption}/></h2> : null}
             {children}
         </section>
     )

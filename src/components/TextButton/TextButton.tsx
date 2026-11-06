@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSpring, animated } from '@react-spring/web';
 import { joinProps } from '../../utils/propUtils';
 import BaseButton, { BaseButtonProps } from '../BaseButton/BaseButton';
+import AnimatedText from '../AnimatedText';
 
 export interface TextButtonProps extends BaseButtonProps {
     caption: string,
@@ -15,7 +16,7 @@ export default function TextButton({ style, caption, className, link, onClick }:
             onClick={onClick}
             style={style}
         >
-            {caption}
+            <AnimatedText caption={caption}/>
         </BaseButton>
     )
 }

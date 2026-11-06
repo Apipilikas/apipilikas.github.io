@@ -40,7 +40,7 @@ function CodeWindow() {
             />
             <ProgressCodeLine
                 loadingText="Main skills loading"
-                loadedText="Skills: "
+                loadedText="Skills: Collaborative, Hard worker"
                 timeout={3750}
             />
             <ProgressCodeLine
@@ -54,7 +54,7 @@ function CodeWindow() {
                 timeout={4250}
             />
             <CodeLine>
-                Status: Finilizing master degree.
+                Status: Fulfilling mandatory military commitment
             </CodeLine>
             {isFinished ? (
                 <CodeLine>

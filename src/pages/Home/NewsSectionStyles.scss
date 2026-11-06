@@ -16,34 +16,22 @@
 }
 
 .news:nth-child(2n+1) {
-    background-color: #d4dbf9;
-}
-
-.news:nth-child(4n+1) {
-    background-color: #aadcda;
-}
-
-.news:nth-child(2n) {
-    background-color: var(--yellow-light-color);
-}
-
-.news:nth-child(4n) {
-    background-color: #b1d1ff;
-}
-
-.news:nth-child(2n+1) {
+    background-color: var(--purple-light-color);
     --container-pc: var(--purple-light-color);
     --container-sc: var(--purple-dark-color);
 }
 .news:nth-child(4n+1) {
+    background-color: var(--green-light-color);
     --container-pc: var(--green-light-color);
     --container-sc: var(--green-dark-color);
 }
 .news:nth-child(2n) {
+    background-color: var(--yellow-light-color);
     --container-pc: var(--yellow-light-color);
     --container-sc: var(--yellow-dark-color);
 }
 .news:nth-child(4n) {
+    background-color: var(--blue-light-color);
     --container-pc: var(--blue-light-color);
     --container-sc: var(--blue-dark-color);
 }

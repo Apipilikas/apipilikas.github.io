@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react"
+import AnimatedText from "../../components/AnimatedText"
+import LoadingContainer from "../../components/LoadingContainer"
 import Section from "../../components/Section"
 import TextButton from "../../components/TextButton"
 import { useLoading, useTranslation } from "../../contexts"
@@ -12,9 +14,11 @@ const id = "profile-section"
 export default function ProfileSection() {
     
     const {getTranslation} = useTranslation();
-    const {registerTask, deregisterTask, resolveTask} = useLoading();
+    const {registerTask, deregisterTask, resolveTask, failTask, observeTask} = useLoading();
 
     const [profile, setProfile] = useState<GitHubProfileProps>(new GitHubProfileProps());
+
+    const task = observeTask(id);
 
     useEffect(() => {
         registerTask(id);
@@ -25,36 +29,45 @@ export default function ProfileSection() {
     }, [])
 
     const fetchProfile = async () => {
-        const data = await ApiUtils.makeGetRequest<GitHubProfileProps>(profileUrl, GitHubProfileProps);
-
-        setProfile(data);
-
-        resolveTask(id);
+        try {
+            const data = await ApiUtils.makeGetRequest<GitHubProfileProps>(profileUrl, GitHubProfileProps);
+    
+            setProfile(data);
+    
+            resolveTask(id);
+        }
+        catch (e) {
+            if (e instanceof Error) {
+                failTask(id, e.message);
+            }
+        }
     }
     
     return (
-        <Section id={id} caption={getTranslation("profileSection")}>
-            <div className="content box-shadow">
-                <div className="username-container purple-theme">
-                    <img src={profile.avatarUrl} className="box-shadow"/>
-                    <div className="side-logo">
-                        <h2>{profile.username}</h2>
-                        <h3>{profile.name}</h3>
+        <LoadingContainer status={task?.status} error={task?.error}>
+            <Section id={id} caption={getTranslation("profileSection")}>
+                <div className="content box-shadow">
+                    <div className="username-container purple-theme">
+                        <img src={profile.avatarUrl} className="box-shadow"/>
+                        <div className="side-logo">
+                            <h2>{profile.username}</h2>
+                            <h3>{profile.name}</h3>
+                        </div>
+                    </div>
+                    <div className="info-container">
+                        <InfoContainer caption={profile.bio} imgPath="images/bio.svg"/>
+                        <InfoContainer caption={profile.location} imgPath="images/location.svg"/>
+                        <InfoContainer hintCaption={profile.followers?.toString()} caption={` ${getTranslation("infoFollowers")}`} imgPath="images/followers.svg"/>
+                        <InfoContainer hintCaption={profile.publicRepositoryNumber?.toString()} caption={` ${getTranslation("infoRepositories")}`} imgPath="images/repos.svg"/>
+                        <InfoContainer caption={getTranslation("infoHelp")} className="hint-container"/>
+                        <div className="button-area">
+                            <TextButton caption={getTranslation("profileButton")} link={profile.link}/>
+                            {/* <a  href={link} class="button-link"><span></span>CHECK MY PROFILE</a> */}
+                        </div>
                     </div>
                 </div>
-                <div className="info-container">
-                    <InfoContainer caption={profile.bio} imgPath="images/bio.svg"/>
-                    <InfoContainer caption={profile.location} imgPath="images/location.svg"/>
-                    <InfoContainer hintCaption={profile.followers?.toString()} caption={` ${getTranslation("infoFollowers")}`} imgPath="images/followers.svg"/>
-                    <InfoContainer hintCaption={profile.publicRepositoryNumber?.toString()} caption={` ${getTranslation("infoRepositories")}`} imgPath="images/repos.svg"/>
-                    <InfoContainer caption={getTranslation("infoHelp")} className="hint-container"/>
-                    <div className="button-area">
-                        <TextButton caption={getTranslation("profileButton")} link={profile.link}/>
-                        {/* <a  href={link} class="button-link"><span></span>CHECK MY PROFILE</a> */}
-                    </div>
-                </div>
-            </div>
-        </Section>
+            </Section>
+        </LoadingContainer>
     )
 }
 
@@ -69,7 +82,7 @@ function InfoContainer({caption, className, hintCaption, imgPath}: InfoContainer
     return (
         <div className={joinProps("info", className, "purple-theme", "box-shadow", "hover")}>
             {imgPath ? <img src={imgPath}/> : null}
-            <p>{hintCaption ? <span className="hint-caption">{hintCaption}</span> : null}{caption}</p>
+            <p>{hintCaption ? <AnimatedText className="hint-caption" caption={hintCaption}/> : null}<AnimatedText caption={caption}/></p>
         </div>
     )
 }
